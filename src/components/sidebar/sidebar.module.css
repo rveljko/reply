@@ -1,0 +1,108 @@
+.sidebar {
+  --width: 14.375rem;
+  background-image: var(--section-background);
+  border-right: 1px solid var(--section-outline);
+  padding: var(--space-lg);
+  height: 100vh;
+  width: 100%;
+
+  max-width: max-content;
+}
+
+.sidebar.active {
+  max-width: var(--width);
+}
+
+.content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  width: max-content;
+  flex-direction: column;
+}
+
+.sidebar.active .head {
+  width: 100%;
+  flex-direction: row;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  height: 100%;
+  justify-content: space-between;
+  overflow-y: auto;
+  width: max-content;
+}
+
+.sidebar.active .navigation {
+  width: 100%;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.button {
+  width: 100%;
+  justify-content: unset !important;
+}
+
+.button span {
+  display: none;
+}
+
+.sidebar.active .button span {
+  display: inline;
+}
+
+.link {
+  --background-gradient: linear-gradient(
+      hsl(from var(--black) h s l / 5%),
+      hsl(from var(--black) h s l / 5%)
+    ),
+    linear-gradient(transparent, hsl(from var(--white) h s l / 20%));
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--paragraph);
+  color: var(--white);
+  border-radius: var(--border-radius-sm);
+  box-shadow: inset 0 0 0 1px var(--outline-color);
+  width: 100%;
+  color: var(--neutral-400);
+  padding: var(--space-xsm);
+}
+
+.link:hover {
+  --outline-color: var(--neutral-600);
+  background-image: var(--background-gradient),
+    linear-gradient(var(--neutral-600), var(--neutral-600));
+  color: var(--white);
+}
+
+.link.active {
+  --outline-color: var(--neutral-700);
+  background-image: var(--background-gradient),
+    linear-gradient(var(--neutral-700), var(--neutral-700));
+  color: var(--white);
+}
+
+.link span {
+  display: none;
+}
+
+.sidebar.active .link span {
+  display: inline;
+}

@@ -96,6 +96,7 @@
   --heading4: 1rem;
   --paragraph: 1rem;
   --paragraph-sm: 0.875rem;
+  --logo: 1.25rem;
   --link: 1rem;
   --line-height: 1.4;
   --line-height-heading1: 1.2;
@@ -140,4 +141,23 @@ button,
 textarea,
 select {
   font: inherit;
+}
+
+button {
+  background: unset;
+  border: 0;
+  color: inherit;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
 }
