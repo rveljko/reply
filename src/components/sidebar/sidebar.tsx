@@ -2,16 +2,22 @@ import { Link } from 'react-router-dom'
 import Logo from '../logo/logo'
 import { DASHBOARD_ROUTE } from '../../helpers/constants'
 import { dashboardRoutes } from '../../helpers/routes'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import SidebarLeftExpandIcon from '../../icons/sidebar-left-expand-icon'
 import SidebarLeftCollapseIcon from '../../icons/sidebar-left-collapse-icon'
 import styles from './sidebar.module.css'
 import Button from '../button/button'
 import ArrowUpRightIcon from '../../icons/arrow-up-right-icon'
 import NavigationLink from '../navigation-link/navigation-link'
+import { useMediaQuery } from 'react-responsive'
 
 export default function Sidebar() {
-  const [isOpened, setIsOpened] = useState(true)
+  const [isOpened, setIsOpened] = useState(false)
+  const isBigScreen = useMediaQuery({ minWidth: 768 })
+
+  useEffect(() => {
+    setIsOpened(isBigScreen ? true : false)
+  }, [isBigScreen])
 
   return (
     <aside className={`${styles.sidebar} ${isOpened ? styles.active : ''}`}>
