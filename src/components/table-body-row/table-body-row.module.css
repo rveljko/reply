@@ -1,0 +1,7 @@
+.row {
+  height: var(--table-body-row-height);
+}
+
+.row:hover {
+  background-color: var(--neutral-700);
+}

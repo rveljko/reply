@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import AppLayout from './layouts/app-layout/app-layout'
-import { dashboardRoutes } from './helpers/routes'
-import { DASHBOARD_ROUTE } from './helpers/constants'
+import { dashboardRoutes } from './utils/routes'
+import { DASHBOARD_ROUTE } from './utils/constants'
 
 export default function App() {
   return (
