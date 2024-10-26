@@ -1,26 +1,4 @@
-type Base = {
-  name: string
-  image: string
-}
-
-type Sender = Base
-type Receiver = Base
-
-type Transaction = {
-  senderName: Sender['name']
-  senderImage: Sender['image']
-  receiverName: Receiver['name']
-  receiverImage: Receiver['image']
-  amount: number
-  purpose: string
-  message: string
-  date: Date
-}
-
-type TableTransactionHeader = {
-  id: number
-  label: string
-}
+import { Sender, TableTransactionHeader, Transaction } from '../utils/types'
 
 const senderInformations: Sender = {
   name: 'James Williams',
@@ -34,11 +12,11 @@ export const tableTransactionHeaders: TableTransactionHeader[] = [
   },
   {
     id: 2,
-    label: 'Purpose',
+    label: 'Date',
   },
   {
     id: 3,
-    label: 'Date',
+    label: 'Purpose',
   },
   {
     id: 4,

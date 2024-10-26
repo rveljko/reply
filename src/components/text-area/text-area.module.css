@@ -1,0 +1,3 @@
+.textarea {
+  height: var(--textarea-max-height);
+}

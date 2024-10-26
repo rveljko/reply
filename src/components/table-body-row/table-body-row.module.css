@@ -1,5 +1,6 @@
 .row {
   height: var(--table-body-row-height);
+  cursor: pointer;
 }
 
 .row:hover {

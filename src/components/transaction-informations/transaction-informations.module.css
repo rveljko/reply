@@ -1,0 +1,13 @@
+.informations {
+  display: flex;
+  gap: var(--space-xsm);
+}
+
+.name {
+  margin-bottom: var(--space-md);
+  color: var(--neutral-100);
+}
+
+.item:not(:last-child) {
+  margin-bottom: var(--space-sm);
+}

@@ -1,4 +1,4 @@
-export function longDateFormatters(date: Date) {
+export function longDateFormatter(date: Date) {
   return date.toLocaleString('en-US', {
     month: 'short',
     day: 'numeric',
@@ -7,6 +7,16 @@ export function longDateFormatters(date: Date) {
     second: 'numeric',
   })
 }
+
+export function mediumDateFormatter(date: Date) {
+  return date.toLocaleString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+  })
+}
+
 export function shortDateFormatter(date: Date) {
   return date.toLocaleString('en-US', {
     month: 'short',
