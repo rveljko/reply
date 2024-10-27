@@ -6,3 +6,7 @@
 .row:hover {
   background-color: var(--neutral-700);
 }
+
+.row.active {
+  background-color: var(--neutral-600);
+}

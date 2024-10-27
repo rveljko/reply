@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import currencyFormatter from '../../utils/helpers/currency-formatter'
 import {
   longDateFormatter,
@@ -27,6 +28,8 @@ export default function Table({
   setIsOpened,
   ...props
 }: TableProps) {
+  const [activeRow, setActiveRow] = useState<number | null>(null)
+
   return (
     <div className={styles.wrapper}>
       <table className={styles.table} {...props}>
@@ -41,9 +44,11 @@ export default function Table({
           {transactions.map((transaction, index) => (
             <TableBodyRow
               key={index}
+              isActiveRow={activeRow === index}
               onClick={() => {
                 setTransaction(transaction)
                 setIsOpened(true)
+                setActiveRow(index)
               }}
             >
               <TableBodyCell>
