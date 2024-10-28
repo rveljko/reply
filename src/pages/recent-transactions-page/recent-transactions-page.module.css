@@ -1,4 +1,10 @@
-.layout {
+.layoutPrimary {
+  display: flex;
+  gap: calc(var(--space-lg) * 2);
+  flex-direction: column;
+}
+
+.layoutSecondary {
   display: flex;
   flex-direction: column-reverse;
   gap: var(--space-lg);
@@ -6,7 +12,7 @@
 }
 
 @media (min-width: 768px) {
-  .layout {
+  .layoutSecondary {
     flex-direction: row;
     align-items: flex-start;
   }

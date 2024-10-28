@@ -52,7 +52,7 @@
 }
 
 .medium {
-  padding: var(--space-md) 4px;
+  padding: var(--space-xsm) var(--space-md);
 }
 
 .small {
