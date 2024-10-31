@@ -11,6 +11,7 @@ import ArrowUpRightIcon from '../../icons/arrow-up-right-icon'
 import NavigationLink from '../navigation-link/navigation-link'
 import { useMediaQuery } from 'react-responsive'
 import ModalButton from '../modal-button/modal-button'
+import SendMoneyModal from '../send-mone-modal/send-money-modal'
 
 export default function Sidebar() {
   const [isOpened, setIsOpened] = useState(false)
@@ -41,7 +42,7 @@ export default function Sidebar() {
               <ModalButton
                 label="Send Money"
                 icon={<ArrowUpRightIcon />}
-                modal={<>Modal</>}
+                modal={<SendMoneyModal />}
                 className={styles.button}
               />
             </li>
