@@ -17,7 +17,7 @@ const button = cva(styles.base, {
   },
 })
 
-type ButtonProps = React.ComponentPropsWithoutRef<'button'> &
+export type ButtonProps = React.ComponentPropsWithoutRef<'button'> &
   VariantProps<typeof button> & {
     children: React.ReactNode
     icon?: JSX.Element

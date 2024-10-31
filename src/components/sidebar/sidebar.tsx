@@ -10,6 +10,7 @@ import Button from '../button/button'
 import ArrowUpRightIcon from '../../icons/arrow-up-right-icon'
 import NavigationLink from '../navigation-link/navigation-link'
 import { useMediaQuery } from 'react-responsive'
+import ModalButton from '../modal-button/modal-button'
 
 export default function Sidebar() {
   const [isOpened, setIsOpened] = useState(false)
@@ -37,10 +38,12 @@ export default function Sidebar() {
         <nav className={styles.navigation}>
           <ul className={styles.list}>
             <li className={styles.item}>
-              <Button variant="primary" size="small" className={styles.button}>
-                <ArrowUpRightIcon />
-                <span>Send Money</span>
-              </Button>
+              <ModalButton
+                label="Send Money"
+                icon={<ArrowUpRightIcon />}
+                modal={<>Modal</>}
+                className={styles.button}
+              />
             </li>
             {dashboardRoutes
               .slice(0, -2)
