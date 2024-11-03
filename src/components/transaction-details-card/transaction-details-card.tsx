@@ -48,8 +48,7 @@ export default function TransactionDetailsCard({
           />
         </div>
         <div>
-          <h3>Message</h3>
-          <TextArea value={transaction.message} />
+          <TextArea label='Message' value={transaction.message} />
         </div>
       </div>
     </article>
