@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import Logo from '../logo/logo'
 import { DASHBOARD_ROUTE } from '../../utils/constants'
 import { dashboardRoutes } from '../../utils/routes'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import SidebarLeftExpandIcon from '../../icons/sidebar-left-expand-icon'
 import SidebarLeftCollapseIcon from '../../icons/sidebar-left-collapse-icon'
 import styles from './sidebar.module.css'
@@ -16,6 +16,7 @@ import SendMoneyModal from '../send-mone-modal/send-money-modal'
 export default function Sidebar() {
   const [isOpened, setIsOpened] = useState(false)
   const isBigScreen = useMediaQuery({ minWidth: 768 })
+  const dialogRef = useRef<HTMLDialogElement>(null)
 
   useEffect(() => {
     setIsOpened(isBigScreen ? true : false)
@@ -40,9 +41,10 @@ export default function Sidebar() {
           <ul className={styles.list}>
             <li className={styles.item}>
               <ModalButton
+                dialogRef={dialogRef}
                 label="Send Money"
                 icon={<ArrowUpRightIcon />}
-                modal={<SendMoneyModal />}
+                modal={<SendMoneyModal dialogRef={dialogRef} />}
                 className={styles.button}
               />
             </li>

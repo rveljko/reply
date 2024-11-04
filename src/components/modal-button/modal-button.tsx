@@ -1,21 +1,20 @@
-import { useRef,  } from 'react'
 import Button from '../button/button'
 import Dialog from '../dialog/dialog'
 
 type ModalButtonProps = React.ComponentPropsWithoutRef<'button'> & {
+  dialogRef: React.RefObject<HTMLDialogElement>
   label: string
   icon: JSX.Element
   modal: JSX.Element
 }
 
 export default function ModalButton({
+  dialogRef,
   label,
   icon: Icon,
   modal: Modal,
   className,
 }: ModalButtonProps) {
-  const dialogRef = useRef<HTMLDialogElement>(null)
-
   return (
     <>
       <Button
@@ -29,7 +28,7 @@ export default function ModalButton({
         {Icon}
         <span>{label}</span>
       </Button>
-      <Dialog ref={dialogRef}>{Modal}</Dialog>
+      <Dialog dialogRef={dialogRef}>{Modal}</Dialog>
     </>
   )
 }

@@ -148,6 +148,10 @@
   background-color: transparent;
 }
 
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
 body {
   height: 100vh;
   background-color: var(--background-ending-color);

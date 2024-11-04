@@ -42,4 +42,13 @@ export default function TransactionsContextProvider({
   )
 }
 
-export const useTransactions = () => useContext(TransactionsContext)
+export const useTransactions = () => {
+  const context = useContext(TransactionsContext)
+  if (!context) {
+    throw new Error(
+      'useTransactions must be within a TransactionsContextProvider'
+    )
+  }
+
+  return context
+}

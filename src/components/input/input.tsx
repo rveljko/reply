@@ -1,6 +1,6 @@
 import styles from './input.module.css'
 
-type InputProps = {
+type InputProps = React.ComponentPropsWithoutRef<'input'> & {
   label: string
   icon?: JSX.Element
   placeholder: string
@@ -12,6 +12,7 @@ export default function Input({
   icon: Icon,
   placeholder,
   optional,
+  ...props
 }: InputProps) {
   return (
     <div className={styles.wrapper}>
@@ -30,6 +31,7 @@ export default function Input({
           placeholder={placeholder}
           className={styles.input}
           required={!optional}
+          {...props}
         />
       </div>
     </div>
