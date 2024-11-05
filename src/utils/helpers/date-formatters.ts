@@ -1,4 +1,6 @@
-export function longDateFormatter(date: Date) {
+export function longDateFormatter(dateString: string) {
+  const date = new Date(dateString)
+
   return date.toLocaleString('en-US', {
     month: 'short',
     day: 'numeric',
@@ -8,7 +10,9 @@ export function longDateFormatter(date: Date) {
   })
 }
 
-export function mediumDateFormatter(date: Date) {
+export function mediumDateFormatter(dateString: string) {
+  const date = new Date(dateString)
+
   return date.toLocaleString('en-US', {
     month: 'short',
     day: 'numeric',
@@ -17,7 +21,9 @@ export function mediumDateFormatter(date: Date) {
   })
 }
 
-export function shortDateFormatter(date: Date) {
+export function shortDateFormatter(dateString: string) {
+  const date = new Date(dateString)
+
   return date.toLocaleString('en-US', {
     month: 'short',
     day: 'numeric',

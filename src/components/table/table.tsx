@@ -60,8 +60,10 @@ export default function Table({
                   <span>{transaction.receiverName}</span>
                 </TableBodyCellGroup>
               </TableBodyCell>
-              <TableBodyCell title={longDateFormatter(transaction.date)}>
-                {shortDateFormatter(transaction.date)}
+              <TableBodyCell
+                title={longDateFormatter(transaction.date.toString())}
+              >
+                {shortDateFormatter(transaction.date.toString())}
               </TableBodyCell>
               <TableBodyCell>{transaction.purpose}</TableBodyCell>
               <TableBodyCell>

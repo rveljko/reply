@@ -38,17 +38,17 @@ export default function TransactionDetailsCard({
             name={transaction.senderName}
             identificator="From"
             purpose={transaction.purpose}
-            date={mediumDateFormatter(transaction.date)}
+            date={mediumDateFormatter(transaction.date.toString())}
           />
           <TransactionInformations
             image={transaction.receiverImage}
             name={transaction.receiverName}
             identificator="Receiver"
-            date={mediumDateFormatter(transaction.date)}
+            date={mediumDateFormatter(transaction.date.toString())}
           />
         </div>
         <div>
-          <TextArea label='Message' value={transaction.message} />
+          <TextArea label="Message" defaultValue={transaction.message} />
         </div>
       </div>
     </article>
