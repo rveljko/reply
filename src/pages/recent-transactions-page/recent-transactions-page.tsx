@@ -11,13 +11,14 @@ export default function RecentTransactionsPage() {
   const [transaction, setTransaction] = useState<Transaction | null>(null)
   const [isOpened, setIsOpened] = useState(false)
   const { transactions } = useTransactions()
+  const [filteredTransactions, setFilteredTransactions] = useState(transactions)
 
   return (
     <div className={styles.layoutPrimary}>
-      <FiltersSection />
+      <FiltersSection setFilteredTransactions={setFilteredTransactions} />
       <div className={styles.layoutSecondary}>
         <RecentTransactionsSection
-          transactions={transactions}
+          transactions={filteredTransactions}
           tableTransactionHeaders={tableTransactionHeaders}
           setTransaction={setTransaction}
           setIsOpened={setIsOpened}

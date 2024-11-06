@@ -1,17 +1,26 @@
 import styles from './dropdown-element.module.css'
 
-type DropdownElementProps = {
-  icon: JSX.Element
+type DropdownElementProps = React.ComponentPropsWithoutRef<'input'> & {
+  type: 'text' | 'checkbox' | 'radio'
   label: string
 }
 
 export default function DropdownElement({
-  icon: Icon,
+  type,
   label,
+  ...props
 }: DropdownElementProps) {
   return (
-    <button className={styles.element}>
-      {Icon} <span>{label}</span>
-    </button>
+    <div className={styles.element}>
+      <input
+        className={styles.input}
+        type={type}
+        id={label.toLocaleLowerCase()}
+        {...props}
+      />
+      <label className={styles.label} htmlFor={label.toLocaleLowerCase()}>
+        {label}
+      </label>
+    </div>
   )
 }

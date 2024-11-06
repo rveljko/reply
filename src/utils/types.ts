@@ -21,3 +21,10 @@ export type TableTransactionHeader = {
   id: number
   label: string
 }
+
+export type Purpose = 'Bills' | 'Gift' | 'Others' | 'Subscription'
+
+export type Purposes = {
+  id: number
+  purpose: Purpose
+}
