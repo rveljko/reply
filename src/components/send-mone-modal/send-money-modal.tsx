@@ -8,7 +8,7 @@ import Input from '../input/input'
 import TextArea from '../text-area/text-area'
 import styles from './send-money-modal.module.css'
 import { IMAGE_PATH } from '../../utils/constants'
-import { senderInformations } from '../../data/transactions'
+import { userInformations } from '../../data/transactions'
 import { useTransactions } from '../../utils/contexts/transactions-context'
 
 type SendMoneyModalProps = {
@@ -17,12 +17,13 @@ type SendMoneyModalProps = {
 
 export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
   const initialFormFieldsValues: Transaction = {
-    senderName: senderInformations.name,
-    senderImage: senderInformations.image,
+    senderName: userInformations.name,
+    senderImage: userInformations.image,
     receiverImage: '',
     receiverName: '',
     amount: 0,
     purpose: '',
+    type: 'Sent',
     message: '',
     date: new Date(),
   }
@@ -35,7 +36,7 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
       <form
         onSubmit={(e) => {
           e.preventDefault()
-          
+
           addNewTransaction(formFields)
           setFormFields(initialFormFieldsValues)
           dialogRef.current?.close()

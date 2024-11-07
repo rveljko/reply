@@ -30,7 +30,7 @@ export default function FiltersSection({
     } else {
       setFilteredTransactions([...transactions])
     }
-  }, [filters])
+  }, [filters, transactions])
 
   return (
     <Section>
