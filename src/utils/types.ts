@@ -16,7 +16,7 @@ export type Transaction = {
   receiverName: Receiver['name']
   receiverImage: Receiver['image']
   amount: number
-  purpose: string
+  purpose: Purpose
   type: Type
   message: string
   date: Date
@@ -27,7 +27,24 @@ export type Purposes = {
   purpose: Purpose
 }
 
+export type Types = {
+  id: number
+  type: Type
+}
+
 export type TableTransactionHeader = {
   id: number
   label: string
 }
+
+export type Filter =
+  | {
+      category: 'purpose'
+      key: Purpose
+    }
+  | {
+      category: 'type'
+      key: Type
+    }
+
+
