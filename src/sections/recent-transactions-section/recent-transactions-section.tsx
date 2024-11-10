@@ -1,6 +1,7 @@
 import Section from '../section/section'
 import Table from '../../components/table/table'
 import { TableTransactionHeader, Transaction } from '../../utils/types'
+import NoResults from '../../components/no-results/no-results'
 
 type RecentTransactionsSectionProps = {
   transactions: Transaction[]
@@ -18,12 +19,16 @@ export default function RecentTransactionsSection({
   return (
     <Section>
       <h2>Recent Transactions</h2>
-      <Table
-        transactions={transactions}
-        tableTransactionHeaders={tableTransactionHeaders}
-        setTransaction={setTransaction}
-        setIsOpened={setIsOpened}
-      ></Table>
+      {transactions.length > 0 ? (
+        <Table
+          transactions={transactions}
+          tableTransactionHeaders={tableTransactionHeaders}
+          setTransaction={setTransaction}
+          setIsOpened={setIsOpened}
+        ></Table>
+      ) : (
+        <NoResults />
+      )}
     </Section>
   )
 }
