@@ -64,6 +64,12 @@ export default function FiltersSection({
     })
   }
 
+  function handleCheckbox(category: Filter['category'], key: Filter['key']) {
+    return filters.some(
+      (filter) => filter.category === category && filter.key === key
+    )
+  }
+
   return (
     <Section>
       <h2>Filters</h2>
@@ -79,6 +85,7 @@ export default function FiltersSection({
                   key={id}
                   type="checkbox"
                   name="purposes"
+                  checked={handleCheckbox('purpose', purpose)}
                   onClick={() => setFilter('purpose', purpose)}
                 />
               ))}
@@ -96,6 +103,7 @@ export default function FiltersSection({
                   key={id}
                   type="checkbox"
                   name="types"
+                  checked={handleCheckbox('type', type)}
                   onClick={() => setFilter('type', type)}
                 />
               ))}
