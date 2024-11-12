@@ -18,6 +18,12 @@
   position: fixed;
 }
 
+@media (min-width: 728px) {
+  .sidebar.active {
+    position: inherit;
+  }
+}
+
 .content {
   height: 100%;
   display: flex;
