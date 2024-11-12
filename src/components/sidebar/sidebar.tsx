@@ -26,11 +26,17 @@ export default function Sidebar() {
     }
   }
 
+  function handleOnKeyDown(e: KeyboardEvent) {
+    if (e.ctrlKey && e.code === 'KeyB') setIsOpened((prev) => !prev)
+  }
+
   useEffect(() => {
     document.body.addEventListener('click', handleOnClick)
+    document.body.addEventListener('keydown', handleOnKeyDown)
 
     return () => {
       document.body.removeEventListener('click', handleOnClick)
+      document.body.removeEventListener('keydown', handleOnKeyDown)
     }
   }, [])
 
@@ -39,7 +45,10 @@ export default function Sidebar() {
   }, [isBigScreen])
 
   return (
-    <aside ref={sidebarRef} className={`${styles.sidebar} ${isOpened ? styles.active : ''}`}>
+    <aside
+      ref={sidebarRef}
+      className={`${styles.sidebar} ${isOpened ? styles.active : ''}`}
+    >
       <div className={styles.content}>
         <div className={styles.head}>
           <Link to={DASHBOARD_ROUTE}>
