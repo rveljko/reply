@@ -17,13 +17,29 @@ export default function Sidebar() {
   const [isOpened, setIsOpened] = useState(false)
   const isBigScreen = useMediaQuery({ minWidth: 768 })
   const dialogRef = useRef<HTMLDialogElement>(null)
+  const sidebarRef = useRef<HTMLElement>(null)
+
+  function handleOnClick(e: MouseEvent) {
+    if (window.screen.width <= 768) {
+      if (sidebarRef.current && !e.composedPath().includes(sidebarRef.current))
+        setIsOpened(false)
+    }
+  }
+
+  useEffect(() => {
+    document.body.addEventListener('click', handleOnClick)
+
+    return () => {
+      document.body.removeEventListener('click', handleOnClick)
+    }
+  }, [])
 
   useEffect(() => {
     setIsOpened(isBigScreen ? true : false)
   }, [isBigScreen])
 
   return (
-    <aside className={`${styles.sidebar} ${isOpened ? styles.active : ''}`}>
+    <aside ref={sidebarRef} className={`${styles.sidebar} ${isOpened ? styles.active : ''}`}>
       <div className={styles.content}>
         <div className={styles.head}>
           <Link to={DASHBOARD_ROUTE}>
