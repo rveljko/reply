@@ -45,9 +45,13 @@ export default function useTransactionFilters() {
     })
   }
 
+  function clearFilters() {
+    setSearchParams({})
+  }
+
   function handleCheckbox(key: FilterKey): boolean {
     return [...purpose, ...type].includes(key)
   }
 
-  return { filteredTransactions, setFilter, handleCheckbox }
+  return { filteredTransactions, setFilter, handleCheckbox, clearFilters }
 }
