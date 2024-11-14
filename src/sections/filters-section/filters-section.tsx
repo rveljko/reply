@@ -4,71 +4,12 @@ import GiftIcon from '../../icons/gift-icon'
 import Section from '../section/section'
 import styles from './filter-section.module.css'
 import { purposes } from '../../data/purposes'
-import { useTransactions } from '../../utils/contexts/transactions-context'
-import { useEffect, useState } from 'react'
-import { Filter, Transaction } from '../../utils/types'
 import { types } from '../../data/types'
 import ArrowsDownUpIcon from '../../icons/arrows-down-up-icon'
+import useTransactionFilters from '../../hooks/use-transaction-filters'
 
-type FiltersSectionProps = {
-  setFilteredTransactions: (transactions: Transaction[]) => void
-}
-
-export default function FiltersSection({
-  setFilteredTransactions,
-}: FiltersSectionProps) {
-  const { transactions } = useTransactions()
-  const [filters, setFilters] = useState<Filter[]>([])
-
-  useEffect(() => {
-    if (filters.length > 0) {
-      const filteringPurposes = filters
-        .filter((filter) => filter.category === 'purpose')
-        .map((filter) => filter.key)
-
-      const filteringTypes = filters
-        .filter((filter) => filter.category === 'type')
-        .map((filter) => filter.key)
-
-      setFilteredTransactions(
-        transactions.filter((transaction) => {
-          const matchesPurpose =
-            filteringPurposes.length === 0 ||
-            filteringPurposes.includes(transaction.purpose)
-
-          const matchesType =
-            filteringTypes.length === 0 ||
-            filteringTypes.includes(transaction.type)
-
-          return matchesPurpose && matchesType
-        })
-      )
-    } else {
-      setFilteredTransactions([...transactions])
-    }
-  }, [filters, transactions])
-
-  function setFilter(category: Filter['category'], key: Filter['key']) {
-    setFilters((prevFilters) => {
-      if (
-        prevFilters.some(
-          (filter) => filter.category === category && filter.key === key
-        )
-      ) {
-        return prevFilters.filter(
-          (filter) => !(filter.category === category && filter.key === key)
-        )
-      }
-
-      return [...prevFilters, { category, key } as Filter]
-    })
-  }
-
-  function handleCheckbox(category: Filter['category'], key: Filter['key']) {
-    return filters.some(
-      (filter) => filter.category === category && filter.key === key
-    )
-  }
+export default function FiltersSection() {
+  const { setFilter, handleCheckbox } = useTransactionFilters()
 
   return (
     <Section>
@@ -85,7 +26,8 @@ export default function FiltersSection({
                   key={id}
                   type="checkbox"
                   name="purposes"
-                  checked={handleCheckbox('purpose', purpose)}
+                  readOnly
+                  checked={handleCheckbox(purpose)}
                   onClick={() => setFilter('purpose', purpose)}
                 />
               ))}
@@ -103,7 +45,8 @@ export default function FiltersSection({
                   key={id}
                   type="checkbox"
                   name="types"
-                  checked={handleCheckbox('type', type)}
+                  readOnly
+                  checked={handleCheckbox(type)}
                   onClick={() => setFilter('type', type)}
                 />
               ))}

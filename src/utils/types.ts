@@ -37,14 +37,6 @@ export type TableTransactionHeader = {
   label: string
 }
 
-export type Filter =
-  | {
-      category: 'purpose'
-      key: Purpose
-    }
-  | {
-      category: 'type'
-      key: Type
-    }
+export type FilterCategory = 'purpose' | 'type'
 
-
+export type FilterKey = Purpose | Type

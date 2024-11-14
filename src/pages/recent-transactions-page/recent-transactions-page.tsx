@@ -5,17 +5,16 @@ import { useState } from 'react'
 import { Transaction } from '../../utils/types'
 import styles from './recent-transactions-page.module.css'
 import FiltersSection from '../../sections/filters-section/filters-section'
-import { useTransactions } from '../../utils/contexts/transactions-context'
+import useTransactionFilters from '../../hooks/use-transaction-filters'
 
 export default function RecentTransactionsPage() {
   const [transaction, setTransaction] = useState<Transaction | null>(null)
   const [isOpened, setIsOpened] = useState(false)
-  const { transactions } = useTransactions()
-  const [filteredTransactions, setFilteredTransactions] = useState(transactions)
+  const { filteredTransactions } = useTransactionFilters()
 
   return (
     <div className={styles.layoutPrimary}>
-      <FiltersSection setFilteredTransactions={setFilteredTransactions} />
+      <FiltersSection />
       <div className={styles.layoutSecondary}>
         <RecentTransactionsSection
           transactions={filteredTransactions}
