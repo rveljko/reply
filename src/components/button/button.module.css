@@ -23,6 +23,11 @@
     var(--background);
 }
 
+.base:disabled {
+  opacity: 50%;
+  cursor: not-allowed;
+}
+
 .primary {
   --outline-color: var(--brand-500);
   background-color: var(--brand-500);

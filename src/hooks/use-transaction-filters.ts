@@ -45,6 +45,13 @@ export default function useTransactionFilters() {
     })
   }
 
+  function removeFilter(category: FilterCategory, key: FilterKey) {
+    setSearchParams((prevParams) => {
+      prevParams.delete(category, key)
+      return prevParams
+    })
+  }
+
   function clearFilters() {
     setSearchParams({})
   }
@@ -53,5 +60,13 @@ export default function useTransactionFilters() {
     return [...purpose, ...type].includes(key)
   }
 
-  return { filteredTransactions, setFilter, handleCheckbox, clearFilters }
+  return {
+    filteredTransactions,
+    purpose,
+    type,
+    setFilter,
+    removeFilter,
+    clearFilters,
+    handleCheckbox,
+  }
 }

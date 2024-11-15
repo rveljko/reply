@@ -1,5 +1,24 @@
-.filters {
+.filters,
+.appliedFilters {
   display: flex;
   gap: var(--space-sm);
   flex-wrap: wrap;
+}
+
+.filters {
+  margin-bottom: calc(var(--space-lg) * 2);
+}
+
+.resultsHeading {
+  margin-bottom: var(--space-lg);
+}
+
+.removeFilter:hover {
+  outline: 1px solid var(--section-outline);
+  border-radius: var(--border-radius-xsm);
+}
+
+.removeFilter svg {
+  width: var(--icon-size-sm);
+  height: var(--icon-size-sm);
 }
