@@ -20,7 +20,7 @@
 
 @media (min-width: 728px) {
   .sidebar.active {
-    position: inherit;
+    position: sticky;
   }
 }
 
