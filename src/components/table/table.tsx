@@ -70,7 +70,7 @@ export default function Table({
               <TableBodyCell
                 style={{
                   color:
-                    transaction.type === 'Sent'
+                    transaction.type === 'Received'
                       ? 'var(--success-500)'
                       : 'var(--danger-500)',
                 }}
