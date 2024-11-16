@@ -15,10 +15,13 @@ export default function DropdownElement({
       <input
         className={styles.input}
         type={type}
-        id={label.toLocaleLowerCase()}
+        id={label.split(' ').join('').toLocaleLowerCase()}
         {...props}
       />
-      <label className={styles.label} htmlFor={label.toLocaleLowerCase()}>
+      <label
+        className={styles.label}
+        htmlFor={label.split(' ').join('').toLocaleLowerCase()}
+      >
         {label}
       </label>
     </div>

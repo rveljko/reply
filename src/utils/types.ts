@@ -10,6 +10,14 @@ export type Type = 'Sent' | 'Received'
 
 export type Purpose = 'Bills' | 'Gift' | 'Others' | 'Subscription'
 
+export type Sort =
+  | 'Price-Asc'
+  | 'Price-Desc'
+  | 'Name-Asc'
+  | 'Name-Desc'
+  | 'Date-Asc'
+  | 'Date-Desc'
+
 export type Transaction = {
   senderName: Sender['name']
   senderImage: Sender['image']
@@ -30,6 +38,12 @@ export type Purposes = {
 export type Types = {
   id: number
   type: Type
+}
+
+export type Sortings = {
+  id: number
+  sort: Sort
+  label: string
 }
 
 export type TableTransactionHeader = {

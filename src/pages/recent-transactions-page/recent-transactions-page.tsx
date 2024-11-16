@@ -10,14 +10,14 @@ import useTransactionFilters from '../../hooks/use-transaction-filters'
 export default function RecentTransactionsPage() {
   const [transaction, setTransaction] = useState<Transaction | null>(null)
   const [isOpened, setIsOpened] = useState(false)
-  const { filteredTransactions } = useTransactionFilters()
+  const { sortTransactions } = useTransactionFilters()
 
   return (
     <div className={styles.layoutPrimary}>
       <FiltersSection />
       <div className={styles.layoutSecondary}>
         <RecentTransactionsSection
-          transactions={filteredTransactions}
+          transactions={sortTransactions()}
           tableTransactionHeaders={tableTransactionHeaders}
           setTransaction={setTransaction}
           setIsOpened={setIsOpened}

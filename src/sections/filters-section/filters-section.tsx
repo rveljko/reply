@@ -7,21 +7,28 @@ import { purposes } from '../../data/purposes'
 import { types } from '../../data/types'
 import ArrowsDownUpIcon from '../../icons/arrows-down-up-icon'
 import useTransactionFilters from '../../hooks/use-transaction-filters'
-import { transactions } from '../../data/transactions'
 import Button from '../../components/button/button'
 import EraserIcon from '../../icons/eraser-icon'
 import XIcon from '../../icons/x-icon'
+import { sortings } from '../../data/sortings'
+import { useTransactions } from '../../utils/contexts/transactions-context'
+import SelectorIcon from '../../icons/selector-icon'
 
 export default function FiltersSection() {
   const {
     filteredTransactions,
     purpose: filteredPurposes,
     type: filteredTypes,
+    sort,
     setFilter,
+    setSort,
     removeFilter,
+    removeSort,
     clearFilters,
     handleCheckbox,
   } = useTransactionFilters()
+
+  const { transactions } = useTransactions()
 
   return (
     <Section>
@@ -65,6 +72,25 @@ export default function FiltersSection() {
             </>
           }
         />
+        <FilterButton
+          label="Sort by"
+          icon={<SelectorIcon />}
+          content={
+            <>
+              {sortings.map(({ id, label, sort }) => (
+                <DropdownElement
+                  label={label}
+                  key={id}
+                  type="radio"
+                  name="sortings"
+                  readOnly
+                  checked={handleCheckbox(sort)}
+                  onClick={() => setSort(sort)}
+                />
+              ))}
+            </>
+          }
+        />
       </div>
       <div className={styles.results}>
         <h3 className={styles.resultsHeading}>
@@ -74,7 +100,9 @@ export default function FiltersSection() {
           <Button
             variant="tertiary"
             size="small"
-            disabled={[...filteredPurposes, ...filteredTypes].length === 0}
+            disabled={
+              [...filteredPurposes, ...filteredTypes].length === 0 && !sort
+            }
             onClick={() => clearFilters()}
           >
             <EraserIcon />
@@ -108,6 +136,21 @@ export default function FiltersSection() {
               </Button>
             ))}
           </>
+          {sortings.map(
+            (sorting, index) =>
+              sort === sorting.sort && (
+                <Button key={index} variant="tertiary" size="small">
+                  <SelectorIcon />
+                  {sorting.label}
+                  <span
+                    className={styles.removeFilter}
+                    onClick={() => removeSort(sort)}
+                  >
+                    <XIcon />
+                  </span>
+                </Button>
+              )
+          )}
         </div>
       </div>
     </Section>
