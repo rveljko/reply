@@ -13,6 +13,7 @@ import TableHeadCell from '../table-head-cell/table-head-cell'
 import TableHeadRow from '../table-head-row/table-head-row'
 import TableHead from '../table-head/table-head'
 import styles from './table.module.css'
+import getTransactionSign from '../../utils/helpers/get-transaction-sign'
 
 type TableProps = React.ComponentPropsWithoutRef<'table'> & {
   transactions: Transaction[]
@@ -66,8 +67,17 @@ export default function Table({
                 {shortDateFormatter(transaction.date.toString())}
               </TableBodyCell>
               <TableBodyCell>{transaction.purpose}</TableBodyCell>
-              <TableBodyCell>
-                {currencyFormatter(transaction.amount)}
+              <TableBodyCell
+                style={{
+                  color:
+                    transaction.type === 'Sent'
+                      ? 'var(--success-500)'
+                      : 'var(--danger-500)',
+                }}
+              >
+                {`${getTransactionSign(transaction.type)}${currencyFormatter(
+                  transaction.amount
+                )}`}
               </TableBodyCell>
             </TableBodyRow>
           ))}

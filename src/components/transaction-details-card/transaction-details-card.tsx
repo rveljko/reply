@@ -6,6 +6,7 @@ import TextArea from '../text-area/text-area'
 import { Transaction } from '../../utils/types'
 import { mediumDateFormatter } from '../../utils/helpers/date-formatters'
 import currencyFormatter from '../../utils/helpers/currency-formatter'
+import getTransactionSign from '../../utils/helpers/get-transaction-sign'
 
 type TransactionDetailsCardProps = {
   transaction: Transaction | null
@@ -21,7 +22,11 @@ export default function TransactionDetailsCard({
   return (
     <article className={styles.card}>
       <div className={styles.head}>
-        <h1>{currencyFormatter(transaction.amount)}</h1>
+        <h1>
+          {`${getTransactionSign(transaction.type)}${currencyFormatter(
+            transaction.amount
+          )}`}
+        </h1>
         <Button
           variant="ghost"
           size="small"
