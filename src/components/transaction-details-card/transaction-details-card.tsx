@@ -38,22 +38,42 @@ export default function TransactionDetailsCard({
       </div>
       <div className={styles.body}>
         <div className={styles.informations}>
-          <TransactionInformations
-            image={transaction.senderImage}
-            name={transaction.senderName}
-            identificator="From"
-            purpose={transaction.purpose}
-            date={mediumDateFormatter(transaction.date.toString())}
-          />
-          <TransactionInformations
-            image={transaction.receiverImage}
-            name={transaction.receiverName}
-            identificator="Receiver"
-            date={mediumDateFormatter(transaction.date.toString())}
-          />
+          {transaction.type === 'Received' ? (
+            <>
+              <TransactionInformations
+                image={transaction.senderImage}
+                name={transaction.senderName}
+                identificator="From"
+                date={mediumDateFormatter(transaction.date.toString())}
+              />
+              <TransactionInformations
+                image={transaction.receiverImage}
+                name={transaction.receiverName}
+                identificator="To"
+                purpose={transaction.purpose}
+                date={mediumDateFormatter(transaction.date.toString())}
+              />
+            </>
+          ) : (
+            <>
+              <TransactionInformations
+                image={transaction.senderImage}
+                name={transaction.senderName}
+                identificator="From"
+                purpose={transaction.purpose}
+                date={mediumDateFormatter(transaction.date.toString())}
+              />
+              <TransactionInformations
+                image={transaction.receiverImage}
+                name={transaction.receiverName}
+                identificator="To"
+                date={mediumDateFormatter(transaction.date.toString())}
+              />
+            </>
+          )}
         </div>
         <div>
-          <TextArea label="Message" defaultValue={transaction.message} />
+          <TextArea label="Message" value={transaction.message} readOnly />
         </div>
       </div>
     </article>
