@@ -54,11 +54,23 @@ export default function Table({
             >
               <TableBodyCell>
                 <TableBodyCellGroup>
-                  <img
-                    src={transaction.receiverImage}
-                    alt={transaction.receiverImage}
-                  />
-                  <span>{transaction.receiverName}</span>
+                  {transaction.type === 'Received' ? (
+                    <>
+                      <img
+                        src={transaction.senderImage}
+                        alt={transaction.senderImage}
+                      />
+                      <span>{transaction.senderName}</span>
+                    </>
+                  ) : (
+                    <>
+                      <img
+                        src={transaction.receiverImage}
+                        alt={transaction.receiverImage}
+                      />
+                      <span>{transaction.receiverName}</span>
+                    </>
+                  )}
                 </TableBodyCellGroup>
               </TableBodyCell>
               <TableBodyCell
