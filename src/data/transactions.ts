@@ -34,7 +34,7 @@ export const transactions: Transaction[] = [
     amount: 1700,
     purpose: 'Others',
     type: 'Received',
-    message: 'Hi William!\n\nThank you for being an amazing friend.',
+    message: 'Hi James!\n\nThank you for being an amazing friend.',
     date: new Date('Jun 3, 2024 11:25:54'),
   },
   {
@@ -45,7 +45,7 @@ export const transactions: Transaction[] = [
     amount: 1200,
     purpose: 'Others',
     type: 'Received',
-    message: 'Hi Oliver!\n\nCongrats on winning the bet.',
+    message: 'Hi James!\n\nCongrats on winning the bet.',
     date: new Date('Jun 2, 2024 16:30:27'),
   },
   {
@@ -124,7 +124,7 @@ export const transactions: Transaction[] = [
     type: 'Received',
     date: new Date('May 20, 2024 14:39:58'),
     message:
-      'Hi Lucas!\n\nHere is a little help during this tough time. Stay strong!',
+      'Hi James!\n\nHere is a little help during this tough time. Stay strong!',
   },
   {
     senderName: 'Jessica Garcia',
@@ -134,7 +134,7 @@ export const transactions: Transaction[] = [
     amount: 825,
     purpose: 'Others',
     type: 'Received',
-    message: 'Hi Jessica!\n\nIYKYK.',
+    message: 'Hi James!\n\nIYKYK.',
     date: new Date('May 20, 2024 13:18:16'),
   },
   {
