@@ -79,6 +79,14 @@ export default function Table({
                 {shortDateFormatter(transaction.date.toString())}
               </TableBodyCell>
               <TableBodyCell>{transaction.purpose}</TableBodyCell>
+              <TableBodyCell>
+                <TableBodyCellGroup>
+                  <img src={transaction.creditCard.logo} alt="" />
+                  {`Ending in ${transaction.creditCard.numbers
+                    .toString()
+                    .slice(-4)}`}
+                </TableBodyCellGroup>
+              </TableBodyCell>
               <TableBodyCell
                 style={{
                   color:

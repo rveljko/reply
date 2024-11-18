@@ -20,6 +20,7 @@ export type Sort =
 
 export type CreditCard = {
   name: 'Visa' | 'Mastercard'
+  logo: string
   numbers: number
   expirationDate: Date
   cvv: number

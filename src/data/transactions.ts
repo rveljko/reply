@@ -22,6 +22,10 @@ export const tableTransactionHeaders: TableTransactionHeader[] = [
   },
   {
     id: 4,
+    label: 'Credit Card',
+  },
+  {
+    id: 5,
     label: 'Amount',
   },
 ]
