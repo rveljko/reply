@@ -57,7 +57,7 @@ export default function FilterButtons() {
                 label={purpose}
                 key={id}
                 type="checkbox"
-                name="purposes"
+                name={purpose}
                 readOnly
                 checked={handleCheckbox(purpose)}
                 onClick={() => setFilter('purpose', purpose)}
@@ -76,7 +76,7 @@ export default function FilterButtons() {
                 label={type}
                 key={id}
                 type="checkbox"
-                name="types"
+                name={type}
                 readOnly
                 checked={handleCheckbox(type)}
                 onClick={() => setFilter('type', type)}
@@ -95,7 +95,7 @@ export default function FilterButtons() {
                 label={label}
                 key={id}
                 type="radio"
-                name="sortings"
+                name={label}
                 readOnly
                 checked={handleCheckbox(sort)}
                 onClick={() => setSort(sort)}
