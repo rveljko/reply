@@ -51,6 +51,11 @@ export default function TransactionDetailsCard({
                 name={transaction.receiverName}
                 identificator="To"
                 purpose={transaction.purpose}
+                creditcard={`${
+                  transaction.creditCard.name
+                } ending in ${transaction.creditCard.numbers
+                  .toString()
+                  .slice(-4)}`}
                 date={mediumDateFormatter(transaction.date.toString())}
               />
             </>
@@ -61,6 +66,11 @@ export default function TransactionDetailsCard({
                 name={transaction.senderName}
                 identificator="From"
                 purpose={transaction.purpose}
+                creditcard={`${
+                  transaction.creditCard.name
+                } ending in ${transaction.creditCard.numbers
+                  .toString()
+                  .slice(-4)}`}
                 date={mediumDateFormatter(transaction.date.toString())}
               />
               <TransactionInformations

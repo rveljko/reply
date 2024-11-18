@@ -1,4 +1,5 @@
 import CalendarIcon from '../../icons/calendar-icon'
+import CreditCardIcon from '../../icons/credit-card-icon'
 import GiftIcon from '../../icons/gift-icon'
 import Tag from '../tag/tag'
 import styles from './transaction-informations.module.css'
@@ -9,6 +10,7 @@ type TransactionInformationsProps = {
   date: string
   identificator: 'From' | 'To'
   purpose?: string
+  creditcard?: string
 }
 
 export default function TransactionInformations({
@@ -17,6 +19,7 @@ export default function TransactionInformations({
   date,
   identificator,
   purpose,
+  creditcard,
 }: TransactionInformationsProps) {
   return (
     <div className={styles.informations}>
@@ -33,6 +36,14 @@ export default function TransactionInformations({
               <span>{date}</span>
             </Tag>
           </li>
+          {creditcard && (
+            <li className={styles.item}>
+              <Tag>
+                <CreditCardIcon />
+                <span>{creditcard}</span>
+              </Tag>
+            </li>
+          )}
           {purpose && (
             <li className={styles.item}>
               <Tag>
