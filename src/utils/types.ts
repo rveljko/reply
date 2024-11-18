@@ -18,6 +18,16 @@ export type Sort =
   | 'Date-Asc'
   | 'Date-Desc'
 
+export type CreditCard = {
+  name: 'Visa' | 'Mastercard'
+  numbers: number
+  expirationDate: Date
+  cvv: number
+  balance: number
+  expenses: number
+  isActive: boolean
+}
+
 export type Transaction = {
   senderName: Sender['name']
   senderImage: Sender['image']
@@ -28,6 +38,7 @@ export type Transaction = {
   type: Type
   message: string
   date: Date
+  creditCard: CreditCard
 }
 
 export type Purposes = {

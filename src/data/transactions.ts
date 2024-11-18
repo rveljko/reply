@@ -1,5 +1,6 @@
 import { IMAGE_PATH } from '../utils/constants'
 import { Sender, TableTransactionHeader, Transaction } from '../utils/types'
+import { creditCards } from './credit-cards'
 
 export const userInformations: Sender = {
   name: 'James Williams',
@@ -36,6 +37,7 @@ export const transactions: Transaction[] = [
     type: 'Received',
     message: 'Hi James!\n\nThank you for being an amazing friend.',
     date: new Date('Jun 3, 2024 11:25:54'),
+    creditCard: creditCards[0],
   },
   {
     senderName: 'Oliver Jones',
@@ -47,6 +49,7 @@ export const transactions: Transaction[] = [
     type: 'Received',
     message: 'Hi James!\n\nCongrats on winning the bet.',
     date: new Date('Jun 2, 2024 16:30:27'),
+    creditCard: creditCards[0],
   },
   {
     senderName: userInformations.name,
@@ -58,6 +61,7 @@ export const transactions: Transaction[] = [
     type: 'Sent',
     message: '',
     date: new Date('May 25, 2024 14:11:27'),
+    creditCard: creditCards[1],
   },
   {
     senderName: userInformations.name,
@@ -69,6 +73,7 @@ export const transactions: Transaction[] = [
     type: 'Sent',
     message: '',
     date: new Date('May 24, 2024 15:57:09'),
+    creditCard: creditCards[0],
   },
   {
     senderName: userInformations.name,
@@ -80,6 +85,7 @@ export const transactions: Transaction[] = [
     type: 'Sent',
     message: '',
     date: new Date('May 24, 2024 15:22:44'),
+    creditCard: creditCards[0],
   },
   {
     senderName: userInformations.name,
@@ -91,6 +97,7 @@ export const transactions: Transaction[] = [
     type: 'Sent',
     message: '',
     date: new Date('May 24, 2024 12:37:14'),
+    creditCard: creditCards[0],
   },
   {
     senderName: userInformations.name,
@@ -102,6 +109,7 @@ export const transactions: Transaction[] = [
     type: 'Sent',
     message: '',
     date: new Date('May 24, 2024 09:04:18'),
+    creditCard: creditCards[0],
   },
   {
     senderName: userInformations.name,
@@ -113,6 +121,7 @@ export const transactions: Transaction[] = [
     type: 'Sent',
     message: '',
     date: new Date('May 21, 2024 12:30:45'),
+    creditCard: creditCards[0],
   },
   {
     senderName: 'Lucas Jones',
@@ -124,7 +133,8 @@ export const transactions: Transaction[] = [
     type: 'Received',
     date: new Date('May 20, 2024 14:39:58'),
     message:
-      'Hi James!\n\nHere is a little help during this tough time. Stay strong!',
+      'Hi Jame3s!\n\nHere is a little help during this tough time. Stay strong!',
+    creditCard: creditCards[0],
   },
   {
     senderName: 'Jessica Garcia',
@@ -136,6 +146,7 @@ export const transactions: Transaction[] = [
     type: 'Received',
     message: 'Hi James!\n\nIYKYK.',
     date: new Date('May 20, 2024 13:18:16'),
+    creditCard: creditCards[0],
   },
   {
     senderName: userInformations.name,
@@ -148,6 +159,7 @@ export const transactions: Transaction[] = [
     message:
       'Hi Mia!\n\nJust want to say thank you for being an incredible friend.',
     date: new Date('May 19, 2024 11:45:21'),
+    creditCard: creditCards[4],
   },
   {
     senderName: userInformations.name,
@@ -159,6 +171,7 @@ export const transactions: Transaction[] = [
     type: 'Sent',
     message: 'Hi Benjamin.\n\nAs always...',
     date: new Date('May 16, 2024 10:19:50'),
+    creditCard: creditCards[2],
   },
   {
     senderName: 'Henry Johnson',
@@ -171,6 +184,7 @@ export const transactions: Transaction[] = [
     message:
       'Hi James! \n\nMaking your house a home. Here is help for repairs.',
     date: new Date('May 5, 2024 13:05:48'),
+    creditCard: creditCards[2],
   },
 
   {
@@ -183,6 +197,7 @@ export const transactions: Transaction[] = [
     type: 'Sent',
     message: 'Hi Noah!\n\nThank you for always being there for me',
     date: new Date('April 25, 2024 16:22:56'),
+    creditCard: creditCards[4],
   },
   {
     senderName: userInformations.name,
@@ -194,6 +209,7 @@ export const transactions: Transaction[] = [
     type: 'Sent',
     message: '',
     date: new Date('April 25, 2024 14:11:27'),
+    creditCard: creditCards[1],
   },
   {
     senderName: userInformations.name,
@@ -205,6 +221,7 @@ export const transactions: Transaction[] = [
     type: 'Sent',
     message: '',
     date: new Date('April 24, 2024 15:57:09'),
+    creditCard: creditCards[0],
   },
   {
     senderName: userInformations.name,
@@ -216,6 +233,7 @@ export const transactions: Transaction[] = [
     type: 'Sent',
     message: '',
     date: new Date('April 24, 2024 15:22:44'),
+    creditCard: creditCards[0],
   },
   {
     senderName: userInformations.name,
@@ -227,6 +245,7 @@ export const transactions: Transaction[] = [
     type: 'Sent',
     message: '',
     date: new Date('April 24, 2024 12:37:14'),
+    creditCard: creditCards[0],
   },
   {
     senderName: 'Lucas Jones',
@@ -238,6 +257,7 @@ export const transactions: Transaction[] = [
     type: 'Received',
     message: 'Hi James!\n\nCongrats on winning the bet again.',
     date: new Date('April 20, 2024 14:36:29'),
+    creditCard: creditCards[3],
   },
   {
     senderName: userInformations.name,
@@ -247,9 +267,9 @@ export const transactions: Transaction[] = [
     amount: 246,
     purpose: 'Bills',
     type: 'Sent',
-
     message: 'Hi Benjamin.\n\nAs always...',
     date: new Date('April 16, 2024 13:29:56'),
+    creditCard: creditCards[2],
   },
   {
     senderName: 'Henry Johnson',
@@ -262,6 +282,7 @@ export const transactions: Transaction[] = [
     message:
       'Hi James!\n\nSmooth move! Here is a little help for your new start.',
     date: new Date('April 5, 2024 16:08:52'),
+    creditCard: creditCards[2],
   },
   {
     senderName: userInformations.name,
@@ -273,6 +294,7 @@ export const transactions: Transaction[] = [
     type: 'Sent',
     message: '',
     date: new Date('March 25, 2024 14:11:27'),
+    creditCard: creditCards[1],
   },
   {
     senderName: userInformations.name,
@@ -284,6 +306,7 @@ export const transactions: Transaction[] = [
     type: 'Sent',
     message: '',
     date: new Date('March 24, 2024 15:57:09'),
+    creditCard: creditCards[0],
   },
   {
     senderName: userInformations.name,
@@ -295,6 +318,7 @@ export const transactions: Transaction[] = [
     type: 'Sent',
     message: '',
     date: new Date('March 24, 2024 15:22:44'),
+    creditCard: creditCards[0],
   },
   {
     senderName: userInformations.name,
@@ -306,6 +330,7 @@ export const transactions: Transaction[] = [
     type: 'Sent',
     message: '',
     date: new Date('March 24, 2024 12:37:14'),
+    creditCard: creditCards[0],
   },
   {
     senderName: 'Lucas Jones',
@@ -317,6 +342,7 @@ export const transactions: Transaction[] = [
     type: 'Received',
     message: 'Hi James!\n\nCongrats on winning the bet.',
     date: new Date('March 20, 2024 15:34:27'),
+    creditCard: creditCards[3],
   },
   {
     senderName: userInformations.name,
@@ -328,6 +354,7 @@ export const transactions: Transaction[] = [
     type: 'Sent',
     message: 'Hi Benjamin.\n\nAs always...',
     date: new Date('March 16, 2024 09:47:18'),
+    creditCard: creditCards[2],
   },
   {
     senderName: 'Henry Johnson',
@@ -340,5 +367,6 @@ export const transactions: Transaction[] = [
     message:
       'Hi James!\n\nSafe travels! Here is a little help for your journey.',
     date: new Date('March 5, 2024 09:15:32'),
+    creditCard: creditCards[2],
   },
 ]
