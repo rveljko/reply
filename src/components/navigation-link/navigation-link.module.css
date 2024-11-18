@@ -13,6 +13,7 @@
   width: 100%;
   color: var(--neutral-400);
   padding: var(--space-xsm);
+  line-height: 1;
 }
 
 .link:hover {
