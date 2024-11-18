@@ -13,15 +13,24 @@ import XIcon from '../../icons/x-icon'
 import { sortings } from '../../data/sortings'
 import { useTransactions } from '../../utils/contexts/transactions-context'
 import SelectorIcon from '../../icons/selector-icon'
+import CalendarIcon from '../../icons/calendar-icon'
+import {
+  inputDateFormatter,
+  shortDateFormatter,
+} from '../../utils/helpers/date-formatters'
 
 export default function FiltersSection() {
   const {
     filteredTransactions,
+    dateFrom,
+    dateTo,
     purpose: filteredPurposes,
     type: filteredTypes,
     sort,
+    setDateFilter,
     setFilter,
     setSort,
+    removeDate,
     removeFilter,
     removeSort,
     clearFilters,
@@ -34,6 +43,30 @@ export default function FiltersSection() {
     <Section>
       <h2>Filters</h2>
       <div className={styles.filters}>
+        <FilterButton
+          label="Date"
+          icon={<CalendarIcon />}
+          content={
+            <>
+              <DropdownElement
+                label="Date from"
+                type="date"
+                name="date-from"
+                value={dateFrom || '2024-03-05'}
+                min="2024-03-05"
+                onChange={(e) => setDateFilter('date-from', e.target.value)}
+              />
+              <DropdownElement
+                label="Date To"
+                type="date"
+                name="date-to"
+                max={inputDateFormatter(new Date())}
+                value={dateTo || inputDateFormatter(new Date())}
+                onChange={(e) => setDateFilter('date-to', e.target.value)}
+              />
+            </>
+          }
+        />
         <FilterButton
           label="Purpose"
           icon={<GiftIcon />}
@@ -101,13 +134,40 @@ export default function FiltersSection() {
             variant="tertiary"
             size="small"
             disabled={
-              [...filteredPurposes, ...filteredTypes].length === 0 && !sort
+              [...filteredPurposes, ...filteredTypes].length === 0 &&
+              !dateFrom &&
+              !dateTo &&
+              !sort
             }
             onClick={() => clearFilters()}
           >
             <EraserIcon />
             Clear Filters
           </Button>
+          {dateFrom && (
+            <Button variant="tertiary" size="small">
+              <CalendarIcon />
+              {shortDateFormatter(dateFrom)}
+              <span
+                className={styles.removeFilter}
+                onClick={() => removeDate('date-from', dateFrom)}
+              >
+                <XIcon />
+              </span>
+            </Button>
+          )}
+          {dateTo && (
+            <Button variant="tertiary" size="small">
+              <CalendarIcon />
+              {shortDateFormatter(dateTo)}
+              <span
+                className={styles.removeFilter}
+                onClick={() => removeDate('date-to', dateTo)}
+              >
+                <XIcon />
+              </span>
+            </Button>
+          )}
           <>
             {filteredPurposes.map((filteredPurpose, index) => (
               <Button key={index} variant="tertiary" size="small">

@@ -4,6 +4,10 @@
   padding: var(--space-lg);
 }
 
+.element.date {
+  flex-direction: column-reverse;
+}
+
 .element > * {
   cursor: pointer;
 }

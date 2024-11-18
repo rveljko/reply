@@ -1,7 +1,7 @@
 import styles from './dropdown-element.module.css'
 
 type DropdownElementProps = React.ComponentPropsWithoutRef<'input'> & {
-  type: 'text' | 'checkbox' | 'radio'
+  type: 'text' | 'checkbox' | 'radio' | 'date'
   label: string
 }
 
@@ -11,9 +11,9 @@ export default function DropdownElement({
   ...props
 }: DropdownElementProps) {
   return (
-    <div className={styles.element}>
+    <div className={`${styles.element} ${type === 'date' ? styles.date : ''}`}>
       <input
-        className={styles.input}
+        className={type === 'date' ? '' : styles.input}
         type={type}
         id={label.split(' ').join('').toLocaleLowerCase()}
         {...props}

@@ -29,3 +29,11 @@ export function shortDateFormatter(dateString: string) {
     day: 'numeric',
   })
 }
+
+export function inputDateFormatter(date: Date) {
+  return date.toLocaleString('en-CA', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  })
+}
