@@ -3,6 +3,7 @@ import { CreditCard } from '../utils/types'
 
 export const creditCards: CreditCard[] = [
   {
+    id: 1,
     name: 'Visa',
     logo: `${IMAGE_PATH}visa.svg`,
     numbers: 4773887710161123,
@@ -13,6 +14,7 @@ export const creditCards: CreditCard[] = [
     isActive: true,
   },
   {
+    id: 2,
     name: 'Mastercard',
     logo: `${IMAGE_PATH}mastercard.svg`,
     numbers: 5415438622581283,
@@ -23,6 +25,7 @@ export const creditCards: CreditCard[] = [
     isActive: true,
   },
   {
+    id: 3,
     name: 'Visa',
     logo: `${IMAGE_PATH}visa.svg`,
     numbers: 4200478571331928,
@@ -33,6 +36,7 @@ export const creditCards: CreditCard[] = [
     isActive: false,
   },
   {
+    id: 4,
     name: 'Visa',
     logo: `${IMAGE_PATH}visa.svg`,
     numbers: 4619078215671827,
@@ -43,6 +47,7 @@ export const creditCards: CreditCard[] = [
     isActive: true,
   },
   {
+    id: 5,
     name: 'Mastercard',
     logo: `${IMAGE_PATH}mastercard.svg`,
     numbers: 4773887710161432,

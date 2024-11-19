@@ -1,13 +1,16 @@
 import Button from '../../../components/button/button'
+import { creditCards } from '../../../data/credit-cards'
 import { sortings } from '../../../data/sortings'
 import useTransactionFilters from '../../../hooks/use-transaction-filters'
 import ArrowsDownUpIcon from '../../../icons/arrows-down-up-icon'
 import CalendarIcon from '../../../icons/calendar-icon'
+import CreditCardIcon from '../../../icons/credit-card-icon'
 import EraserIcon from '../../../icons/eraser-icon'
 import GiftIcon from '../../../icons/gift-icon'
 import SelectorIcon from '../../../icons/selector-icon'
 import XIcon from '../../../icons/x-icon'
 import { shortDateFormatter } from '../../../utils/helpers/date-formatters'
+import { CreditCardId } from '../../../utils/types'
 import styles from './applied-filters.module.css'
 
 export default function AppliedFilters() {
@@ -15,8 +18,10 @@ export default function AppliedFilters() {
     dateFrom,
     dateTo,
     purpose: filteredPurposes,
+    creditCard,
     type: filteredTypes,
     sort,
+    getCreditCardIds,
     removeDate,
     removeFilter,
     removeSort,
@@ -29,7 +34,7 @@ export default function AppliedFilters() {
         variant="tertiary"
         size="small"
         disabled={
-          [...filteredPurposes, ...filteredTypes].length === 0 &&
+          [...filteredPurposes, ...creditCard, ...filteredTypes].length === 0 &&
           !dateFrom &&
           !dateTo &&
           !sort
@@ -76,6 +81,25 @@ export default function AppliedFilters() {
             </span>
           </Button>
         ))}
+      </>
+      <>
+        {creditCards.map(
+          ({ id, name, numbers }) =>
+            getCreditCardIds().includes(id) && (
+              <Button key={id} variant="tertiary" size="small">
+                <CreditCardIcon />
+                {`${name} ending in ${numbers.toString().slice(-4)}`}
+                <span
+                  className={styles.removeFilter}
+                  onClick={() =>
+                    removeFilter('credit-card', id.toString() as CreditCardId)
+                  }
+                >
+                  <XIcon />
+                </span>
+              </Button>
+            )
+        )}
       </>
       <>
         {filteredTypes.map((filteredType, index) => (

@@ -19,6 +19,7 @@ export type Sort =
   | 'Date-Desc'
 
 export type CreditCard = {
+  id: number
   name: 'Visa' | 'Mastercard'
   logo: string
   numbers: number
@@ -63,6 +64,18 @@ export type TableTransactionHeader = {
   label: string
 }
 
-export type FilterCategory = 'purpose' | 'type'
+export type CreditCardId =
+  | '1'
+  | '2'
+  | '3'
+  | '4'
+  | '5'
+  | '6'
+  | '7'
+  | '8'
+  | '9'
+  | '10'
 
-export type FilterKey = Purpose | Type
+export type FilterCategory = 'purpose' | 'type' | 'credit-card'
+
+export type FilterKey = Purpose | Type | CreditCardId

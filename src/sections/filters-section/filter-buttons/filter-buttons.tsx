@@ -1,14 +1,17 @@
 import DropdownElement from '../../../components/dropdown-element/dropdown-element'
 import FilterButton from '../../../components/filter-button/filter-button'
+import { creditCards } from '../../../data/credit-cards'
 import { purposes } from '../../../data/purposes'
 import { sortings } from '../../../data/sortings'
 import { types } from '../../../data/types'
 import useTransactionFilters from '../../../hooks/use-transaction-filters'
 import ArrowsDownUpIcon from '../../../icons/arrows-down-up-icon'
 import CalendarIcon from '../../../icons/calendar-icon'
+import CreditCardIcon from '../../../icons/credit-card-icon'
 import GiftIcon from '../../../icons/gift-icon'
 import SelectorIcon from '../../../icons/selector-icon'
 import { inputDateFormatter } from '../../../utils/helpers/date-formatters'
+import { CreditCardId } from '../../../utils/types'
 import styles from './filter-buttons.module.css'
 
 export default function FilterButtons() {
@@ -61,6 +64,27 @@ export default function FilterButtons() {
                 readOnly
                 checked={handleCheckbox(purpose)}
                 onClick={() => setFilter('purpose', purpose)}
+              />
+            ))}
+          </>
+        }
+      />
+      <FilterButton
+        label="Credit Card"
+        icon={<CreditCardIcon />}
+        content={
+          <>
+            {creditCards.map(({ id, name, numbers }) => (
+              <DropdownElement
+                label={`Ending in ${numbers.toString().slice(-4)}`}
+                key={id}
+                type="checkbox"
+                name={`${name} ending in ${numbers.toString().slice(-4)}`}
+                readOnly
+                checked={handleCheckbox(id.toString() as CreditCardId)}
+                onClick={() =>
+                  setFilter('credit-card', id.toString() as CreditCardId)
+                }
               />
             ))}
           </>

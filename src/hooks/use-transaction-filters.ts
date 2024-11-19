@@ -1,4 +1,11 @@
-import { FilterCategory, FilterKey, Purpose, Sort, Type } from '../utils/types'
+import {
+  CreditCardId,
+  FilterCategory,
+  FilterKey,
+  Purpose,
+  Sort,
+  Type,
+} from '../utils/types'
 import { useTransactions } from '../utils/contexts/transactions-context'
 import { useSearchParams } from 'react-router-dom'
 
@@ -11,6 +18,7 @@ export default function useTransactionFilters() {
   const sort = searchParams.get('sort') as Sort
   const dateFrom = searchParams.get('date-from')
   const dateTo = searchParams.get('date-to')
+  const creditCard = searchParams.getAll('credit-card') as CreditCardId[]
 
   const filteredTransactions = transactions.filter((transaction) => {
     const purposes = !purpose.length || purpose.includes(transaction.purpose)
@@ -21,9 +29,16 @@ export default function useTransactionFilters() {
     const endDate =
       !dateTo ||
       new Date(transaction.date).getTime() <= new Date(dateTo).getTime()
+    const creditCards =
+      !creditCard.length ||
+      getCreditCardIds().includes(transaction.creditCard.id)
 
-    return purposes && types && startDate && endDate
+    return purposes && types && startDate && endDate && creditCards
   })
+
+  function getCreditCardIds() {
+    return creditCard.map((id) => parseInt(id))
+  }
 
   function setDateFilter(category: 'date-from' | 'date-to', key: string) {
     setSearchParams((prevParams) => {
@@ -114,7 +129,7 @@ export default function useTransactionFilters() {
   }
 
   function handleCheckbox(key: FilterKey | Sort): boolean {
-    return [...purpose, ...type, sort].includes(key)
+    return [...purpose, ...creditCard, ...type, sort].includes(key)
   }
 
   return {
@@ -122,8 +137,10 @@ export default function useTransactionFilters() {
     dateFrom,
     dateTo,
     purpose,
+    creditCard,
     type,
     sort,
+    getCreditCardIds,
     setDateFilter,
     setFilter,
     setSort,
