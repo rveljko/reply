@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import currencyFormatter from '../../utils/helpers/currency-formatter'
 import {
   longDateFormatter,
@@ -15,22 +14,20 @@ import TableHead from '../table-head/table-head'
 import styles from './table.module.css'
 import getTransactionSign from '../../utils/helpers/get-transaction-sign'
 import { getEndingLastFourDigits } from '../../utils/helpers/get-last-four-digits'
+import useTransaction from '../../hooks/use-transaction'
 
 type TableProps = React.ComponentPropsWithoutRef<'table'> & {
   transactions: Transaction[]
   tableTransactionHeaders: TableTransactionHeader[]
-  setTransaction: React.Dispatch<React.SetStateAction<Transaction | null>>
-  setIsOpened: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export default function Table({
   transactions,
   tableTransactionHeaders,
-  setTransaction,
-  setIsOpened,
   ...props
 }: TableProps) {
-  const [activeRow, setActiveRow] = useState<number | null>(null)
+  const { setTransactionId } = useTransaction()
+  const { transactionId } = useTransaction()
 
   return (
     <div className={styles.wrapper}>
@@ -43,63 +40,64 @@ export default function Table({
           </TableHeadRow>
         </TableHead>
         <TableBody>
-          {transactions.map((transaction, index) => (
-            <TableBodyRow
-              key={index}
-              isActiveRow={activeRow === index}
-              onClick={() => {
-                setTransaction(transaction)
-                setIsOpened(true)
-                setActiveRow(index)
-              }}
-            >
-              <TableBodyCell>
-                <TableBodyCellGroup>
-                  {transaction.type === 'Received' ? (
-                    <>
-                      <img
-                        src={transaction.senderImage}
-                        alt={transaction.senderImage}
-                      />
-                      <span>{transaction.senderName}</span>
-                    </>
-                  ) : (
-                    <>
-                      <img
-                        src={transaction.receiverImage}
-                        alt={transaction.receiverImage}
-                      />
-                      <span>{transaction.receiverName}</span>
-                    </>
-                  )}
-                </TableBodyCellGroup>
-              </TableBodyCell>
-              <TableBodyCell
-                title={longDateFormatter(transaction.date.toString())}
-              >
-                {shortDateFormatter(transaction.date.toString())}
-              </TableBodyCell>
-              <TableBodyCell>{transaction.purpose}</TableBodyCell>
-              <TableBodyCell>
-                <TableBodyCellGroup>
-                  <img src={transaction.creditCard.logo} alt="" />
-                  {getEndingLastFourDigits(transaction.creditCard.numbers)}
-                </TableBodyCellGroup>
-              </TableBodyCell>
-              <TableBodyCell
-                style={{
-                  color:
-                    transaction.type === 'Received'
-                      ? 'var(--success-500)'
-                      : 'var(--danger-500)',
+          {transactions.map(
+            ({
+              amount,
+              creditCard,
+              date,
+              id,
+              purpose,
+              receiverImage,
+              receiverName,
+              senderImage,
+              senderName,
+              type,
+            }) => (
+              <TableBodyRow
+                key={id}
+                isActiveRow={id === (transactionId && parseInt(transactionId))}
+                onClick={() => {
+                  setTransactionId(id.toString())
                 }}
               >
-                {`${getTransactionSign(transaction.type)}${currencyFormatter(
-                  transaction.amount
-                )}`}
-              </TableBodyCell>
-            </TableBodyRow>
-          ))}
+                <TableBodyCell>
+                  <TableBodyCellGroup>
+                    {type === 'Received' ? (
+                      <>
+                        <img src={senderImage} alt={senderImage} />
+                        <span>{senderName}</span>
+                      </>
+                    ) : (
+                      <>
+                        <img src={receiverImage} alt={receiverImage} />
+                        <span>{receiverName}</span>
+                      </>
+                    )}
+                  </TableBodyCellGroup>
+                </TableBodyCell>
+                <TableBodyCell title={longDateFormatter(date.toString())}>
+                  {shortDateFormatter(date.toString())}
+                </TableBodyCell>
+                <TableBodyCell>{purpose}</TableBodyCell>
+                <TableBodyCell>
+                  <TableBodyCellGroup>
+                    <img src={creditCard.logo} alt="" />
+                    {getEndingLastFourDigits(creditCard.numbers)}
+                  </TableBodyCellGroup>
+                </TableBodyCell>
+                <TableBodyCell
+                  style={{
+                    color:
+                      type === 'Received'
+                        ? 'var(--success-500)'
+                        : 'var(--danger-500)',
+                  }}
+                >
+                  {`${getTransactionSign(type)}${currencyFormatter(amount)}`}
+                </TableBodyCell>
+              </TableBodyRow>
+            )
+          )}
         </TableBody>
       </table>
     </div>

@@ -3,87 +3,94 @@ import XIcon from '../../icons/x-icon'
 import Button from '../button/button'
 import TransactionInformations from '../transaction-informations/transaction-informations'
 import TextArea from '../text-area/text-area'
-import { Transaction } from '../../utils/types'
 import { mediumDateFormatter } from '../../utils/helpers/date-formatters'
 import currencyFormatter from '../../utils/helpers/currency-formatter'
 import getTransactionSign from '../../utils/helpers/get-transaction-sign'
+import { useTransactions } from '../../utils/contexts/transactions-context'
+import useTransaction from '../../hooks/use-transaction'
 
-type TransactionDetailsCardProps = {
-  transaction: Transaction | null
-  setIsOpened: React.Dispatch<React.SetStateAction<boolean>>
-}
+export default function TransactionDetailsCard() {
+  const { transactions } = useTransactions()
+  const { transactionId, removeTransactionId } = useTransaction()
 
-export default function TransactionDetailsCard({
-  transaction,
-  setIsOpened,
-}: TransactionDetailsCardProps) {
+  if (!transactionId) return
+
+  const transaction = transactions.find(
+    (transaction) => transaction.id === parseInt(transactionId)
+  )
+
   if (!transaction) return
+
+  const {
+    amount,
+    creditCard,
+    date,
+    message,
+    purpose,
+    receiverImage,
+    receiverName,
+    senderImage,
+    senderName,
+    type,
+  } = transaction
 
   return (
     <article className={styles.card}>
       <div className={styles.head}>
-        <h1>
-          {`${getTransactionSign(transaction.type)}${currencyFormatter(
-            transaction.amount
-          )}`}
-        </h1>
+        <h1>{`${getTransactionSign(type)}${currencyFormatter(amount)}`}</h1>
         <Button
           variant="ghost"
           size="small"
           className={styles.close}
-          onClick={() => setIsOpened(false)}
+          onClick={() => removeTransactionId(transactionId)}
         >
           <XIcon />
         </Button>
       </div>
       <div className={styles.body}>
         <div className={styles.informations}>
-          {transaction.type === 'Received' ? (
+          {type === 'Received' ? (
             <>
               <TransactionInformations
-                image={transaction.senderImage}
-                name={transaction.senderName}
+                image={senderImage}
+                name={senderName}
                 identificator="From"
-                date={mediumDateFormatter(transaction.date.toString())}
+                date={mediumDateFormatter(date.toString())}
               />
               <TransactionInformations
-                image={transaction.receiverImage}
-                name={transaction.receiverName}
+                image={receiverImage}
+                name={receiverName}
                 identificator="To"
-                purpose={transaction.purpose}
-                creditcard={`${
-                  transaction.creditCard.name
-                } ending in ${transaction.creditCard.numbers
+                purpose={purpose}
+                creditcard={`${creditCard.name} ending in ${creditCard.numbers
                   .toString()
                   .slice(-4)}`}
-                date={mediumDateFormatter(transaction.date.toString())}
+                date={mediumDateFormatter(date.toString())}
               />
             </>
           ) : (
             <>
               <TransactionInformations
-                image={transaction.senderImage}
-                name={transaction.senderName}
+                image={senderImage}
+                name={senderName}
                 identificator="From"
-                purpose={transaction.purpose}
-                creditcard={`${
-                  transaction.creditCard.name
-                } ending in ${transaction.creditCard.numbers
+                purpose={purpose}
+                creditcard={`${creditCard.name} ending in ${creditCard.numbers
                   .toString()
                   .slice(-4)}`}
-                date={mediumDateFormatter(transaction.date.toString())}
+                date={mediumDateFormatter(date.toString())}
               />
               <TransactionInformations
-                image={transaction.receiverImage}
-                name={transaction.receiverName}
+                image={receiverImage}
+                name={receiverName}
                 identificator="To"
-                date={mediumDateFormatter(transaction.date.toString())}
+                date={mediumDateFormatter(date.toString())}
               />
             </>
           )}
         </div>
         <div>
-          <TextArea label="Message" value={transaction.message} readOnly />
+          <TextArea label="Message" value={message} readOnly />
         </div>
       </div>
     </article>
