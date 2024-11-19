@@ -14,6 +14,7 @@ import TableHeadRow from '../table-head-row/table-head-row'
 import TableHead from '../table-head/table-head'
 import styles from './table.module.css'
 import getTransactionSign from '../../utils/helpers/get-transaction-sign'
+import { getEndingLastFourDigits } from '../../utils/helpers/get-last-four-digits'
 
 type TableProps = React.ComponentPropsWithoutRef<'table'> & {
   transactions: Transaction[]
@@ -82,9 +83,7 @@ export default function Table({
               <TableBodyCell>
                 <TableBodyCellGroup>
                   <img src={transaction.creditCard.logo} alt="" />
-                  {`Ending in ${transaction.creditCard.numbers
-                    .toString()
-                    .slice(-4)}`}
+                  {getEndingLastFourDigits(transaction.creditCard.numbers)}
                 </TableBodyCellGroup>
               </TableBodyCell>
               <TableBodyCell

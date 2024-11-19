@@ -10,6 +10,7 @@ import GiftIcon from '../../../icons/gift-icon'
 import SelectorIcon from '../../../icons/selector-icon'
 import XIcon from '../../../icons/x-icon'
 import { shortDateFormatter } from '../../../utils/helpers/date-formatters'
+import { getEndingLastFourDigits } from '../../../utils/helpers/get-last-four-digits'
 import { CreditCardId } from '../../../utils/types'
 import styles from './applied-filters.module.css'
 
@@ -88,7 +89,7 @@ export default function AppliedFilters() {
             getCreditCardIds().includes(id) && (
               <Button key={id} variant="tertiary" size="small">
                 <CreditCardIcon />
-                {`${name} ending in ${numbers.toString().slice(-4)}`}
+                {`${name} ${getEndingLastFourDigits(numbers, true)}`}
                 <span
                   className={styles.removeFilter}
                   onClick={() =>
