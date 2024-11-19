@@ -2,6 +2,7 @@ import Button from '../../../components/button/button'
 import { creditCards } from '../../../data/credit-cards'
 import { sortings } from '../../../data/sortings'
 import useTransactionFilters from '../../../hooks/use-transaction-filters'
+import useTransactionSorts from '../../../hooks/use-transaction-sorts'
 import ArrowsDownUpIcon from '../../../icons/arrows-down-up-icon'
 import CalendarIcon from '../../../icons/calendar-icon'
 import CreditCardIcon from '../../../icons/credit-card-icon'
@@ -21,13 +22,13 @@ export default function AppliedFilters() {
     purpose: filteredPurposes,
     creditCard,
     type: filteredTypes,
-    sort,
     getCreditCardIds,
     removeDate,
     removeFilter,
-    removeSort,
     clearFilters,
   } = useTransactionFilters()
+
+  const { sort, removeSort } = useTransactionSorts()
 
   return (
     <div className={styles.appliedFilters}>

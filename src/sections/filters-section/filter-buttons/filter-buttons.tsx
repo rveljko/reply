@@ -4,7 +4,9 @@ import { creditCards } from '../../../data/credit-cards'
 import { purposes } from '../../../data/purposes'
 import { sortings } from '../../../data/sortings'
 import { types } from '../../../data/types'
+import useHandleCheckbox from '../../../hooks/use-handle-checkbox'
 import useTransactionFilters from '../../../hooks/use-transaction-filters'
+import useTransactionSorts from '../../../hooks/use-transaction-sorts'
 import ArrowsDownUpIcon from '../../../icons/arrows-down-up-icon'
 import CalendarIcon from '../../../icons/calendar-icon'
 import CreditCardIcon from '../../../icons/credit-card-icon'
@@ -16,14 +18,9 @@ import { CreditCardId } from '../../../utils/types'
 import styles from './filter-buttons.module.css'
 
 export default function FilterButtons() {
-  const {
-    dateFrom,
-    dateTo,
-    setDateFilter,
-    setFilter,
-    setSort,
-    handleCheckbox,
-  } = useTransactionFilters()
+  const { dateFrom, dateTo, setDateFilter, setFilter } = useTransactionFilters()
+  const { setSort } = useTransactionSorts()
+  const { handleCheckbox } = useHandleCheckbox()
 
   return (
     <div className={styles.filters}>

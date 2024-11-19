@@ -3,7 +3,6 @@ import {
   FilterCategory,
   FilterKey,
   Purpose,
-  Sort,
   Type,
 } from '../utils/types'
 import { useTransactions } from '../utils/contexts/transactions-context'
@@ -15,7 +14,6 @@ export default function useTransactionFilters() {
 
   const purpose = searchParams.getAll('purpose') as Purpose[]
   const type = searchParams.getAll('type') as Type[]
-  const sort = searchParams.get('sort') as Sort
   const dateFrom = searchParams.get('date-from')
   const dateTo = searchParams.get('date-to')
   const creditCard = searchParams.getAll('credit-card') as CreditCardId[]
@@ -65,44 +63,6 @@ export default function useTransactionFilters() {
     })
   }
 
-  function setSort(key: Sort) {
-    setSearchParams((prevParams) => {
-      prevParams.set('sort', key)
-      return prevParams
-    })
-  }
-
-  function sortTransactions() {
-    switch (sort) {
-      case 'Name-Asc':
-        return filteredTransactions.sort((a, b) => {
-          if (a.receiverName < b.receiverName) return -1
-          if (a.receiverName > b.receiverName) return 1
-          return 0
-        })
-      case 'Name-Desc':
-        return filteredTransactions.sort((a, b) => {
-          if (b.receiverName < a.receiverName) return -1
-          if (b.receiverName > a.receiverName) return 1
-          return 0
-        })
-      case 'Price-Asc':
-        return filteredTransactions.sort((a, b) => a.amount - b.amount)
-      case 'Price-Desc':
-        return filteredTransactions.sort((a, b) => b.amount - a.amount)
-      case 'Date-Asc':
-        return filteredTransactions.sort(
-          (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
-        )
-      case 'Date-Desc':
-        return filteredTransactions.sort(
-          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-        )
-      default:
-        return filteredTransactions
-    }
-  }
-
   function removeDate(category: 'date-from' | 'date-to', key: string) {
     setSearchParams((prevParams) => {
       prevParams.delete(category, key)
@@ -117,19 +77,8 @@ export default function useTransactionFilters() {
     })
   }
 
-  function removeSort(key: Sort) {
-    setSearchParams((prevParams) => {
-      prevParams.delete('sort', key)
-      return prevParams
-    })
-  }
-
   function clearFilters() {
     setSearchParams({})
-  }
-
-  function handleCheckbox(key: FilterKey | Sort): boolean {
-    return [...purpose, ...creditCard, ...type, sort].includes(key)
   }
 
   return {
@@ -139,16 +88,11 @@ export default function useTransactionFilters() {
     purpose,
     creditCard,
     type,
-    sort,
     getCreditCardIds,
     setDateFilter,
     setFilter,
-    setSort,
-    sortTransactions,
     removeDate,
     removeFilter,
-    removeSort,
     clearFilters,
-    handleCheckbox,
   }
 }
