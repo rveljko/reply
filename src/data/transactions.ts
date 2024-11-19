@@ -32,6 +32,7 @@ export const tableTransactionHeaders: TableTransactionHeader[] = [
 
 export const transactions: Transaction[] = [
   {
+    id: 28,
     senderName: 'William Garcia',
     senderImage: `${IMAGE_PATH}william-garcia.png`,
     receiverName: userInformations.name,
@@ -44,6 +45,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[0],
   },
   {
+    id: 27,
     senderName: 'Oliver Jones',
     senderImage: `${IMAGE_PATH}oliver-jones.png`,
     receiverName: userInformations.name,
@@ -56,6 +58,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[0],
   },
   {
+    id: 26,
     senderName: userInformations.name,
     senderImage: userInformations.image,
     receiverName: 'Spotify',
@@ -68,6 +71,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[1],
   },
   {
+    id: 25,
     senderName: userInformations.name,
     senderImage: userInformations.image,
     receiverName: 'Shopify',
@@ -80,6 +84,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[0],
   },
   {
+    id: 24,
     senderName: userInformations.name,
     senderImage: userInformations.image,
     receiverName: 'Loom',
@@ -92,6 +97,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[0],
   },
   {
+    id: 23,
     senderName: userInformations.name,
     senderImage: userInformations.image,
     receiverName: 'Adobe Photoshop',
@@ -104,6 +110,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[0],
   },
   {
+    id: 22,
     senderName: userInformations.name,
     senderImage: userInformations.image,
     receiverName: 'Dribbble',
@@ -116,6 +123,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[0],
   },
   {
+    id: 21,
     senderName: userInformations.name,
     senderImage: userInformations.image,
     receiverName: 'Mailchimp',
@@ -128,6 +136,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[0],
   },
   {
+    id: 20,
     senderName: 'Lucas Jones',
     senderImage: `${IMAGE_PATH}lucas-jones.png`,
     receiverName: userInformations.name,
@@ -141,6 +150,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[0],
   },
   {
+    id: 19,
     senderName: 'Jessica Garcia',
     senderImage: `${IMAGE_PATH}jessica-garcia.png`,
     receiverName: userInformations.name,
@@ -153,6 +163,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[0],
   },
   {
+    id: 18,
     senderName: userInformations.name,
     senderImage: userInformations.image,
     receiverName: 'Mia Thomas',
@@ -166,6 +177,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[4],
   },
   {
+    id: 17,
     senderName: userInformations.name,
     senderImage: userInformations.image,
     receiverName: 'Benjamin Miller',
@@ -178,6 +190,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[2],
   },
   {
+    id: 16,
     senderName: 'Henry Johnson',
     senderImage: `${IMAGE_PATH}henry-johnson.png`,
     receiverName: userInformations.name,
@@ -190,8 +203,8 @@ export const transactions: Transaction[] = [
     date: new Date('May 5, 2024 13:05:48'),
     creditCard: creditCards[2],
   },
-
   {
+    id: 15,
     senderName: userInformations.name,
     senderImage: userInformations.image,
     receiverName: 'Noah Williams',
@@ -204,6 +217,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[4],
   },
   {
+    id: 14,
     senderName: userInformations.name,
     senderImage: userInformations.image,
     receiverName: 'Spotify',
@@ -216,6 +230,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[1],
   },
   {
+    id: 13,
     senderName: userInformations.name,
     senderImage: userInformations.image,
     receiverName: 'Shopify',
@@ -228,6 +243,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[0],
   },
   {
+    id: 12,
     senderName: userInformations.name,
     senderImage: userInformations.image,
     receiverName: 'Loom',
@@ -240,6 +256,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[0],
   },
   {
+    id: 11,
     senderName: userInformations.name,
     senderImage: userInformations.image,
     receiverName: 'Adobe Photoshop',
@@ -252,6 +269,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[0],
   },
   {
+    id: 10,
     senderName: 'Lucas Jones',
     senderImage: `${IMAGE_PATH}lucas-jones.png`,
     receiverName: userInformations.name,
@@ -264,6 +282,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[3],
   },
   {
+    id: 9,
     senderName: userInformations.name,
     senderImage: userInformations.image,
     receiverName: 'Benjamin Miller',
@@ -276,6 +295,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[2],
   },
   {
+    id: 8,
     senderName: 'Henry Johnson',
     senderImage: `${IMAGE_PATH}henry-johnson.png`,
     receiverName: userInformations.name,
@@ -289,6 +309,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[2],
   },
   {
+    id: 7,
     senderName: userInformations.name,
     senderImage: userInformations.image,
     receiverName: 'Spotify',
@@ -301,6 +322,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[1],
   },
   {
+    id: 6,
     senderName: userInformations.name,
     senderImage: userInformations.image,
     receiverName: 'Shopify',
@@ -313,6 +335,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[0],
   },
   {
+    id: 5,
     senderName: userInformations.name,
     senderImage: userInformations.image,
     receiverName: 'Loom',
@@ -325,6 +348,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[0],
   },
   {
+    id: 4,
     senderName: userInformations.name,
     senderImage: userInformations.image,
     receiverName: 'Adobe Photoshop',
@@ -337,6 +361,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[0],
   },
   {
+    id: 3,
     senderName: 'Lucas Jones',
     senderImage: `${IMAGE_PATH}lucas-jones.png`,
     receiverName: userInformations.name,
@@ -349,6 +374,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[3],
   },
   {
+    id: 2,
     senderName: userInformations.name,
     senderImage: userInformations.image,
     receiverName: 'Benjamin Miller',
@@ -361,6 +387,7 @@ export const transactions: Transaction[] = [
     creditCard: creditCards[2],
   },
   {
+    id: 1,
     senderName: 'Henry Johnson',
     senderImage: `${IMAGE_PATH}henry-johnson.png`,
     receiverName: userInformations.name,

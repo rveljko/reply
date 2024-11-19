@@ -31,6 +31,7 @@ export type CreditCard = {
 }
 
 export type Transaction = {
+  id: number
   senderName: Sender['name']
   senderImage: Sender['image']
   receiverName: Receiver['name']
