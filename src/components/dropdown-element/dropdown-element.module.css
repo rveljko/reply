@@ -22,10 +22,6 @@
   border-bottom-right-radius: var(--border-radius-sm);
 }
 
-.element:hover {
-  background-color: var(--neutral-700);
-}
-
 .input {
   box-shadow: unset;
   width: max-content;
