@@ -18,6 +18,15 @@ export default function useTransactionFilters() {
   const dateTo = searchParams.get('date-to')
   const creditCard = searchParams.getAll('credit-card') as CreditCardId[]
 
+  const filters = [
+    'purpose',
+    'type',
+    'date-from',
+    'date-to',
+    'credit-card',
+    'sort',
+  ]
+
   const filteredTransactions = transactions.filter((transaction) => {
     const purposes = !purpose.length || purpose.includes(transaction.purpose)
     const types = !type.length || type.includes(transaction.type)
@@ -78,7 +87,12 @@ export default function useTransactionFilters() {
   }
 
   function clearFilters() {
-    setSearchParams({})
+    setSearchParams((prevParams) => {
+      filters.forEach((filter) => {
+        prevParams.delete(filter)
+      })
+      return prevParams
+    })
   }
 
   return {
