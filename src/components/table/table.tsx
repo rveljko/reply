@@ -19,11 +19,13 @@ import useTransaction from '../../hooks/use-transaction'
 type TableProps = React.ComponentPropsWithoutRef<'table'> & {
   transactions: Transaction[]
   tableTransactionHeaders: TableTransactionHeader[]
+  isLinkable?: boolean
 }
 
 export default function Table({
   transactions,
   tableTransactionHeaders,
+  isLinkable,
   ...props
 }: TableProps) {
   const { setTransactionId } = useTransaction()
