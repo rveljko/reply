@@ -6,6 +6,14 @@ type Base = {
 export type Sender = Base
 export type Receiver = Base
 
+export type Route = {
+  id: number
+  name: string
+  href: string
+  icon: () => JSX.Element
+  page: () => JSX.Element
+}
+
 export type Type = 'Sent' | 'Received'
 
 export type Purpose = 'Bills' | 'Gift' | 'Others' | 'Subscription'

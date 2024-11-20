@@ -8,16 +8,9 @@ import MyCardsPage from '../pages/my-cards-page/my-cards-page'
 import MyWalletPage from '../pages/my-wallet-page/my-wallet-page'
 import RecentTransactionsPage from '../pages/recent-transactions-page/recent-transactions-page'
 import SettingsPage from '../pages/settings-page/settings-page'
+import { Route } from './types'
 
-type route = {
-  id: number
-  name: string
-  href: string
-  icon: () => JSX.Element
-  page: () => JSX.Element
-}
-
-export const dashboardRoutes: route[] = [
+export const dashboardRoutes: Route[] = [
   {
     id: 1,
     name: 'My Wallet',
