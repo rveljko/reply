@@ -16,7 +16,7 @@ export function Select({
   ...props
 }: SelectProps) {
   return (
-    <div>
+    <div className={styles.wrapper}>
       <label htmlFor={label.split(' ').join('').toLocaleLowerCase()}>
         {label}
         {optional && <span className={styles.optional}>(optional)</span>}
