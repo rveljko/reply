@@ -21,7 +21,7 @@ export default function Input({
         className={styles.label}
       >
         {label}
-        <span className={styles.optional}>{optional ? '(optional)' : ''}</span>
+        {optional && <span className={styles.optional}>(optional)</span>}
       </label>
       <div className={styles.iconWrapper}>
         {Icon}
