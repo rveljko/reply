@@ -30,7 +30,7 @@ export default function TransactionsContextProvider({
 
   function addNewTransaction(newTransaction: Transaction) {
     setTransactions((currentTransactions: Transaction[]) => [
-      newTransaction,
+      { ...newTransaction, id: transactions[0].id + 1 },
       ...currentTransactions,
     ])
   }

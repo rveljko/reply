@@ -2,7 +2,7 @@ import { useState } from 'react'
 import CashIcon from '../../icons/cash-icon'
 import GiftIcon from '../../icons/gift-icon'
 import UserIcon from '../../icons/user-icon'
-import { Transaction } from '../../utils/types'
+import { Purpose, Transaction } from '../../utils/types'
 import Button from '../button/button'
 import Input from '../input/input'
 import TextArea from '../text-area/text-area'
@@ -10,6 +10,11 @@ import styles from './send-money-modal.module.css'
 import { IMAGE_PATH } from '../../utils/constants'
 import { userInformations } from '../../data/transactions'
 import { useTransactions } from '../../utils/contexts/transactions-context'
+import { creditCards } from '../../data/credit-cards'
+import { Select, Option } from '../select-option/select-option'
+import CreditCardPayIcon from '../../icons/credit-card-pay-icon'
+import { getEndingLastFourDigits } from '../../utils/helpers/get-last-four-digits'
+import { purposes } from '../../data/purposes'
 
 type SendMoneyModalProps = {
   dialogRef: React.RefObject<HTMLDialogElement>
@@ -17,6 +22,7 @@ type SendMoneyModalProps = {
 
 export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
   const initialFormFieldsValues: Transaction = {
+    id: 0,
     senderName: userInformations.name,
     senderImage: userInformations.image,
     receiverImage: '',
@@ -26,6 +32,7 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
     type: 'Sent',
     message: '',
     date: new Date(),
+    creditCard: '',
   }
 
   const [formFields, setFormFields] = useState(initialFormFieldsValues)
@@ -62,6 +69,33 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
               })
             }
           />
+          <Select
+            label="Credit Card"
+            icon={<CreditCardPayIcon />}
+            value={
+              typeof formFields.creditCard === 'object'
+                ? formFields.creditCard.id.toString()
+                : ''
+            }
+            onChange={(e) => {
+              setFormFields({
+                ...formFields,
+                creditCard: creditCards[parseInt(e.target.value) - 1],
+              })
+            }}
+          >
+            <Option label="Select a credit card" disabled value="" />
+            {creditCards.map((creditCard) => (
+              <Option
+                value={creditCard.id.toString()}
+                key={creditCard.id}
+                label={`${creditCard.name} ${getEndingLastFourDigits(
+                  creditCard.numbers,
+                  true
+                )}`}
+              />
+            ))}
+          </Select>
           <Input
             label="Amount"
             icon={<CashIcon />}
@@ -74,19 +108,22 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
               })
             }
           />
-          <Input
+          <Select
             label="Purpose"
             icon={<GiftIcon />}
-            placeholder="Gift"
-            type="text"
-            value={formFields.purpose}
-            onChange={(e) =>
+            value={formFields.purpose || ''}
+            onChange={(e) => {
               setFormFields({
                 ...formFields,
-                purpose: e.target.value,
+                purpose: e.target.value as Purpose,
               })
-            }
-          />
+            }}
+          >
+            <Option label="Select a purpose" disabled value="" />
+            {purposes.map(({ id, purpose }) => (
+              <Option key={id} label={purpose} value={purpose} />
+            ))}
+          </Select>
           <TextArea
             label="Message"
             placeholder="Hi Liam! IYKYK"
