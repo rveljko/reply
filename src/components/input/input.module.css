@@ -11,7 +11,7 @@
 
 .input {
   position: relative;
-  padding-left: calc(var(--space-xlg) + var(--space-lg) + var(--space-md));
+  text-indent: calc(var(--space-sm) + var(--icon-size-sm));
 }
 
 .input:focus {
