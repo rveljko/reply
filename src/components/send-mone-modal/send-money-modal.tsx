@@ -38,6 +38,12 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
   const [formFields, setFormFields] = useState(initialFormFieldsValues)
   const { addNewTransaction } = useTransactions()
 
+  const isButtonDisabled =
+    !formFields.receiverName ||
+    !formFields.creditCard ||
+    formFields.amount <= 0 ||
+    !formFields.purpose
+
   return (
     <article className={styles.modal}>
       <form
@@ -148,6 +154,7 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
               size="large"
               className={styles.button}
               type="submit"
+              disabled={isButtonDisabled}
             >
               Send Money
             </Button>
