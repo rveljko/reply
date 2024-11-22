@@ -60,6 +60,7 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
         </div>
         <div className={styles.body}>
           <Input
+            type="text"
             label="Send To"
             icon={<UserIcon />}
             placeholder="Liam Smith"
@@ -103,14 +104,17 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
             ))}
           </Select>
           <Input
+            type="number"
             label="Amount"
             icon={<CashIcon />}
             placeholder="$420.69"
             value={formFields.amount || ''}
+            min={0}
+            step={0.01}
             onChange={(e) =>
               setFormFields({
                 ...formFields,
-                amount: parseFloat(e.target.value),
+                amount: parseFloat(parseFloat(e.target.value).toFixed(2)),
               })
             }
           />

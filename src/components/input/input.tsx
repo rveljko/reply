@@ -1,6 +1,7 @@
 import styles from './input.module.css'
 
 type InputProps = React.ComponentPropsWithoutRef<'input'> & {
+  type: 'text' | 'number'
   label: string
   icon?: JSX.Element
   placeholder: string
@@ -8,6 +9,7 @@ type InputProps = React.ComponentPropsWithoutRef<'input'> & {
 }
 
 export default function Input({
+  type,
   label,
   icon: Icon,
   placeholder,
@@ -26,7 +28,7 @@ export default function Input({
       <div className={styles.iconWrapper}>
         {Icon}
         <input
-          type="text"
+          type={type}
           id={label.split(' ').join('').toLocaleLowerCase()}
           placeholder={placeholder}
           className={styles.input}
