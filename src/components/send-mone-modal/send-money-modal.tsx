@@ -138,7 +138,7 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
               variant="secondary"
               size="large"
               className={styles.button}
-              formNoValidate
+              type="button"
               onClick={() => dialogRef.current?.close()}
             >
               Cancel

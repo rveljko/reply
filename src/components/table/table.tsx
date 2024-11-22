@@ -83,8 +83,9 @@ export default function Table({
                 <TableBodyCell>{purpose}</TableBodyCell>
                 <TableBodyCell>
                   <TableBodyCellGroup>
-                    <img src={creditCard.logo} alt="" />
-                    {getEndingLastFourDigits(creditCard.numbers)}
+                    <img src={creditCard && creditCard.logo} alt="" />
+                    {typeof creditCard === 'object' &&
+                      getEndingLastFourDigits(creditCard.numbers)}
                   </TableBodyCellGroup>
                 </TableBodyCell>
                 <TableBodyCell
