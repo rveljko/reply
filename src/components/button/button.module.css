@@ -55,12 +55,15 @@
 
 .large {
   padding: var(--space-md) var(--space-xlg);
+  height: var(--button-height-lg);
 }
 
 .medium {
   padding: var(--space-xsm) var(--space-md);
+  height: var(--button-height-md);
 }
 
 .small {
   padding: var(--space-xsm);
+  height: var(--button-height-sm);
 }
