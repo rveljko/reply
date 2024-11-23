@@ -10,6 +10,7 @@ type CreditCardsContextType = {
   creditCards: CreditCard[]
   getCreditCardById: (id: number) => CreditCard | undefined
   activeCreditCards: CreditCard[]
+  updateBalanceAndExpenses: (creditCard: CreditCard, amount: number) => void
 }
 
 export const CreditCardsContext = createContext<CreditCardsContextType | null>(
@@ -29,7 +30,10 @@ export default function CreditCardsContextProvider({
   )
 
   useEffect(() => {
-    localStorage.setItem('credit-cards', JSON.stringify(creditCards))
+    localStorage.setItem(
+      'credit-cards',
+      JSON.stringify([...creditCards].sort((a, b) => a.id - b.id))
+    )
   }, [creditCards])
 
   const activeCreditCards = creditCards.filter(({ isActive }) => isActive)
@@ -38,9 +42,31 @@ export default function CreditCardsContextProvider({
     return creditCards.find((creditCard) => creditCard.id === id)
   }
 
+  function updateBalanceAndExpenses(creditCard: CreditCard, amount: number) {
+    setCreditCards((prevCreditCards) => {
+      const matchingCreditCard = prevCreditCards.find(
+        ({ id }) => id === creditCard.id
+      ) as CreditCard
+
+      return [
+        ...prevCreditCards.filter(({ id }) => id !== matchingCreditCard.id),
+        {
+          ...matchingCreditCard,
+          balance: matchingCreditCard.balance - amount,
+          expenses: matchingCreditCard.expenses + amount,
+        },
+      ]
+    })
+  }
+
   return (
     <CreditCardsContext.Provider
-      value={{ creditCards, activeCreditCards, getCreditCardById }}
+      value={{
+        creditCards,
+        activeCreditCards,
+        getCreditCardById,
+        updateBalanceAndExpenses,
+      }}
     >
       {children}
     </CreditCardsContext.Provider>

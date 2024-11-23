@@ -37,7 +37,8 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
 
   const [formFields, setFormFields] = useState(initialFormFieldsValues)
   const { addNewTransaction } = useTransactions()
-  const { getCreditCardById, activeCreditCards } = useCreditCards()
+  const { activeCreditCards, getCreditCardById, updateBalanceAndExpenses } =
+    useCreditCards()
 
   const isButtonDisabled =
     !formFields.receiverName ||
@@ -51,6 +52,10 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
         onSubmit={(e) => {
           e.preventDefault()
 
+          updateBalanceAndExpenses(
+            formFields.creditCard as CreditCard,
+            formFields.amount
+          )
           addNewTransaction(formFields)
           setFormFields(initialFormFieldsValues)
           dialogRef.current?.close()
