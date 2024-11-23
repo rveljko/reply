@@ -8,6 +8,7 @@ type CreditCardsContextProviderProps = {
 
 type CreditCardsContextType = {
   creditCards: CreditCard[]
+  getCreditCardById: (id: number) => CreditCard | undefined
   activeCreditCards: CreditCard[]
 }
 
@@ -31,12 +32,16 @@ export default function CreditCardsContextProvider({
     localStorage.setItem('credit-cards', JSON.stringify(creditCards))
   }, [creditCards])
 
-  const activeCreditCards = creditCards.filter(
-    (creditCard) => creditCard.isActive
-  )
+  const activeCreditCards = creditCards.filter(({ isActive }) => isActive)
+
+  function getCreditCardById(id: number) {
+    return creditCards.find((creditCard) => creditCard.id === id)
+  }
 
   return (
-    <CreditCardsContext.Provider value={{ creditCards, activeCreditCards }}>
+    <CreditCardsContext.Provider
+      value={{ creditCards, activeCreditCards, getCreditCardById }}
+    >
       {children}
     </CreditCardsContext.Provider>
   )

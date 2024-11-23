@@ -2,7 +2,7 @@ import { useState } from 'react'
 import CashIcon from '../../icons/cash-icon'
 import GiftIcon from '../../icons/gift-icon'
 import UserIcon from '../../icons/user-icon'
-import { Purpose, Transaction } from '../../utils/types'
+import { CreditCard, Purpose, Transaction } from '../../utils/types'
 import Button from '../button/button'
 import Input from '../input/input'
 import TextArea from '../text-area/text-area'
@@ -10,11 +10,11 @@ import styles from './send-money-modal.module.css'
 import { IMAGE_PATH } from '../../utils/constants'
 import { userInformations } from '../../data/transactions'
 import { useTransactions } from '../../utils/contexts/transactions-context'
-import { creditCards } from '../../data/credit-cards'
 import { Select, Option } from '../select-option/select-option'
 import CreditCardPayIcon from '../../icons/credit-card-pay-icon'
 import { getEndingLastFourDigits } from '../../utils/helpers/get-last-four-digits'
 import { purposes } from '../../data/purposes'
+import { useCreditCards } from '../../utils/contexts/credit-cards-context'
 
 type SendMoneyModalProps = {
   dialogRef: React.RefObject<HTMLDialogElement>
@@ -37,6 +37,7 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
 
   const [formFields, setFormFields] = useState(initialFormFieldsValues)
   const { addNewTransaction } = useTransactions()
+  const { getCreditCardById, activeCreditCards } = useCreditCards()
 
   const isButtonDisabled =
     !formFields.receiverName ||
@@ -87,19 +88,18 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
             onChange={(e) => {
               setFormFields({
                 ...formFields,
-                creditCard: creditCards[parseInt(e.target.value) - 1],
+                creditCard: getCreditCardById(
+                  parseInt(e.target.value)
+                ) as CreditCard,
               })
             }}
           >
             <Option label="Select a credit card" disabled value="" />
-            {creditCards.map((creditCard) => (
+            {activeCreditCards.map(({ id, name, numbers }) => (
               <Option
-                value={creditCard.id.toString()}
-                key={creditCard.id}
-                label={`${creditCard.name} ${getEndingLastFourDigits(
-                  creditCard.numbers,
-                  true
-                )}`}
+                value={id.toString()}
+                key={id}
+                label={`${name} ${getEndingLastFourDigits(numbers, true)}`}
               />
             ))}
           </Select>
