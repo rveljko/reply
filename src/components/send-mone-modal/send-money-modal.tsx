@@ -15,6 +15,7 @@ import CreditCardPayIcon from '../../icons/credit-card-pay-icon'
 import { getEndingLastFourDigits } from '../../utils/helpers/get-last-four-digits'
 import { purposes } from '../../data/purposes'
 import { useCreditCards } from '../../utils/contexts/credit-cards-context'
+import ErrorMessage from '../error-message/error-message'
 
 type SendMoneyModalProps = {
   dialogRef: React.RefObject<HTMLDialogElement>
@@ -36,9 +37,14 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
   }
 
   const [formFields, setFormFields] = useState(initialFormFieldsValues)
+  const [errorMessage, setErrorMessage] = useState('')
   const { addNewTransaction } = useTransactions()
-  const { activeCreditCards, getCreditCardById, updateBalanceAndExpenses } =
-    useCreditCards()
+  const {
+    activeCreditCards,
+    getCreditCardById,
+    getCrediCardBalance,
+    updateBalanceAndExpenses,
+  } = useCreditCards()
 
   const isButtonDisabled =
     !formFields.receiverName ||
@@ -51,6 +57,14 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
       <form
         onSubmit={(e) => {
           e.preventDefault()
+
+          if (
+            formFields.amount >
+            getCrediCardBalance(formFields.creditCard as CreditCard)
+          ) {
+            setErrorMessage('Error: You dont have enough money for transfer')
+            return
+          }
 
           updateBalanceAndExpenses(
             formFields.creditCard as CreditCard,
@@ -148,6 +162,7 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
               setFormFields({ ...formFields, message: e.target.value })
             }
           />
+          {errorMessage && <ErrorMessage errorMessage={errorMessage} />}
           <div className={styles.buttons}>
             <Button
               variant="secondary"
@@ -164,6 +179,7 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
               className={styles.button}
               type="submit"
               disabled={isButtonDisabled}
+              onClick={() => setErrorMessage('')}
             >
               Send Money
             </Button>
