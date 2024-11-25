@@ -42,7 +42,7 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
   const {
     activeCreditCards,
     getCreditCardById,
-    getCrediCardBalance,
+    getCreditCardBalance,
     updateBalanceAndExpenses,
   } = useCreditCards()
 
@@ -60,7 +60,7 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
 
           if (
             formFields.amount >
-            getCrediCardBalance(formFields.creditCard as CreditCard)
+            getCreditCardBalance(formFields.creditCard as CreditCard)
           ) {
             setErrorMessage('Error: You dont have enough money for transfer')
             return
