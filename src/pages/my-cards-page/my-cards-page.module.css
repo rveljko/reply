@@ -1,5 +1,12 @@
-.tertiaryLayout {
+.layout {
   display: flex;
-  flex-direction: column;
   gap: calc(var(--space-lg) * 2);
+}
+
+.vertical {
+  flex-direction: column;
+}
+
+.horizontal {
+  flex-direction: row;
 }
