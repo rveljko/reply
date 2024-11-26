@@ -1,6 +1,7 @@
 .layout {
   display: flex;
   gap: calc(var(--space-lg) * 2);
+  width: 100%;
 }
 
 .vertical {

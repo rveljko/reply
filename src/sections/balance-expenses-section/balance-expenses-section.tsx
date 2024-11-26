@@ -13,9 +13,11 @@ export default function BalanceExpensesSection({
 }: BalanceExpensesSectionProps) {
   return (
     <Section>
-      <div>
+      <div className={styles.wrapper}>
         <p className={styles.title}>{title}</p>
-        <h2 className={styles.amount}>{currencyFormatter(amount)}</h2>
+        <div>
+          <h2 className={styles.amount}>{currencyFormatter(amount)}</h2>
+        </div>
       </div>
     </Section>
   )

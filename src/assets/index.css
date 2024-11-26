@@ -98,7 +98,7 @@
   --button-height-md: 32px;
   --button-height-sm: 30px;
   --font-primary: 'Switzer', sans-serif;
-  --heading1: 3rem;
+  --heading1: 2.5rem;
   --heading2: 1.2rem;
   --heading3: 1.125rem;
   --heading4: 1rem;
@@ -276,6 +276,10 @@ main {
 }
 
 @media (min-width: 768px) {
+  :root {
+    --heading1: 3rem;
+  }
+
   main {
     padding-block: calc(var(--space-lg) * 2);
   }
