@@ -3,7 +3,8 @@
   background-image: var(--modal-background);
   padding: var(--space-lg);
   border-radius: var(--border-radius-md);
-  width: var(--credit-card-width);
+  max-width: var(--credit-card-width);
+  width: 100%;
   aspect-ratio: 1.59 / 1;
   box-shadow: inset 0 0 0 var(--border-width) var(--section-outline);
   display: flex;
@@ -29,7 +30,7 @@
 }
 
 .numbers {
-  font-size: calc(var(--paragraph) * 2);
+  font-size: var(--paragraph-lg);
 }
 
 .list {
@@ -39,4 +40,10 @@
 
 .label {
   color: var(--neutral-400);
+}
+
+@media (min-width: 1024px) {
+  .numbers {
+    font-size: calc(var(--paragraph) * 2);
+  }
 }

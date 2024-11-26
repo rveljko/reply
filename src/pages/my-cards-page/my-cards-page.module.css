@@ -1,13 +1,41 @@
-.layout {
+.primaryLayout,
+.secondaryLayout,
+.tertiaryLayout {
   display: flex;
-  gap: calc(var(--space-lg) * 2);
+  gap: var(--space-lg);
   width: 100%;
 }
 
-.vertical {
+.primaryLayout,
+.tertiaryLayout {
   flex-direction: column;
 }
 
-.horizontal {
-  flex-direction: row;
+.secondaryLayout {
+  flex-direction: column-reverse;
+}
+
+.wideChild {
+  flex: 6;
+  width: 100%;
+}
+
+.narrowChild {
+  flex: 4;
+}
+
+.narrowChild section {
+  height: 100%;
+}
+
+@media (min-width: 1024px) {
+  .primaryLayout,
+  .secondaryLayout,
+  .tertiaryLayout {
+    gap: calc(var(--space-lg) * 2);
+  }
+
+  .secondaryLayout {
+    flex-direction: row;
+  }
 }

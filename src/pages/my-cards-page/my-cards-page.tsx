@@ -15,10 +15,12 @@ export default function MyCardsPage() {
   const creditCard = getCreditCardById(1)!
 
   return (
-    <div className={`${styles.layout} ${styles.vertical}`}>
-      <div className={`${styles.layout} ${styles.horizontal}`}>
-        <MyCardsSection creditCard={creditCard} />
-        <div className={`${styles.layout} ${styles.vertical}`}>
+    <div className={styles.primaryLayout}>
+      <div className={styles.secondaryLayout}>
+        <div className={styles.wideChild}>
+          <MyCardsSection creditCard={creditCard} />
+        </div>
+        <div className={`${styles.tertiaryLayout} ${styles.narrowChild}`}>
           <BalanceExpensesSection
             title="Balance"
             amount={getCreditCardBalance(creditCard as CreditCard)}
@@ -29,7 +31,7 @@ export default function MyCardsPage() {
           />
         </div>
       </div>
-      <div className={`${styles.layout} ${styles.horizontal}`}>
+      <div className={styles.secondaryLayout}>
         <RecentTransactionsSection
           tableTransactionHeaders={tableTransactionHeaders}
           transactions={transactions.slice(0, 5)}

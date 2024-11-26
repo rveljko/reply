@@ -1,3 +1,10 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
 .amount {
   display: inline-block;
   text-overflow: ellipsis;
