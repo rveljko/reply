@@ -1,4 +1,5 @@
 import { shortDateFormatter } from '../../utils/helpers/date-formatters'
+import displayCreditCardCvv from '../../utils/helpers/display-credit-card-cvv'
 import displayCreditCardNumbers from '../../utils/helpers/display-credit-card-numbers'
 import { CreditCard as CreditCardType } from '../../utils/types'
 import CreditCardStatus from '../credit-card-status/credit-card-status'
@@ -33,7 +34,9 @@ export default function CreditCard({ creditCard }: CreditCardProps) {
             </li>
             <li className={styles.listItem}>
               <span className={styles.label}>CVV</span>
-              <p className={styles.cvv}>{creditCard.cvv}</p>
+              <p className={styles.cvv}>
+                {displayCreditCardCvv(creditCard.cvv)}
+              </p>
             </li>
           </ul>
         </div>
