@@ -1,5 +1,5 @@
-import { shortDateFormatter } from '../../utils/helpers/date-formatters'
 import displayCreditCardCvv from '../../utils/helpers/display-credit-card-cvv'
+import displayCreditCardExpDate from '../../utils/helpers/display-credit-card-exp-date'
 import displayCreditCardNumbers from '../../utils/helpers/display-credit-card-numbers'
 import { CreditCard as CreditCardType } from '../../utils/types'
 import CreditCardStatus from '../credit-card-status/credit-card-status'
@@ -29,7 +29,7 @@ export default function CreditCard({ creditCard }: CreditCardProps) {
             <li className={styles.listItem}>
               <span className={styles.label}>EXP</span>
               <p className={styles.exp}>
-                {shortDateFormatter(creditCard.expirationDate.toString())}
+                {displayCreditCardExpDate(creditCard.expirationDate.toString())}
               </p>
             </li>
             <li className={styles.listItem}>
