@@ -4,6 +4,7 @@ import { CreditCard } from '../utils/types'
 export const creditCards: CreditCard[] = [
   {
     id: 1,
+    owner: 'James Williams',
     name: 'Visa',
     logo: `${IMAGE_PATH}visa.svg`,
     numbers: 4773887710161123,
@@ -15,6 +16,7 @@ export const creditCards: CreditCard[] = [
   },
   {
     id: 2,
+    owner: 'James Williams',
     name: 'Mastercard',
     logo: `${IMAGE_PATH}mastercard.svg`,
     numbers: 5415438622581283,
@@ -26,6 +28,7 @@ export const creditCards: CreditCard[] = [
   },
   {
     id: 3,
+    owner: 'James Williams',
     name: 'Visa',
     logo: `${IMAGE_PATH}visa.svg`,
     numbers: 4200478571331928,
@@ -37,6 +40,7 @@ export const creditCards: CreditCard[] = [
   },
   {
     id: 4,
+    owner: 'James Williams',
     name: 'Visa',
     logo: `${IMAGE_PATH}visa.svg`,
     numbers: 4619078215671827,
@@ -48,6 +52,7 @@ export const creditCards: CreditCard[] = [
   },
   {
     id: 5,
+    owner: 'James Williams',
     name: 'Mastercard',
     logo: `${IMAGE_PATH}mastercard.svg`,
     numbers: 4773887710161432,

@@ -1,0 +1,42 @@
+.card {
+  --border-width: 0.125rem;
+  background-image: var(--modal-background);
+  padding: var(--space-lg);
+  border-radius: var(--border-radius-md);
+  width: var(--credit-card-width);
+  aspect-ratio: 1.59 / 1;
+  box-shadow: inset 0 0 0 var(--border-width) var(--section-outline);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.owner {
+  color: var(--neutral-100);
+}
+
+.numbers,
+.exp,
+.cvv {
+  color: var(--white);
+}
+
+.numbers {
+  font-size: calc(var(--paragraph) * 2);
+}
+
+.list {
+  display: flex;
+  gap: var(--space-xlg);
+}
+
+.label {
+  color: var(--neutral-400);
+}

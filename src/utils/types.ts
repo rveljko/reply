@@ -28,6 +28,7 @@ export type Sort =
 
 export type CreditCard = {
   id: number
+  owner: string
   name: 'Visa' | 'Mastercard'
   logo: string
   numbers: number

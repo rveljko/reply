@@ -5,17 +5,19 @@ import { CreditCard } from '../../utils/types'
 import RecentTransactionsSection from '../../sections/recent-transactions-section/recent-transactions-section'
 import { tableTransactionHeaders } from '../../data/transactions'
 import { useTransactions } from '../../utils/contexts/transactions-context'
+import MyCardsSection from '../../sections/my-cards-section/my-cards-section'
 
 export default function MyCardsPage() {
   const { getCreditCardBalance, getCreditCardExpenses, getCreditCardById } =
     useCreditCards()
 
   const { transactions } = useTransactions()
-  const creditCard = getCreditCardById(1)
+  const creditCard = getCreditCardById(1)!
 
   return (
     <div className={`${styles.layout} ${styles.vertical}`}>
       <div className={`${styles.layout} ${styles.horizontal}`}>
+        <MyCardsSection creditCard={creditCard} />
         <div className={`${styles.layout} ${styles.vertical}`}>
           <BalanceExpensesSection
             title="Balance"
