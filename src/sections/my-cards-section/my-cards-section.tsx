@@ -9,6 +9,7 @@ import { CreditCard as CreditCardType } from '../../utils/types'
 import Section from '../section/section'
 import styles from './my-cards-section.module.css'
 import { useCreditCards } from '../../utils/contexts/credit-cards-context'
+import CreditCardPagination from '../../components/credit-cards-pagination/credit-cards-pagination'
 
 type MyCardsSectionProps = {
   creditCard: CreditCardType
@@ -63,6 +64,13 @@ export default function MyCardsSection({
           >
             <ChevronLeftIcon />
           </button>
+        </li>
+        <li>
+          <CreditCardPagination
+            creditCards={creditCards}
+            creditCardIndex={creditCardIndex}
+            setCreditCardIndex={setCreditCardIndex}
+          />
         </li>
         <li>
           <button
