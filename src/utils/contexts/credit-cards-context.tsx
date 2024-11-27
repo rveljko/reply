@@ -9,9 +9,11 @@ type CreditCardsContextProviderProps = {
 type CreditCardsContextType = {
   creditCards: CreditCard[]
   getCreditCardById: (id: number) => CreditCard | undefined
+  getCreditCardByIndex: (index: number) => CreditCard
   getCreditCardBalance: (creditCard: CreditCard) => number
   getCreditCardExpenses: (creditCard: CreditCard) => number
   activeCreditCards: CreditCard[]
+  removeCreditCard: (index: number) => void
   updateBalanceAndExpenses: (creditCard: CreditCard, amount: number) => void
 }
 
@@ -44,12 +46,22 @@ export default function CreditCardsContextProvider({
     return creditCards.find((creditCard) => creditCard.id === id)
   }
 
+  function getCreditCardByIndex(index: number) {
+    return creditCards[index]
+  }
+
   function getCreditCardBalance(creditCard: CreditCard) {
     return creditCard.balance
   }
 
   function getCreditCardExpenses(creditCard: CreditCard) {
     return creditCard.expenses
+  }
+
+  function removeCreditCard(cardIndex: number) {
+    setCreditCards((prevCreditCards) =>
+      prevCreditCards.filter((_, index) => index !== cardIndex)
+    )
   }
 
   function updateBalanceAndExpenses(creditCard: CreditCard, amount: number) {
@@ -75,8 +87,10 @@ export default function CreditCardsContextProvider({
         creditCards,
         activeCreditCards,
         getCreditCardById,
+        getCreditCardByIndex,
         getCreditCardBalance,
         getCreditCardExpenses,
+        removeCreditCard,
         updateBalanceAndExpenses,
       }}
     >

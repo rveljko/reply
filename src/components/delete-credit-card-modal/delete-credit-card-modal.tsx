@@ -1,14 +1,19 @@
 import { IMAGE_PATH } from '../../utils/constants'
+import { useCreditCards } from '../../utils/contexts/credit-cards-context'
 import Button from '../button/button'
 import styles from './delete-credit-card-modal.module.css'
 
 type DeleteCreditCardModalProps = {
   dialogRef: React.RefObject<HTMLDialogElement>
+  creditCardIndex: number
 }
 
 export default function DeleteCreditCardModal({
   dialogRef,
+  creditCardIndex,
 }: DeleteCreditCardModalProps) {
+  const { removeCreditCard } = useCreditCards()
+
   return (
     <article className={styles.modal}>
       <img
@@ -32,7 +37,15 @@ export default function DeleteCreditCardModal({
         >
           Cancel
         </Button>
-        <Button variant="danger" size="large" className={styles.button}>
+        <Button
+          variant="danger"
+          size="large"
+          className={styles.button}
+          onClick={() => {
+            removeCreditCard(creditCardIndex)
+            dialogRef.current?.close()
+          }}
+        >
           Delete
         </Button>
       </div>

@@ -6,19 +6,23 @@ import RecentTransactionsSection from '../../sections/recent-transactions-sectio
 import { tableTransactionHeaders } from '../../data/transactions'
 import { useTransactions } from '../../utils/contexts/transactions-context'
 import MyCardsSection from '../../sections/my-cards-section/my-cards-section'
+import { useState } from 'react'
 
 export default function MyCardsPage() {
-  const { getCreditCardBalance, getCreditCardExpenses, getCreditCardById } =
-    useCreditCards()
-
+  const {
+    getCreditCardBalance,
+    getCreditCardExpenses,
+    getCreditCardByIndex,
+  } = useCreditCards()
   const { transactions } = useTransactions()
-  const creditCard = getCreditCardById(1)!
+  const [creditCardIndex, setCreditCardIndex] = useState(0)
+  const creditCard = getCreditCardByIndex(creditCardIndex)!
 
   return (
     <div className={styles.primaryLayout}>
       <div className={styles.secondaryLayout}>
         <div className={styles.wideChild}>
-          <MyCardsSection creditCard={creditCard} />
+          <MyCardsSection creditCardIndex={creditCardIndex} setCreditCardIndex={setCreditCardIndex} creditCard={creditCard} />
         </div>
         <div className={`${styles.tertiaryLayout} ${styles.narrowChild}`}>
           <BalanceExpensesSection

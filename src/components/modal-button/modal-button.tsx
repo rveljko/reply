@@ -16,6 +16,7 @@ export default function ModalButton({
   icon: Icon,
   children,
   className,
+  ...props
 }: ModalButtonProps) {
   return (
     <>
@@ -26,6 +27,7 @@ export default function ModalButton({
         onClick={() => {
           dialogRef.current?.showModal()
         }}
+        {...props}
       >
         {Icon}
         <span>{label}</span>

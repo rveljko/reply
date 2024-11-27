@@ -8,13 +8,21 @@ import TrashIcon from '../../icons/trash-icon'
 import { CreditCard as CreditCardType } from '../../utils/types'
 import Section from '../section/section'
 import styles from './my-cards-section.module.css'
+import { useCreditCards } from '../../utils/contexts/credit-cards-context'
 
 type MyCardsSectionProps = {
   creditCard: CreditCardType
+  creditCardIndex: number
+  setCreditCardIndex: React.Dispatch<React.SetStateAction<number>>
 }
 
-export default function MyCardsSection({ creditCard }: MyCardsSectionProps) {
+export default function MyCardsSection({
+  creditCard,
+  creditCardIndex,
+  setCreditCardIndex,
+}: MyCardsSectionProps) {
   const dialogRef = useRef<HTMLDialogElement>(null)
+  const { creditCards } = useCreditCards()
 
   return (
     <Section>
@@ -28,8 +36,12 @@ export default function MyCardsSection({ creditCard }: MyCardsSectionProps) {
               icon={<TrashIcon />}
               label="Remove"
               dialogRef={dialogRef}
+              disabled={creditCards.length === 1}
             >
-              <DeleteCreditCardModal dialogRef={dialogRef} />
+              <DeleteCreditCardModal
+                creditCardIndex={creditCardIndex}
+                dialogRef={dialogRef}
+              />
             </ModalButton>
           </li>
         </ul>
@@ -39,12 +51,30 @@ export default function MyCardsSection({ creditCard }: MyCardsSectionProps) {
       </div>
       <ul className={styles.buttons}>
         <li>
-          <button className={styles.button}>
+          <button
+            className={styles.button}
+            onClick={() => {
+              setCreditCardIndex((prevCreditCardIndex) =>
+                prevCreditCardIndex <= 0
+                  ? (prevCreditCardIndex = creditCards.length - 1)
+                  : prevCreditCardIndex - 1
+              )
+            }}
+          >
             <ChevronLeftIcon />
           </button>
         </li>
         <li>
-          <button className={styles.button}>
+          <button
+            className={styles.button}
+            onClick={() => {
+              setCreditCardIndex((prevCreditCardIndex) =>
+                prevCreditCardIndex >= creditCards.length - 1
+                  ? (prevCreditCardIndex = 0)
+                  : prevCreditCardIndex + 1
+              )
+            }}
+          >
             <ChevronRightIcon />
           </button>
         </li>
