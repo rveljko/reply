@@ -1,25 +1,27 @@
 import Button from '../button/button'
 import Dialog from '../dialog/dialog'
-
-type ModalButtonProps = React.ComponentPropsWithoutRef<'button'> & {
-  dialogRef: React.RefObject<HTMLDialogElement>
-  label: string
-  icon: JSX.Element
-  modal: JSX.Element
-}
+import { ButtonProps } from '../button/button'
+type ModalButtonProps = React.ComponentPropsWithoutRef<'button'> &
+  ButtonProps & {
+    dialogRef: React.RefObject<HTMLDialogElement>
+    label: string
+    icon: JSX.Element
+  }
 
 export default function ModalButton({
+  variant,
+  size,
   dialogRef,
   label,
   icon: Icon,
-  modal: Modal,
+  children,
   className,
 }: ModalButtonProps) {
   return (
     <>
       <Button
-        variant="primary"
-        size="small"
+        variant={variant}
+        size={size}
         className={className}
         onClick={() => {
           dialogRef.current?.showModal()
@@ -28,7 +30,7 @@ export default function ModalButton({
         {Icon}
         <span>{label}</span>
       </Button>
-      <Dialog dialogRef={dialogRef}>{Modal}</Dialog>
+      <Dialog dialogRef={dialogRef}>{children}</Dialog>
     </>
   )
 }

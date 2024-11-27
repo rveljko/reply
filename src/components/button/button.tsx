@@ -8,6 +8,7 @@ const button = cva(styles.base, {
       secondary: styles.secondary,
       tertiary: styles.tertiary,
       ghost: styles.ghost,
+      danger: styles.danger,
     },
     size: {
       large: styles.large,

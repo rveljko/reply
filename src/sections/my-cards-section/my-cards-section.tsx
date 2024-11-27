@@ -1,5 +1,7 @@
-import Button from '../../components/button/button'
+import { useRef } from 'react'
 import CreditCard from '../../components/credit-card/credit-card'
+import DeleteCreditCardModal from '../../components/delete-credit-card-modal/delete-credit-card-modal'
+import ModalButton from '../../components/modal-button/modal-button'
 import ChevronLeftIcon from '../../icons/chevron-left-icon'
 import ChevronRightIcon from '../../icons/chevron-right-icon'
 import TrashIcon from '../../icons/trash-icon'
@@ -12,15 +14,23 @@ type MyCardsSectionProps = {
 }
 
 export default function MyCardsSection({ creditCard }: MyCardsSectionProps) {
+  const dialogRef = useRef<HTMLDialogElement>(null)
+
   return (
     <Section>
       <header className={styles.header}>
         <h2>My Cards</h2>
         <ul>
           <li>
-            <Button variant="tertiary" size="small">
-              <TrashIcon /> Remove
-            </Button>
+            <ModalButton
+              variant="tertiary"
+              size="small"
+              icon={<TrashIcon />}
+              label="Remove"
+              dialogRef={dialogRef}
+            >
+              <DeleteCreditCardModal dialogRef={dialogRef} />
+            </ModalButton>
           </li>
         </ul>
       </header>

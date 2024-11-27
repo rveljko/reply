@@ -66,12 +66,15 @@ export default function Sidebar() {
           <ul className={styles.list}>
             <li className={styles.item}>
               <ModalButton
+                variant="primary"
+                size="small"
                 dialogRef={dialogRef}
                 label="Send Money"
                 icon={<ArrowUpRightIcon />}
-                modal={<SendMoneyModal dialogRef={dialogRef} />}
                 className={styles.button}
-              />
+              >
+                <SendMoneyModal dialogRef={dialogRef} />
+              </ModalButton>
             </li>
             {dashboardRoutes
               .slice(0, -2)

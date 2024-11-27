@@ -53,6 +53,11 @@
   --outline-color: var(--section-outline);
 }
 
+.danger {
+  --outline-color: var(--danger-500);
+  background-color: var(--danger-500);
+}
+
 .large {
   padding: var(--space-md) var(--space-xlg);
   height: var(--button-height-lg);
