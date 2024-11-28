@@ -19,6 +19,12 @@
   background-color: var(--neutral-600);
 }
 
+.button:disabled {
+  opacity: 50%;
+  background-color: unset;
+  cursor: not-allowed;
+}
+
 .circles {
   display: flex;
   align-items: center;

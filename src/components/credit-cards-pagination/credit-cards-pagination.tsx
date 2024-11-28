@@ -26,6 +26,7 @@ export default function CreditCardPagination({
                 : prevCreditCardIndex - 1
             )
           }}
+          disabled={creditCards.length === 1}
         >
           <ChevronLeftIcon />
         </button>
@@ -58,6 +59,7 @@ export default function CreditCardPagination({
                 : prevCreditCardIndex + 1
             )
           }}
+          disabled={creditCards.length === 1}
         >
           <ChevronRightIcon />
         </button>
