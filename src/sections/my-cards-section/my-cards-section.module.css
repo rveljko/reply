@@ -6,5 +6,5 @@
 .creditCard {
   display: flex;
   justify-content: center;
-  padding-block: calc(var(--space-xlg) * 2);
+  padding: calc(var(--space-xlg) * 2) var(--space-lg);
 }
