@@ -8,24 +8,3 @@
   justify-content: center;
   padding-block: calc(var(--space-xlg) * 2);
 }
-
-.buttons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.button {
-  --border-width: 1px;
-  height: var(--button-height-lg);
-  aspect-ratio: 1 /1;
-  border-radius: 100vmax;
-  border: var(--border-width) solid var(--neutral-300);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.button:hover {
-  background-color: var(--neutral-600);
-}

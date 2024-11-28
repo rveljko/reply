@@ -1,10 +1,31 @@
 .pagination {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button {
+  --border-width: 1px;
+  height: var(--button-height-lg);
+  aspect-ratio: 1 /1;
+  border-radius: 100vmax;
+  border: var(--border-width) solid var(--neutral-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover {
+  background-color: var(--neutral-600);
+}
+
+.circles {
+  display: flex;
   align-items: center;
   gap: var(--space-xsm);
 }
 
-.button {
+.circle {
   --widht: 0.75rem;
   --box-shadow: 0 0.25rem 0.25rem 0 hsl(from var(--black) h s l / 20%);
   width: var(--widht);
