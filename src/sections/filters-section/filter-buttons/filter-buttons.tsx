@@ -1,6 +1,5 @@
 import DropdownElement from '../../../components/dropdown-element/dropdown-element'
 import FilterButton from '../../../components/filter-button/filter-button'
-import { creditCards } from '../../../data/credit-cards'
 import { purposes } from '../../../data/purposes'
 import { sortings } from '../../../data/sortings'
 import { types } from '../../../data/types'
@@ -12,6 +11,7 @@ import CalendarIcon from '../../../icons/calendar-icon'
 import CreditCardIcon from '../../../icons/credit-card-icon'
 import GiftIcon from '../../../icons/gift-icon'
 import SelectorIcon from '../../../icons/selector-icon'
+import { useCreditCards } from '../../../utils/contexts/credit-cards-context'
 import { inputDateFormatter } from '../../../utils/helpers/date-formatters'
 import { getEndingLastFourDigits } from '../../../utils/helpers/get-last-four-digits'
 import { CreditCardId } from '../../../utils/types'
@@ -21,6 +21,7 @@ export default function FilterButtons() {
   const { dateFrom, dateTo, setDateFilter, setFilter } = useTransactionFilters()
   const { setSort } = useTransactionSorts()
   const { handleCheckbox } = useHandleCheckbox()
+  const { creditCards } = useCreditCards()
 
   return (
     <div className={styles.filters}>
