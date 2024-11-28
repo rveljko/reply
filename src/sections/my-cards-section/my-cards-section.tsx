@@ -40,8 +40,9 @@ export default function MyCardsSection({
               disabled={creditCards.length === 1}
             >
               <DeleteCreditCardModal
-                creditCardIndex={creditCardIndex}
                 dialogRef={dialogRef}
+                creditCardIndex={creditCardIndex}
+                setCreditCardIndex={setCreditCardIndex}
               />
             </ModalButton>
           </li>
