@@ -9,10 +9,15 @@ import MyCardsSection from '../../sections/my-cards-section/my-cards-section'
 import { useState } from 'react'
 
 export default function MyCardsPage() {
-  const { getCreditCardBalance, getCreditCardExpenses, getCreditCardByIndex } =
-    useCreditCards()
+  const {
+    creditCards,
+    getCreditCardBalance,
+    getCreditCardExpenses,
+    getCreditCardByIndex,
+  } = useCreditCards()
   const { transactions } = useTransactions()
-  const [creditCardIndex, setCreditCardIndex] = useState(0)
+  const initialCreditCardIndex = Math.floor((creditCards.length - 1) / 2)
+  const [creditCardIndex, setCreditCardIndex] = useState(initialCreditCardIndex)
   const creditCard = getCreditCardByIndex(creditCardIndex)
 
   return (
