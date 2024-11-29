@@ -8,6 +8,7 @@ import Section from '../section/section'
 import styles from './my-cards-section.module.css'
 import { useCreditCards } from '../../utils/contexts/credit-cards-context'
 import CreditCardPagination from '../../components/credit-cards-pagination/credit-cards-pagination'
+import useSwipe from '../../hooks/use-swipe'
 
 type MyCardsSectionProps = {
   creditCard: CreditCardType
@@ -22,6 +23,27 @@ export default function MyCardsSection({
 }: MyCardsSectionProps) {
   const dialogRef = useRef<HTMLDialogElement>(null)
   const { creditCards } = useCreditCards()
+
+  function onSwipeLeft() {
+    setCreditCardIndex((prevCreditCardIndex) =>
+      prevCreditCardIndex <= 0
+        ? (prevCreditCardIndex = creditCards.length - 1)
+        : prevCreditCardIndex - 1
+    )
+  }
+
+  function onSwipeRight() {
+    setCreditCardIndex((prevCreditCardIndex) =>
+      prevCreditCardIndex >= creditCards.length - 1
+        ? (prevCreditCardIndex = 0)
+        : prevCreditCardIndex + 1
+    )
+  }
+
+  const swipeHandlers = useSwipe({
+    onSwipeLeft,
+    onSwipeRight,
+  })
 
   return (
     <Section>
@@ -46,7 +68,7 @@ export default function MyCardsSection({
           </li>
         </ul>
       </header>
-      <div className={styles.creditCard}>
+      <div className={styles.creditCard} {...swipeHandlers}>
         <CreditCard creditCard={creditCard} />
       </div>
       <CreditCardPagination
