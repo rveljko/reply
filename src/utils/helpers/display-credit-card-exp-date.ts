@@ -1,6 +1,6 @@
 export default function displayCreditCardExpDate(dateString: string) {
-  const date = new Date(dateString)
-  return `${(date.getMonth() + 1)
-    .toString()
-    .padStart(2, '0')}/${date.getDate()}`
+  return new Date(dateString).toLocaleDateString('en-US', {
+    year: '2-digit',
+    month: '2-digit',
+  })
 }

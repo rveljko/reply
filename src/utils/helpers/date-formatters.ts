@@ -37,3 +37,10 @@ export function inputDateFormatter(date: Date) {
     day: '2-digit',
   })
 }
+
+export function inputYearMonthDateFormatter(date: Date) {
+  return date.toLocaleString('en-CA', {
+    year: 'numeric',
+    month: '2-digit',
+  })
+}

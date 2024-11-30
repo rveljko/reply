@@ -9,6 +9,8 @@ import styles from './my-cards-section.module.css'
 import { useCreditCards } from '../../utils/contexts/credit-cards-context'
 import CreditCardPagination from '../../components/credit-cards-pagination/credit-cards-pagination'
 import useSwipe from '../../hooks/use-swipe'
+import PlusIcon from '../../icons/plus-icon'
+import AddNewCreditCardModal from '../../components/add-new-credit-card-modal/add-new-credit-card-modal'
 
 type MyCardsSectionProps = {
   creditCard: CreditCardType
@@ -21,7 +23,8 @@ export default function MyCardsSection({
   creditCardIndex,
   setCreditCardIndex,
 }: MyCardsSectionProps) {
-  const dialogRef = useRef<HTMLDialogElement>(null)
+  const deleteCreditCardDialogRef = useRef<HTMLDialogElement>(null)
+  const addNewCreditCardDialogRef = useRef<HTMLDialogElement>(null)
   const { creditCards } = useCreditCards()
 
   function onSwipeLeft() {
@@ -49,18 +52,29 @@ export default function MyCardsSection({
     <Section>
       <header className={styles.header}>
         <h2>My Cards</h2>
-        <ul>
+        <ul className={styles.buttons}>
+          <li>
+            <ModalButton
+              variant="tertiary"
+              size="small"
+              icon={<PlusIcon />}
+              label="Add New"
+              dialogRef={addNewCreditCardDialogRef}
+            >
+              <AddNewCreditCardModal dialogRef={addNewCreditCardDialogRef} />
+            </ModalButton>
+          </li>
           <li>
             <ModalButton
               variant="tertiary"
               size="small"
               icon={<TrashIcon />}
               label="Remove"
-              dialogRef={dialogRef}
+              dialogRef={deleteCreditCardDialogRef}
               disabled={creditCards.length === 1}
             >
               <DeleteCreditCardModal
-                dialogRef={dialogRef}
+                dialogRef={deleteCreditCardDialogRef}
                 creditCardIndex={creditCardIndex}
                 setCreditCardIndex={setCreditCardIndex}
               />
