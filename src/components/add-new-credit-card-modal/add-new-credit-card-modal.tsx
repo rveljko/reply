@@ -7,9 +7,14 @@ import { CreditCard } from '../../utils/types'
 import CreditCardIcon from '../../icons/credit-card-icon'
 import CalendarIcon from '../../icons/calendar-icon'
 import StarsIcon from '../../icons/stars-icon'
-import { inputYearMonthDateFormatter } from '../../utils/helpers/date-formatters'
 import { IMAGE_PATH } from '../../utils/constants'
 import ErrorMessage from '../error-message/error-message'
+import {
+  creditCardExpirationDateMask,
+  creditCardNumbersMask,
+  onlyLettersMask,
+  onlyNumbersMask,
+} from '../../utils/helpers/input-masks'
 import { useCreditCards } from '../../utils/contexts/credit-cards-context'
 
 type AddNewCreditCardModalProps = {
@@ -19,7 +24,7 @@ type AddNewCreditCardModalProps = {
 export default function AddNewCreditCardModal({
   dialogRef,
 }: AddNewCreditCardModalProps) {
-  const initialFormFieldsValues: CreditCard = {
+  const initialCreditCard: CreditCard = {
     id: 0,
     owner: 'James Williams',
     name: 'Visa',
@@ -31,12 +36,30 @@ export default function AddNewCreditCardModal({
     expenses: Math.floor(Math.random() * 100001),
     isActive: true,
   }
-  const [formFields, setFormFields] = useState(initialFormFieldsValues)
+
+  const initialFormFieldValues = {
+    id: 0,
+    owner: '',
+    name: '',
+    logo: '',
+    numbers: '',
+    expirationDate: '',
+    cvv: '',
+    balance: '',
+    expenses: '',
+    isActive: true,
+  }
+
+  const [formFields, setFormFields] = useState(initialFormFieldValues)
+  const [newCreditCard, setNewCreditCard] = useState(initialCreditCard)
   const [errorMessage, setErrorMessage] = useState('')
   const { addNewCreditCard } = useCreditCards()
 
   const isButtonDisabled =
-    !formFields.owner || !formFields.numbers || !formFields.cvv
+    !formFields.owner ||
+    !formFields.numbers ||
+    !formFields.expirationDate ||
+    !formFields.cvv
 
   return (
     <article className={styles.modal}>
@@ -44,18 +67,32 @@ export default function AddNewCreditCardModal({
         onSubmit={(e) => {
           e.preventDefault()
 
-          if (formFields.numbers.toString().length < 16) {
+          if (newCreditCard.numbers.toString().length < 16) {
             setErrorMessage('Invalid card numbers. Please enter 16 digits.')
             return
           }
 
-          if (formFields.cvv.toString().length < 3) {
+          if (newCreditCard.cvv.toString().length < 3) {
             setErrorMessage('Invalid card CVV. CVV must be 3 digits')
             return
           }
 
-          addNewCreditCard(formFields)
-          setFormFields(initialFormFieldsValues)
+          if (
+            formFields.expirationDate.length <= 2 ||
+            isNaN(newCreditCard.expirationDate.getTime())
+          ) {
+            setErrorMessage('Invalid expiration date. Use MM/YY format')
+            return
+          }
+
+          if (newCreditCard.expirationDate.getTime() <= new Date().getTime()) {
+            setErrorMessage('Invalid expiration date. Enter a future MM/YY.')
+            return
+          }
+
+          addNewCreditCard(newCreditCard)
+          setFormFields(initialFormFieldValues)
+          setNewCreditCard(initialCreditCard)
           dialogRef.current?.close()
         }}
       >
@@ -69,9 +106,16 @@ export default function AddNewCreditCardModal({
             icon={<UserIcon />}
             placeholder="James Williams"
             value={formFields.owner || ''}
-            onChange={(e) =>
-              setFormFields({ ...formFields, owner: e.target.value })
-            }
+            onChange={(e) => {
+              setFormFields({
+                ...formFields,
+                owner: onlyLettersMask(e.target.value),
+              })
+              setNewCreditCard({
+                ...newCreditCard,
+                owner: e.target.value,
+              })
+            }}
           />
           <Input
             type="tel"
@@ -79,12 +123,16 @@ export default function AddNewCreditCardModal({
             icon={<CreditCardIcon />}
             placeholder="1234 5678 9098 7654"
             min={0}
-            maxLength={16}
+            maxLength={19}
             value={formFields.numbers || ''}
-            onChange={(e) =>
+            onChange={(e) => {
               setFormFields({
                 ...formFields,
-                numbers: parseInt(e.target.value),
+                numbers: creditCardNumbersMask(e.target.value),
+              })
+              setNewCreditCard({
+                ...newCreditCard,
+                numbers: parseInt(e.target.value.split(' ').join('')),
                 logo:
                   e.target.value.toString()[0] >= '5'
                     ? `${IMAGE_PATH}mastercard.svg`
@@ -92,20 +140,28 @@ export default function AddNewCreditCardModal({
                 name:
                   e.target.value.toString()[0] >= '5' ? 'Mastercard' : 'Visa',
               })
-            }
+            }}
           />
           <Input
-            type="month"
+            type="tel"
             label="Expiration Date"
             icon={<CalendarIcon />}
-            min={inputYearMonthDateFormatter(new Date())}
-            value={inputYearMonthDateFormatter(formFields.expirationDate)}
-            onChange={(e) =>
+            placeholder="01/25"
+            min={5}
+            max={5}
+            value={formFields.expirationDate || ''}
+            onChange={(e) => {
               setFormFields({
                 ...formFields,
-                expirationDate: new Date(`${e.target.value}`),
+                expirationDate: creditCardExpirationDateMask(e.target.value),
               })
-            }
+              setNewCreditCard({
+                ...newCreditCard,
+                expirationDate: new Date(
+                  e.target.value.split('/').join('/01/')
+                ),
+              })
+            }}
           />
           <Input
             type="tel"
@@ -115,12 +171,16 @@ export default function AddNewCreditCardModal({
             value={formFields.cvv || ''}
             min={0}
             maxLength={3}
-            onChange={(e) =>
+            onChange={(e) => {
               setFormFields({
                 ...formFields,
+                cvv: onlyNumbersMask(e.target.value),
+              })
+              setNewCreditCard({
+                ...newCreditCard,
                 cvv: parseInt(e.target.value),
               })
-            }
+            }}
           />
           {errorMessage && <ErrorMessage errorMessage={errorMessage} />}
           <div className={styles.buttons}>
