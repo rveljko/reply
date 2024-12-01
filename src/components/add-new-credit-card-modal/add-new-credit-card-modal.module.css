@@ -19,9 +19,9 @@
   gap: var(--space-lg);
 }
 
-.buttons {
+.buttons, .inputs {
   display: flex;
-  gap: var(--space-sm);
+  gap: var(--space-lg);
 }
 
 .button {

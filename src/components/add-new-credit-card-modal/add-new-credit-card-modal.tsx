@@ -142,46 +142,48 @@ export default function AddNewCreditCardModal({
               })
             }}
           />
-          <Input
-            type="tel"
-            label="Expiration Date"
-            icon={<CalendarIcon />}
-            placeholder="01/25"
-            min={5}
-            max={5}
-            value={formFields.expirationDate || ''}
-            onChange={(e) => {
-              setFormFields({
-                ...formFields,
-                expirationDate: creditCardExpirationDateMask(e.target.value),
-              })
-              setNewCreditCard({
-                ...newCreditCard,
-                expirationDate: new Date(
-                  e.target.value.split('/').join('/01/')
-                ),
-              })
-            }}
-          />
-          <Input
-            type="tel"
-            label="CVV"
-            icon={<StarsIcon />}
-            placeholder="420"
-            value={formFields.cvv || ''}
-            min={0}
-            maxLength={3}
-            onChange={(e) => {
-              setFormFields({
-                ...formFields,
-                cvv: onlyNumbersMask(e.target.value),
-              })
-              setNewCreditCard({
-                ...newCreditCard,
-                cvv: parseInt(e.target.value),
-              })
-            }}
-          />
+          <div className={styles.inputs}>
+            <Input
+              type="tel"
+              label="Expiration Date"
+              icon={<CalendarIcon />}
+              placeholder="01/25"
+              min={5}
+              max={5}
+              value={formFields.expirationDate || ''}
+              onChange={(e) => {
+                setFormFields({
+                  ...formFields,
+                  expirationDate: creditCardExpirationDateMask(e.target.value),
+                })
+                setNewCreditCard({
+                  ...newCreditCard,
+                  expirationDate: new Date(
+                    e.target.value.split('/').join('/01/')
+                  ),
+                })
+              }}
+            />
+            <Input
+              type="tel"
+              label="CVV"
+              icon={<StarsIcon />}
+              placeholder="420"
+              value={formFields.cvv || ''}
+              min={0}
+              maxLength={3}
+              onChange={(e) => {
+                setFormFields({
+                  ...formFields,
+                  cvv: onlyNumbersMask(e.target.value),
+                })
+                setNewCreditCard({
+                  ...newCreditCard,
+                  cvv: parseInt(e.target.value),
+                })
+              }}
+            />
+          </div>
           {errorMessage && <ErrorMessage errorMessage={errorMessage} />}
           <div className={styles.buttons}>
             <Button
