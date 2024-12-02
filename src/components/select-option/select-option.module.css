@@ -14,13 +14,17 @@
   position: relative;
 }
 
+.leftIcon svg,
+.rightIcon svg {
+  width: var(--icon-size-sm);
+}
+
 .leftIcon svg {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   left: var(--space-lg);
   z-index: 1;
-  width: var(--icon-size-sm);
 }
 
 .rightIcon svg {
