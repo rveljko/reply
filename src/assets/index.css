@@ -207,6 +207,10 @@ textarea {
   border-radius: var(--border-radius-sm);
 }
 
+input::placeholder {
+  color: var(--neutral-400);
+}
+
 textarea {
   vertical-align: top;
 }
