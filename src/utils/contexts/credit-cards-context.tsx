@@ -35,7 +35,10 @@ export default function CreditCardsContextProvider({
   )
 
   useEffect(() => {
-    localStorage.setItem('credit-cards', JSON.stringify(creditCards))
+    localStorage.setItem(
+      'credit-cards',
+      JSON.stringify(creditCards.sort((a, b) => a.id - b.id))
+    )
   }, [creditCards])
 
   const activeCreditCards = creditCards.filter(({ isActive }) => isActive)
