@@ -8,7 +8,7 @@ type CreditCardsContextProviderProps = {
 
 type CreditCardsContextType = {
   creditCards: CreditCard[]
-  getCreditCardById: (id: number) => CreditCard | undefined
+  getCreditCardById: (id: number) => CreditCard
   getCreditCardByIndex: (index: number) => CreditCard
   getCreditCardBalance: (creditCard: CreditCard) => number
   getCreditCardExpenses: (creditCard: CreditCard) => number
@@ -41,7 +41,7 @@ export default function CreditCardsContextProvider({
   const activeCreditCards = creditCards.filter(({ isActive }) => isActive)
 
   function getCreditCardById(id: number) {
-    return creditCards.find((creditCard) => creditCard.id === id)
+    return creditCards.find((creditCard) => creditCard.id === id)!
   }
 
   function getCreditCardByIndex(index: number) {

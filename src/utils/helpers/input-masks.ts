@@ -6,6 +6,17 @@ export function onlyNumbersMask(value: string) {
   return value.replace(/\D/g, '')
 }
 
+export function currencyMask(value: string) {
+  const numbers = value.replace(/[^0-9.]/g, '')
+
+  if (numbers.length < 1) return numbers
+
+  return `$${numbers
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    .replace(/(\..*?)\..*/g, '$1')
+    .replace(/(\.\d{2})\d*/, '$1')}`
+}
+
 export function creditCardExpirationDateMask(value: string) {
   const date = value.replace(/\D/g, '')
 

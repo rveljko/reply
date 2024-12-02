@@ -2,7 +2,7 @@ import { useState } from 'react'
 import CashIcon from '../../icons/cash-icon'
 import GiftIcon from '../../icons/gift-icon'
 import UserIcon from '../../icons/user-icon'
-import { CreditCard, Purpose, Transaction } from '../../utils/types'
+import { Purpose, Transaction } from '../../utils/types'
 import Button from '../button/button'
 import Input from '../input/input'
 import TextArea from '../text-area/text-area'
@@ -16,40 +16,52 @@ import { getEndingLastFourDigits } from '../../utils/helpers/get-last-four-digit
 import { purposes } from '../../data/purposes'
 import { useCreditCards } from '../../utils/contexts/credit-cards-context'
 import ErrorMessage from '../error-message/error-message'
+import { currencyMask, onlyLettersMask } from '../../utils/helpers/input-masks'
 
 type SendMoneyModalProps = {
   dialogRef: React.RefObject<HTMLDialogElement>
 }
 
 export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
-  const initialFormFieldsValues: Transaction = {
+  const {
+    activeCreditCards,
+    getCreditCardById,
+    getCreditCardByIndex,
+    getCreditCardBalance,
+    updateBalanceAndExpenses,
+  } = useCreditCards()
+
+  const initialTransaction: Transaction = {
     id: 0,
     senderName: userInformations.name,
     senderImage: userInformations.image,
     receiverImage: '',
     receiverName: '',
     amount: 0,
-    purpose: '',
+    purpose: 'Bills',
     type: 'Sent',
     message: '',
     date: new Date(),
-    creditCard: '',
+    creditCard: getCreditCardByIndex(0),
   }
 
-  const [formFields, setFormFields] = useState(initialFormFieldsValues)
+  const initialFormFieldValues = {
+    receiverName: '',
+    creditCard: '',
+    amount: '',
+    purpose: '',
+    message: '',
+  }
+
+  const [newTransaction, setNewTransaction] = useState(initialTransaction)
+  const [formFields, setFormFields] = useState(initialFormFieldValues)
   const [errorMessage, setErrorMessage] = useState('')
   const { addNewTransaction } = useTransactions()
-  const {
-    activeCreditCards,
-    getCreditCardById,
-    getCreditCardBalance,
-    updateBalanceAndExpenses,
-  } = useCreditCards()
 
   const isButtonDisabled =
     !formFields.receiverName ||
     !formFields.creditCard ||
-    formFields.amount <= 0 ||
+    !formFields.amount ||
     !formFields.purpose
 
   return (
@@ -58,20 +70,26 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
         onSubmit={(e) => {
           e.preventDefault()
 
+          if (newTransaction.amount <= 0) {
+            setErrorMessage('Error: Transfer amount must be greater than $0')
+            return
+          }
+
           if (
-            formFields.amount >
-            getCreditCardBalance(formFields.creditCard as CreditCard)
+            newTransaction.amount >
+            getCreditCardBalance(newTransaction.creditCard)
           ) {
-            setErrorMessage('Error: You dont have enough money for transfer')
+            setErrorMessage("Error: You don't have enough money for transfer")
             return
           }
 
           updateBalanceAndExpenses(
-            formFields.creditCard as CreditCard,
-            formFields.amount
+            newTransaction.creditCard,
+            newTransaction.amount
           )
-          addNewTransaction(formFields)
-          setFormFields(initialFormFieldsValues)
+          addNewTransaction(newTransaction)
+          setNewTransaction(initialTransaction)
+          setFormFields(initialFormFieldValues)
           dialogRef.current?.close()
         }}
       >
@@ -85,31 +103,33 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
             icon={<UserIcon />}
             placeholder="Liam Smith"
             value={formFields.receiverName}
-            onChange={(e) =>
+            onChange={(e) => {
               setFormFields({
                 ...formFields,
+                receiverName: onlyLettersMask(e.target.value),
+              })
+              setNewTransaction({
+                ...newTransaction,
                 receiverName: e.target.value,
                 receiverImage: `${IMAGE_PATH}${e.target.value
                   .split(' ')
                   .join('-')
                   .toLowerCase()}.png`,
               })
-            }
+            }}
           />
           <Select
             label="Credit Card"
             icon={<CreditCardPayIcon />}
-            value={
-              typeof formFields.creditCard === 'object'
-                ? formFields.creditCard.id.toString()
-                : ''
-            }
+            value={formFields.creditCard || ''}
             onChange={(e) => {
               setFormFields({
                 ...formFields,
-                creditCard: getCreditCardById(
-                  parseInt(e.target.value)
-                ) as CreditCard,
+                creditCard: e.target.value,
+              })
+              setNewTransaction({
+                ...newTransaction,
+                creditCard: getCreditCardById(parseInt(e.target.value)),
               })
             }}
           >
@@ -123,19 +143,22 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
             ))}
           </Select>
           <Input
-            type="number"
+            type="tel"
             label="Amount"
             icon={<CashIcon />}
             placeholder="$420.69"
             value={formFields.amount || ''}
             min={0}
-            step={0.01}
-            onChange={(e) =>
+            onChange={(e) => {
               setFormFields({
                 ...formFields,
-                amount: parseFloat(parseFloat(e.target.value).toFixed(2)),
+                amount: currencyMask(e.target.value),
               })
-            }
+              setNewTransaction({
+                ...newTransaction,
+                amount: parseFloat(e.target.value.replace(/[$,]/g, '')) || 0,
+              })
+            }}
           />
           <Select
             label="Purpose"
@@ -144,6 +167,10 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
             onChange={(e) => {
               setFormFields({
                 ...formFields,
+                purpose: e.target.value,
+              })
+              setNewTransaction({
+                ...newTransaction,
                 purpose: e.target.value as Purpose,
               })
             }}
@@ -157,10 +184,11 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
             label="Message"
             placeholder="Hi Liam! IYKYK"
             optional
-            value={formFields.message}
-            onChange={(e) =>
+            value={formFields.message || ''}
+            onChange={(e) => {
               setFormFields({ ...formFields, message: e.target.value })
-            }
+              setNewTransaction({ ...newTransaction, message: e.target.value })
+            }}
           />
           {errorMessage && <ErrorMessage errorMessage={errorMessage} />}
           <div className={styles.buttons}>

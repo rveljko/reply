@@ -46,11 +46,11 @@ export type Transaction = {
   receiverName: Receiver['name']
   receiverImage: Receiver['image']
   amount: number
-  purpose: Purpose | ''
+  purpose: Purpose
   type: Type
   message: string
   date: Date
-  creditCard: CreditCard | ''
+  creditCard: CreditCard
 }
 
 export type Purposes = {
