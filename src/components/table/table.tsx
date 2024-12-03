@@ -28,8 +28,7 @@ export default function Table({
   isLinkable,
   ...props
 }: TableProps) {
-  const { setTransactionId } = useTransaction()
-  const { transactionId } = useTransaction()
+  const { transactionId, setTransactionId } = useTransaction()
 
   return (
     <div className={styles.wrapper}>
@@ -66,12 +65,12 @@ export default function Table({
                   <TableBodyCellGroup>
                     {type === 'Received' ? (
                       <>
-                        <img src={senderImage} alt={senderImage} />
+                        <img src={senderImage} alt={senderName} title={senderName} />
                         <span>{senderName}</span>
                       </>
                     ) : (
                       <>
-                        <img src={receiverImage} alt={receiverImage} />
+                        <img src={receiverImage} alt={receiverName} title={receiverName} />
                         <span>{receiverName}</span>
                       </>
                     )}
@@ -83,9 +82,12 @@ export default function Table({
                 <TableBodyCell>{purpose}</TableBodyCell>
                 <TableBodyCell>
                   <TableBodyCellGroup>
-                    <img src={creditCard && creditCard.logo} alt="" />
-                    {typeof creditCard === 'object' &&
-                      getEndingLastFourDigits(creditCard.numbers)}
+                    <img
+                      src={creditCard.logo}
+                      alt={creditCard.name}
+                      title={creditCard.name}
+                    />
+                    {getEndingLastFourDigits(creditCard.numbers)}
                   </TableBodyCellGroup>
                 </TableBodyCell>
                 <TableBodyCell
