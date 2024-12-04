@@ -4,9 +4,9 @@ import { useCreditCards } from '../../utils/contexts/credit-cards-context'
 import { CreditCard } from '../../utils/types'
 import RecentTransactionsSection from '../../sections/recent-transactions-section/recent-transactions-section'
 import { tableTransactionHeaders } from '../../data/transactions'
-import { useTransactions } from '../../utils/contexts/transactions-context'
 import MyCardsSection from '../../sections/my-cards-section/my-cards-section'
 import { useState } from 'react'
+import useTransactionFilters from '../../hooks/use-transaction-filters'
 
 export default function MyCardsPage() {
   const {
@@ -15,7 +15,7 @@ export default function MyCardsPage() {
     getCreditCardExpenses,
     getCreditCardByIndex,
   } = useCreditCards()
-  const { transactions } = useTransactions()
+  const { getTransactionsByCreditCardId } = useTransactionFilters()
   const initialCreditCardIndex = Math.floor((creditCards.length - 1) / 2)
   const [creditCardIndex, setCreditCardIndex] = useState(initialCreditCardIndex)
   const creditCard = getCreditCardByIndex(creditCardIndex)
@@ -44,7 +44,10 @@ export default function MyCardsPage() {
       <div className={styles.secondaryLayout}>
         <RecentTransactionsSection
           tableTransactionHeaders={tableTransactionHeaders}
-          transactions={transactions.slice(0, 5)}
+          transactions={getTransactionsByCreditCardId(creditCard.id).slice(
+            0,
+            5
+          )}
           isLinkable
         />
       </div>

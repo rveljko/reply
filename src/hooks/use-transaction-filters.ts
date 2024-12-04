@@ -43,6 +43,10 @@ export default function useTransactionFilters() {
     return purposes && types && startDate && endDate && creditCards
   })
 
+  function getTransactionsByCreditCardId(id: number) {
+    return transactions.filter(({ creditCard }) => creditCard.id === id)
+  }
+
   function getCreditCardIds() {
     return creditCard.map((id) => parseInt(id))
   }
@@ -97,6 +101,7 @@ export default function useTransactionFilters() {
 
   return {
     filteredTransactions,
+    getTransactionsByCreditCardId,
     dateFrom,
     dateTo,
     purpose,
