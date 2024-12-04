@@ -16,6 +16,7 @@ import {
   onlyNumbersMask,
 } from '../../utils/helpers/input-masks'
 import { useCreditCards } from '../../utils/contexts/credit-cards-context'
+import displayToast from '../../utils/toast'
 
 type AddNewCreditCardModalProps = {
   dialogRef: React.RefObject<HTMLDialogElement>
@@ -91,6 +92,7 @@ export default function AddNewCreditCardModal({
           }
 
           addNewCreditCard(newCreditCard)
+          displayToast('Credit Card Added Successfully!')
           setFormFields(initialFormFieldValues)
           setNewCreditCard(initialCreditCard)
           dialogRef.current?.close()
