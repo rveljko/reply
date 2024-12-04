@@ -16,8 +16,8 @@ export default function NoResults() {
       />
       <h3 className={styles.heading}>No Results Found</h3>
       <p className={styles.paragraph}>
-        We couldn't find any transactions that match <br /> your current filter
-        criteria
+        We couldn't find any transactions that
+        <br /> match what you are looking for
       </p>
       <Button variant="tertiary" size="small" onClick={() => clearFilters()}>
         <EraserIcon /> Clear Filters
