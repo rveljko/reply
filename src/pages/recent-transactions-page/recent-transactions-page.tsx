@@ -17,6 +17,7 @@ export default function RecentTransactionsPage() {
         <RecentTransactionsSection
           transactions={sortTransactions()}
           tableTransactionHeaders={tableTransactionHeaders}
+          withNoResultsButton
         />
         {transactionId && <TransactionDetailsCard />}
       </div>

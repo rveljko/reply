@@ -8,12 +8,14 @@ type RecentTransactionsSectionProps = {
   transactions: Transaction[]
   tableTransactionHeaders: TableTransactionHeader[]
   isLinkable?: boolean
+  withNoResultsButton?: boolean
 }
 
 export default function RecentTransactionsSection({
   transactions,
   tableTransactionHeaders,
   isLinkable,
+  withNoResultsButton,
 }: RecentTransactionsSectionProps) {
   return (
     <Section>
@@ -28,7 +30,7 @@ export default function RecentTransactionsSection({
           {isLinkable && <ViewMoreTransactions />}
         </>
       ) : (
-        <NoResults />
+        <NoResults withButton={withNoResultsButton} />
       )}
     </Section>
   )

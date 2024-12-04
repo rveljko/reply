@@ -4,7 +4,11 @@ import { IMAGE_PATH } from '../../utils/constants'
 import Button from '../button/button'
 import styles from './no-results.module.css'
 
-export default function NoResults() {
+type NoResultsProps = {
+  withButton?: boolean
+}
+
+export default function NoResults({ withButton }: NoResultsProps) {
   const { clearFilters } = useTransactionFilters()
 
   return (
@@ -19,9 +23,11 @@ export default function NoResults() {
         We couldn't find any transactions that
         <br /> match what you are looking for
       </p>
-      <Button variant="tertiary" size="small" onClick={() => clearFilters()}>
-        <EraserIcon /> Clear Filters
-      </Button>
+      {withButton && (
+        <Button variant="tertiary" size="small" onClick={() => clearFilters()}>
+          <EraserIcon /> Clear Filters
+        </Button>
+      )}
     </div>
   )
 }
