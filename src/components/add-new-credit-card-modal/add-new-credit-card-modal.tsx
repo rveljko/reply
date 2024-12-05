@@ -39,16 +39,10 @@ export default function AddNewCreditCardModal({
   }
 
   const initialFormFieldValues = {
-    id: 0,
     owner: '',
-    name: '',
-    logo: '',
     numbers: '',
     expirationDate: '',
     cvv: '',
-    balance: '',
-    expenses: '',
-    isActive: true,
   }
 
   const [formFields, setFormFields] = useState(initialFormFieldValues)
