@@ -1,5 +1,6 @@
 import { IMAGE_PATH } from '../../utils/constants'
 import { useCreditCards } from '../../utils/contexts/credit-cards-context'
+import displayToast from '../../utils/toast'
 import Button from '../button/button'
 import styles from './delete-credit-card-modal.module.css'
 
@@ -45,6 +46,7 @@ export default function DeleteCreditCardModal({
           className={styles.button}
           onClick={() => {
             removeCreditCard(creditCardIndex)
+            displayToast('Credit Card Removed')
             if (creditCardIndex === creditCards.length - 1) {
               setCreditCardIndex(creditCards.length - 2)
             }
