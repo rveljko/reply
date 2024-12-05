@@ -17,6 +17,7 @@ import { purposes } from '../../data/purposes'
 import { useCreditCards } from '../../utils/contexts/credit-cards-context'
 import ErrorMessage from '../error-message/error-message'
 import { currencyMask, onlyLettersMask } from '../../utils/helpers/input-masks'
+import displayToast from '../../utils/toast'
 
 type SendMoneyModalProps = {
   dialogRef: React.RefObject<HTMLDialogElement>
@@ -88,6 +89,7 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
             newTransaction.amount
           )
           addNewTransaction(newTransaction)
+          displayToast('Transfer Successful!')
           setNewTransaction(initialTransaction)
           setFormFields(initialFormFieldValues)
           dialogRef.current?.close()
