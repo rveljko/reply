@@ -15,7 +15,11 @@ type CreditCardsContextType = {
   activeCreditCards: CreditCard[]
   removeCreditCard: (index: number) => void
   addNewCreditCard: (newCreditCard: CreditCard) => void
-  updateBalanceAndExpenses: (creditCard: CreditCard, amount: number) => void
+  updateBalanceAndExpenses: (
+    creditCard: CreditCard,
+    amount: number,
+    time: Date
+  ) => void
 }
 
 export const CreditCardsContext = createContext<CreditCardsContextType | null>(
@@ -52,11 +56,11 @@ export default function CreditCardsContextProvider({
   }
 
   function getCreditCardBalance(creditCard: CreditCard) {
-    return creditCard.balance
+    return creditCard.balance[0].amount
   }
 
   function getCreditCardExpenses(creditCard: CreditCard) {
-    return creditCard.expenses
+    return creditCard.expenses[0].amount
   }
 
   function removeCreditCard(cardIndex: number) {
@@ -72,18 +76,34 @@ export default function CreditCardsContextProvider({
     ])
   }
 
-  function updateBalanceAndExpenses(creditCard: CreditCard, amount: number) {
+  function updateBalanceAndExpenses(
+    creditCard: CreditCard,
+    amount: number,
+    time: Date
+  ) {
     setCreditCards((prevCreditCards) => {
       const matchingCreditCard = prevCreditCards.find(
         ({ id }) => id === creditCard.id
-      ) as CreditCard
+      )!
 
       return [
         ...prevCreditCards.filter(({ id }) => id !== matchingCreditCard.id),
         {
           ...matchingCreditCard,
-          balance: matchingCreditCard.balance - amount,
-          expenses: matchingCreditCard.expenses + amount,
+          balance: [
+            {
+              amount: matchingCreditCard.balance[0].amount - amount,
+              time,
+            },
+            ...matchingCreditCard.balance,
+          ],
+          expenses: [
+            {
+              amount: matchingCreditCard.expenses[0].amount + amount,
+              time,
+            },
+            ...matchingCreditCard.expenses,
+          ],
         },
       ]
     })

@@ -34,8 +34,8 @@ export type CreditCard = {
   numbers: number
   expirationDate: Date
   cvv: number
-  balance: number
-  expenses: number
+  balance: CreditCardBalance[]
+  expenses: CreditCardExpense[]
   isActive: boolean
 }
 
@@ -85,6 +85,16 @@ export type CreditCardId =
   | '8'
   | '9'
   | '10'
+
+export type CreditCardBalance = {
+  amount: number
+  time: Date
+}
+
+export type CreditCardExpense = {
+  amount: number
+  time: Date
+}
 
 export type FilterCategory = 'purpose' | 'type' | 'credit-card'
 

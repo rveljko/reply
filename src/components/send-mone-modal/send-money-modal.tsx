@@ -86,7 +86,8 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
 
           updateBalanceAndExpenses(
             newTransaction.creditCard,
-            newTransaction.amount
+            newTransaction.amount,
+            newTransaction.date
           )
           addNewTransaction(newTransaction)
           displayToast('Transfer Successful!')
