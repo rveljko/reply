@@ -8,3 +8,7 @@ export default function generateDateInPast(
 
   return new Date(new Date(date).setDate(new Date(date).getDate() - daysAgo))
 }
+
+export function generateDateInFuture(daysFromNow: number) {
+  return new Date(new Date().setDate(new Date().getDate() + daysFromNow))
+}

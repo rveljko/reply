@@ -1,4 +1,5 @@
 import { IMAGE_PATH } from '../utils/constants'
+import { generateDateInFuture } from '../utils/helpers/date-generators'
 import { CreditCard } from '../utils/types'
 
 export const creditCards: CreditCard[] = [
@@ -8,7 +9,7 @@ export const creditCards: CreditCard[] = [
     name: 'Visa',
     logo: `${IMAGE_PATH}visa.svg`,
     numbers: 4773887710161123,
-    expirationDate: new Date('March 25, 2025'),
+    expirationDate: generateDateInFuture(294),
     cvv: 214,
     balance: [
       { amount: 81973.83, time: new Date('Jun 3, 2024 11:25:54') },
@@ -52,7 +53,7 @@ export const creditCards: CreditCard[] = [
     name: 'Mastercard',
     logo: `${IMAGE_PATH}mastercard.svg`,
     numbers: 5415438622581283,
-    expirationDate: new Date('May 26, 2026'),
+    expirationDate: generateDateInFuture(721),
     cvv: 367,
     balance: [
       { amount: 91342.12, time: new Date('May 25, 2024 14:11:27') },
@@ -72,7 +73,7 @@ export const creditCards: CreditCard[] = [
     name: 'Visa',
     logo: `${IMAGE_PATH}visa.svg`,
     numbers: 4200478571331928,
-    expirationDate: new Date('February 28, 2028'),
+    expirationDate: generateDateInFuture(1365),
     cvv: 593,
     balance: [
       { amount: 14823.37, time: new Date('May 16, 2024 10:19:50') },
@@ -98,7 +99,7 @@ export const creditCards: CreditCard[] = [
     name: 'Visa',
     logo: `${IMAGE_PATH}visa.svg`,
     numbers: 4619078215671827,
-    expirationDate: new Date('August 25 2025'),
+    expirationDate: generateDateInFuture(447),
     cvv: 229,
     balance: [
       { amount: 91806.28, time: new Date('April 20, 2024 14:36:29') },
@@ -116,7 +117,7 @@ export const creditCards: CreditCard[] = [
     name: 'Mastercard',
     logo: `${IMAGE_PATH}mastercard.svg`,
     numbers: 4773887710161432,
-    expirationDate: new Date('April 26 2026'),
+    expirationDate: generateDateInFuture(691),
     cvv: 214,
     balance: [
       { amount: 10778.57, time: new Date('May 19, 2024 11:45:21') },
