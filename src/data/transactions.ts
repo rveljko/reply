@@ -1,4 +1,5 @@
 import { IMAGE_PATH } from '../utils/constants'
+import generateDateInPast from '../utils/helpers/date-generators'
 import { Sender, TableTransactionHeader, Transaction } from '../utils/types'
 import { creditCards } from './credit-cards'
 
@@ -41,7 +42,7 @@ export const transactions: Transaction[] = [
     purpose: 'Others',
     type: 'Received',
     message: 'Hi James!\n\nThank you for being an amazing friend.',
-    date: new Date('Jun 3, 2024 11:25:54'),
+    date: generateDateInPast(1, 11, 25, 54),
     creditCard: creditCards[0],
   },
   {
@@ -54,7 +55,7 @@ export const transactions: Transaction[] = [
     purpose: 'Others',
     type: 'Received',
     message: 'Hi James!\n\nCongrats on winning the bet.',
-    date: new Date('Jun 2, 2024 16:30:27'),
+    date: generateDateInPast(2, 16, 30, 27),
     creditCard: creditCards[0],
   },
   {
@@ -67,7 +68,7 @@ export const transactions: Transaction[] = [
     purpose: 'Subscription',
     type: 'Sent',
     message: '',
-    date: new Date('May 25, 2024 14:11:27'),
+    date: generateDateInPast(10, 14, 11, 27),
     creditCard: creditCards[1],
   },
   {
@@ -80,7 +81,7 @@ export const transactions: Transaction[] = [
     purpose: 'Subscription',
     type: 'Sent',
     message: '',
-    date: new Date('May 24, 2024 15:57:09'),
+    date: generateDateInPast(11, 15, 57, 9),
     creditCard: creditCards[0],
   },
   {
@@ -93,7 +94,7 @@ export const transactions: Transaction[] = [
     purpose: 'Subscription',
     type: 'Sent',
     message: '',
-    date: new Date('May 24, 2024 15:22:44'),
+    date: generateDateInPast(11, 15, 22, 44),
     creditCard: creditCards[0],
   },
   {
@@ -106,7 +107,7 @@ export const transactions: Transaction[] = [
     purpose: 'Subscription',
     type: 'Sent',
     message: '',
-    date: new Date('May 24, 2024 12:37:14'),
+    date: generateDateInPast(11, 12, 37, 14),
     creditCard: creditCards[0],
   },
   {
@@ -119,7 +120,7 @@ export const transactions: Transaction[] = [
     purpose: 'Subscription',
     type: 'Sent',
     message: '',
-    date: new Date('May 24, 2024 09:04:18'),
+    date: generateDateInPast(11, 9, 4, 18),
     creditCard: creditCards[0],
   },
   {
@@ -132,7 +133,7 @@ export const transactions: Transaction[] = [
     purpose: 'Subscription',
     type: 'Sent',
     message: '',
-    date: new Date('May 21, 2024 12:30:45'),
+    date: generateDateInPast(14, 12, 30, 45),
     creditCard: creditCards[0],
   },
   {
@@ -144,9 +145,9 @@ export const transactions: Transaction[] = [
     amount: 1499,
     purpose: 'Others',
     type: 'Received',
-    date: new Date('May 20, 2024 14:39:58'),
     message:
       'Hi Jame3s!\n\nHere is a little help during this tough time. Stay strong!',
+    date: generateDateInPast(15, 14, 39, 58),
     creditCard: creditCards[0],
   },
   {
@@ -159,7 +160,7 @@ export const transactions: Transaction[] = [
     purpose: 'Others',
     type: 'Received',
     message: 'Hi James!\n\nIYKYK.',
-    date: new Date('May 20, 2024 13:18:16'),
+    date: generateDateInPast(15, 13, 18, 16),
     creditCard: creditCards[0],
   },
   {
@@ -173,7 +174,7 @@ export const transactions: Transaction[] = [
     type: 'Sent',
     message:
       'Hi Mia!\n\nJust want to say thank you for being an incredible friend.',
-    date: new Date('May 19, 2024 11:45:21'),
+    date: generateDateInPast(16, 11, 45, 21),
     creditCard: creditCards[4],
   },
   {
@@ -186,7 +187,7 @@ export const transactions: Transaction[] = [
     purpose: 'Bills',
     type: 'Sent',
     message: 'Hi Benjamin.\n\nAs always...',
-    date: new Date('May 16, 2024 10:19:50'),
+    date: generateDateInPast(19, 10, 19, 50),
     creditCard: creditCards[2],
   },
   {
@@ -200,7 +201,7 @@ export const transactions: Transaction[] = [
     type: 'Received',
     message:
       'Hi James! \n\nMaking your house a home. Here is help for repairs.',
-    date: new Date('May 5, 2024 13:05:48'),
+    date: generateDateInPast(30, 13, 5, 48),
     creditCard: creditCards[2],
   },
   {
@@ -213,7 +214,7 @@ export const transactions: Transaction[] = [
     purpose: 'Gift',
     type: 'Sent',
     message: 'Hi Noah!\n\nThank you for always being there for me',
-    date: new Date('April 25, 2024 16:22:56'),
+    date: generateDateInPast(40, 16, 22, 56),
     creditCard: creditCards[4],
   },
   {
@@ -226,7 +227,7 @@ export const transactions: Transaction[] = [
     purpose: 'Subscription',
     type: 'Sent',
     message: '',
-    date: new Date('April 25, 2024 14:11:27'),
+    date: generateDateInPast(40, 14, 11, 27),
     creditCard: creditCards[1],
   },
   {
@@ -239,7 +240,7 @@ export const transactions: Transaction[] = [
     purpose: 'Subscription',
     type: 'Sent',
     message: '',
-    date: new Date('April 24, 2024 15:57:09'),
+    date: generateDateInPast(41, 15, 57, 9),
     creditCard: creditCards[0],
   },
   {
@@ -252,7 +253,7 @@ export const transactions: Transaction[] = [
     purpose: 'Subscription',
     type: 'Sent',
     message: '',
-    date: new Date('April 24, 2024 15:22:44'),
+    date: generateDateInPast(41, 15, 22, 44),
     creditCard: creditCards[0],
   },
   {
@@ -265,7 +266,7 @@ export const transactions: Transaction[] = [
     purpose: 'Subscription',
     type: 'Sent',
     message: '',
-    date: new Date('April 24, 2024 12:37:14'),
+    date: generateDateInPast(41, 12, 37, 14),
     creditCard: creditCards[0],
   },
   {
@@ -278,7 +279,7 @@ export const transactions: Transaction[] = [
     purpose: 'Others',
     type: 'Received',
     message: 'Hi James!\n\nCongrats on winning the bet again.',
-    date: new Date('April 20, 2024 14:36:29'),
+    date: generateDateInPast(45, 14, 36, 29),
     creditCard: creditCards[3],
   },
   {
@@ -291,7 +292,7 @@ export const transactions: Transaction[] = [
     purpose: 'Bills',
     type: 'Sent',
     message: 'Hi Benjamin.\n\nAs always...',
-    date: new Date('April 16, 2024 13:29:56'),
+    date: generateDateInPast(49, 13, 29, 56),
     creditCard: creditCards[2],
   },
   {
@@ -305,7 +306,7 @@ export const transactions: Transaction[] = [
     type: 'Received',
     message:
       'Hi James!\n\nSmooth move! Here is a little help for your new start.',
-    date: new Date('April 5, 2024 16:08:52'),
+    date: generateDateInPast(60, 16, 8, 52),
     creditCard: creditCards[2],
   },
   {
@@ -318,7 +319,7 @@ export const transactions: Transaction[] = [
     purpose: 'Subscription',
     type: 'Sent',
     message: '',
-    date: new Date('March 25, 2024 14:11:27'),
+    date: generateDateInPast(71, 14, 11, 27),
     creditCard: creditCards[1],
   },
   {
@@ -331,7 +332,7 @@ export const transactions: Transaction[] = [
     purpose: 'Subscription',
     type: 'Sent',
     message: '',
-    date: new Date('March 24, 2024 15:57:09'),
+    date: generateDateInPast(72, 15, 57, 9),
     creditCard: creditCards[0],
   },
   {
@@ -344,7 +345,7 @@ export const transactions: Transaction[] = [
     purpose: 'Subscription',
     type: 'Sent',
     message: '',
-    date: new Date('March 24, 2024 15:22:44'),
+    date: generateDateInPast(72, 15, 22, 44),
     creditCard: creditCards[0],
   },
   {
@@ -357,7 +358,7 @@ export const transactions: Transaction[] = [
     purpose: 'Subscription',
     type: 'Sent',
     message: '',
-    date: new Date('March 24, 2024 12:37:14'),
+    date: generateDateInPast(72, 12, 37, 14),
     creditCard: creditCards[0],
   },
   {
@@ -370,7 +371,7 @@ export const transactions: Transaction[] = [
     purpose: 'Others',
     type: 'Received',
     message: 'Hi James!\n\nCongrats on winning the bet.',
-    date: new Date('March 20, 2024 15:34:27'),
+    date: generateDateInPast(76, 15, 34, 27),
     creditCard: creditCards[3],
   },
   {
@@ -383,7 +384,7 @@ export const transactions: Transaction[] = [
     purpose: 'Bills',
     type: 'Sent',
     message: 'Hi Benjamin.\n\nAs always...',
-    date: new Date('March 16, 2024 09:47:18'),
+    date: generateDateInPast(80, 9, 47, 18),
     creditCard: creditCards[2],
   },
   {
@@ -397,7 +398,7 @@ export const transactions: Transaction[] = [
     type: 'Received',
     message:
       'Hi James!\n\nSafe travels! Here is a little help for your journey.',
-    date: new Date('March 5, 2024 09:15:32'),
+    date: generateDateInPast(91, 9, 15, 32),
     creditCard: creditCards[2],
   },
 ]
