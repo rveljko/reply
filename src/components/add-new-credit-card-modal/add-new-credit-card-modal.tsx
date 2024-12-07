@@ -33,8 +33,10 @@ export default function AddNewCreditCardModal({
     numbers: 0,
     expirationDate: new Date(),
     cvv: 0,
-    balance: Math.floor(Math.random() * 100001),
-    expenses: Math.floor(Math.random() * 100001),
+    balance: [{ amount: Math.floor(Math.random() * 100001), time: new Date() }],
+    expenses: [
+      { amount: Math.floor(Math.random() * 100001), time: new Date() },
+    ],
     isActive: true,
   }
 
