@@ -27,7 +27,7 @@ export default function MyCardsSection({
   const addNewCreditCardDialogRef = useRef<HTMLDialogElement>(null)
   const { creditCards } = useCreditCards()
 
-  function onSwipeLeft() {
+  function decrementCreditCardIndex() {
     setCreditCardIndex((prevCreditCardIndex) =>
       prevCreditCardIndex <= 0
         ? (prevCreditCardIndex = creditCards.length - 1)
@@ -35,7 +35,7 @@ export default function MyCardsSection({
     )
   }
 
-  function onSwipeRight() {
+  function incrementCreditCardIndex() {
     setCreditCardIndex((prevCreditCardIndex) =>
       prevCreditCardIndex >= creditCards.length - 1
         ? (prevCreditCardIndex = 0)
@@ -44,8 +44,8 @@ export default function MyCardsSection({
   }
 
   const swipeHandlers = useSwipe({
-    onSwipeLeft,
-    onSwipeRight,
+    onSwipeLeft: incrementCreditCardIndex,
+    onSwipeRight: decrementCreditCardIndex,
   })
 
   return (
