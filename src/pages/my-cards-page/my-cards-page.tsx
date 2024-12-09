@@ -7,6 +7,7 @@ import { tableTransactionHeaders } from '../../data/transactions'
 import MyCardsSection from '../../sections/my-cards-section/my-cards-section'
 import { useState } from 'react'
 import useTransactionFilters from '../../hooks/use-transaction-filters'
+import BalanceOvertimeSection from '../../sections/balance-overtime-section/balance-overtime-section'
 
 export default function MyCardsPage() {
   const {
@@ -41,16 +42,12 @@ export default function MyCardsPage() {
           />
         </div>
       </div>
-      <div className={styles.secondaryLayout}>
-        <RecentTransactionsSection
-          tableTransactionHeaders={tableTransactionHeaders}
-          transactions={getTransactionsByCreditCardId(creditCard.id).slice(
-            0,
-            5
-          )}
-          isLinkable
-        />
-      </div>
+      <RecentTransactionsSection
+        tableTransactionHeaders={tableTransactionHeaders}
+        transactions={getTransactionsByCreditCardId(creditCard.id).slice(0, 5)}
+        isLinkable
+      />
+      <BalanceOvertimeSection creditCard={creditCard} />
     </div>
   )
 }
