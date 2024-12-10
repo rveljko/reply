@@ -1,7 +1,6 @@
 import BalanceExpensesSection from '../../sections/balance-expenses-section/balance-expenses-section'
 import styles from './my-cards-page.module.css'
 import { useCreditCards } from '../../utils/contexts/credit-cards-context'
-import { CreditCard } from '../../utils/types'
 import RecentTransactionsSection from '../../sections/recent-transactions-section/recent-transactions-section'
 import { tableTransactionHeaders } from '../../data/transactions'
 import MyCardsSection from '../../sections/my-cards-section/my-cards-section'
@@ -34,11 +33,11 @@ export default function MyCardsPage() {
         <div className={`${styles.tertiaryLayout} ${styles.narrowChild}`}>
           <BalanceExpensesSection
             title="Balance"
-            amount={getCreditCardBalance(creditCard as CreditCard)}
+            amount={getCreditCardBalance(creditCard)}
           />
           <BalanceExpensesSection
             title="Expenses"
-            amount={getCreditCardExpenses(creditCard as CreditCard)}
+            amount={getCreditCardExpenses(creditCard)}
           />
         </div>
       </div>
