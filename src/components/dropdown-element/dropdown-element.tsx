@@ -1,17 +1,23 @@
 import styles from './dropdown-element.module.css'
 
-type DropdownElementProps = React.ComponentPropsWithoutRef<'input'> & {
-  type: 'text' | 'checkbox' | 'radio' | 'date'
+type DropdownElementBaseProps = {
+  type: 'text' | 'checkbox' | 'radio' | 'date' | 'button'
   label: string
   name?: string
 }
 
-export default function DropdownElement({
+type DropdownInputElementProps = DropdownElementBaseProps &
+  React.ComponentPropsWithoutRef<'input'>
+
+type DropdownButtonElementProps = DropdownElementBaseProps &
+  React.ComponentPropsWithoutRef<'button'>
+
+export default function DropdownInputElement({
   type,
   label,
   name,
   ...props
-}: DropdownElementProps) {
+}: DropdownInputElementProps) {
   return (
     <div className={`${styles.element} ${type === 'date' ? styles.date : ''}`}>
       <input
@@ -27,6 +33,17 @@ export default function DropdownElement({
       >
         {label}
       </label>
+    </div>
+  )
+}
+
+export function DropdownButtonElement({
+  label,
+  ...props
+}: DropdownButtonElementProps) {
+  return (
+    <div className={styles.element}>
+      <button {...props}>{label}</button>
     </div>
   )
 }

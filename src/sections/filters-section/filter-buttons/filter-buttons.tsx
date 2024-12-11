@@ -1,5 +1,5 @@
-import DropdownElement from '../../../components/dropdown-element/dropdown-element'
-import FilterButton from '../../../components/filter-button/filter-button'
+import DropdownButton from '../../../components/dropdown-button/dropdown-button'
+import DropdownInputElement from '../../../components/dropdown-element/dropdown-element'
 import { purposes } from '../../../data/purposes'
 import { sortings } from '../../../data/sortings'
 import { types } from '../../../data/types'
@@ -25,12 +25,12 @@ export default function FilterButtons() {
 
   return (
     <div className={styles.filters}>
-      <FilterButton
+      <DropdownButton
         label="Date"
         icon={<CalendarIcon />}
         content={
           <>
-            <DropdownElement
+            <DropdownInputElement
               label="Date from"
               type="date"
               name="date-from"
@@ -38,7 +38,7 @@ export default function FilterButtons() {
               min="2024-03-05"
               onChange={(e) => setDateFilter('date-from', e.target.value)}
             />
-            <DropdownElement
+            <DropdownInputElement
               label="Date To"
               type="date"
               name="date-to"
@@ -49,13 +49,13 @@ export default function FilterButtons() {
           </>
         }
       />
-      <FilterButton
+      <DropdownButton
         label="Purpose"
         icon={<GiftIcon />}
         content={
           <>
             {purposes.map(({ purpose, id }) => (
-              <DropdownElement
+              <DropdownInputElement
                 label={purpose}
                 key={id}
                 type="checkbox"
@@ -68,13 +68,13 @@ export default function FilterButtons() {
           </>
         }
       />
-      <FilterButton
+      <DropdownButton
         label="Credit Card"
         icon={<CreditCardIcon />}
         content={
           <>
             {creditCards.map(({ id, name, numbers }) => (
-              <DropdownElement
+              <DropdownInputElement
                 label={getEndingLastFourDigits(numbers)}
                 key={id}
                 type="checkbox"
@@ -89,13 +89,13 @@ export default function FilterButtons() {
           </>
         }
       />
-      <FilterButton
+      <DropdownButton
         label="Type"
         icon={<ArrowsDownUpIcon />}
         content={
           <>
             {types.map(({ type, id }) => (
-              <DropdownElement
+              <DropdownInputElement
                 label={type}
                 key={id}
                 type="checkbox"
@@ -108,13 +108,13 @@ export default function FilterButtons() {
           </>
         }
       />
-      <FilterButton
+      <DropdownButton
         label="Sort by"
         icon={<SelectorIcon />}
         content={
           <>
             {sortings.map(({ id, label, sort }) => (
-              <DropdownElement
+              <DropdownInputElement
                 label={label}
                 key={id}
                 type="radio"

@@ -1,19 +1,19 @@
 import { useEffect, useRef, useState } from 'react'
 import Button from '../button/button'
 import Dropdown from '../dropdown/dropdown'
-import styles from './filter-button.module.css'
+import styles from './dropdown-button.module.css'
 
-type FilterButtonProps = {
+type DropdownButtonProps = {
   label: string
   icon?: JSX.Element
   content: React.ReactNode
 }
 
-export default function FilterButton({
+export default function DropdownButton({
   label,
   icon: Icon,
   content,
-}: FilterButtonProps) {
+}: DropdownButtonProps) {
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
   const wrapperRef = useRef<HTMLDivElement>(null)
 
