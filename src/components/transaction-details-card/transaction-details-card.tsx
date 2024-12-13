@@ -25,6 +25,7 @@ export default function TransactionDetailsCard() {
     amount,
     creditCard,
     date,
+    id,
     message,
     purpose,
     receiverImage,
@@ -37,7 +38,10 @@ export default function TransactionDetailsCard() {
   return (
     <article className={styles.card}>
       <div className={styles.head}>
-        <h1>{`${getTransactionSign(type)}${currencyFormatter(amount)}`}</h1>
+        <h1 className={styles.amount}>{`${getTransactionSign(
+          type
+        )}${currencyFormatter(amount)}`}</h1>
+        <p className={styles.id}>ID: #{id}</p>
         <Button
           variant="ghost"
           size="small"

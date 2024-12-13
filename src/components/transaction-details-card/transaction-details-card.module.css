@@ -20,6 +20,15 @@
   border-top-right-radius: calc(var(--border-radius) - var(--border-size));
 }
 
+.amount {
+  margin-bottom: var(--space-md);
+}
+
+.id {
+  color: var(--white);
+  font-size: var(--paragraph-sm);
+}
+
 .close {
   position: absolute;
   top: var(--space-md);
