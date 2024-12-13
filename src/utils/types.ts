@@ -10,7 +10,7 @@ export type Route = {
   id: number
   name: string
   href: string
-  icon: () => JSX.Element
+  icon?: () => JSX.Element
   page: () => JSX.Element
 }
 

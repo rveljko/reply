@@ -3,9 +3,13 @@ import FileIcon from '../icons/file-icon'
 import FileTextIcon from '../icons/file-text-icon'
 import SettingsIcon from '../icons/settings-icon'
 import WalletIcon from '../icons/wallet-icon'
+import AccountPage from '../pages/account-page/account-page'
+import CardsPage from '../pages/cards-page/cards-page'
 import GuidesPage from '../pages/guides-page/guides-page'
+import IntegrationsPage from '../pages/integrations-page/integrations-page'
 import MyCardsPage from '../pages/my-cards-page/my-cards-page'
 import MyWalletPage from '../pages/my-wallet-page/my-wallet-page'
+import PreferencesPage from '../pages/preferences-page/preferences-page'
 import RecentTransactionsPage from '../pages/recent-transactions-page/recent-transactions-page'
 import SettingsPage from '../pages/settings-page/settings-page'
 import { Route } from './types'
@@ -45,5 +49,32 @@ export const dashboardRoutes: Route[] = [
     href: 'settings',
     icon: SettingsIcon,
     page: SettingsPage,
+  },
+]
+
+export const settingsRoutes: Route[] = [
+  {
+    id: 1,
+    name: 'Account',
+    href: '',
+    page: AccountPage,
+  },
+  {
+    id: 2,
+    name: 'Card',
+    href: 'cards',
+    page: CardsPage,
+  },
+  {
+    id: 3,
+    name: 'Preferences',
+    href: 'preferences',
+    page: PreferencesPage,
+  },
+  {
+    id: 4,
+    name: 'Integrations',
+    href: 'integrations',
+    page: IntegrationsPage,
   },
 ]
