@@ -1,0 +1,4 @@
+.navigation {
+  width: 100%;
+  max-width: var(--settings-nav-bar-width);
+}
