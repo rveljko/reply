@@ -46,7 +46,7 @@ export const dashboardRoutes: Route[] = [
   {
     id: 5,
     name: 'Settings',
-    href: 'settings',
+    href: 'settings/',
     icon: SettingsIcon,
     page: SettingsPage,
   },
