@@ -6,7 +6,7 @@ import styles from './settings-nav-bar.module.css'
 export default function SettingsNavBar() {
   return (
     <nav className={styles.navigation}>
-      <ul>
+      <ul className={styles.list}>
         {settingsRoutes.map(({ id, href, name }) => (
           <li key={id}>
             <NavigationLink
