@@ -14,6 +14,7 @@ export default function Input({
   icon: Icon,
   placeholder,
   optional,
+  className,
   ...props
 }: InputProps) {
   return (
@@ -31,7 +32,7 @@ export default function Input({
           type={type}
           id={label.split(' ').join('').toLocaleLowerCase()}
           placeholder={placeholder}
-          className={styles.input}
+          className={`${styles.input} ${className}`}
           required={!optional}
           {...props}
         />

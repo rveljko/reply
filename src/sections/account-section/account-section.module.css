@@ -1,0 +1,52 @@
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.profilePicture {
+  background-color: var(--neutral-800);
+  padding: var(--space-lg);
+  margin: calc(var(--space-lg) * -1);
+  margin-bottom: unset;
+}
+
+.profilePicureImageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.profilePictureImage {
+  width: calc(var(--space-xlg) * 9);
+}
+
+.inputs,
+.inputGroup {
+  gap: var(--space-lg);
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: calc(var(--space-lg) * 2);
+}
+
+.inputGroup {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.input {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .inputGroup {
+    flex-direction: row;
+  }
+}
