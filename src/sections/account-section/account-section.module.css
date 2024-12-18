@@ -9,6 +9,8 @@
   padding: var(--space-lg);
   margin: calc(var(--space-lg) * -1);
   margin-bottom: unset;
+  border-top-left-radius: calc(var(--border-radius-md) - 1px);
+  border-top-right-radius: calc(var(--border-radius-md) - 1px);
 }
 
 .profilePicureImageWrapper {
