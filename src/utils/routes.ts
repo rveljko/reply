@@ -61,7 +61,7 @@ export const settingsRoutes: Route[] = [
   },
   {
     id: 2,
-    name: 'Card',
+    name: 'Cards',
     href: 'cards',
     page: CardsPage,
   },
