@@ -7,7 +7,7 @@ import styles from './delete-credit-card-modal.module.css'
 type DeleteCreditCardModalProps = {
   dialogRef: React.RefObject<HTMLDialogElement>
   creditCardIndex: number
-  setCreditCardIndex: React.Dispatch<React.SetStateAction<number>>
+  setCreditCardIndex?: React.Dispatch<React.SetStateAction<number>>
 }
 
 export default function DeleteCreditCardModal({
@@ -48,7 +48,7 @@ export default function DeleteCreditCardModal({
             removeCreditCard(creditCardIndex)
             displayToast('Credit Card Removed')
             if (creditCardIndex === creditCards.length - 1) {
-              setCreditCardIndex(creditCards.length - 2)
+              setCreditCardIndex && setCreditCardIndex(creditCards.length - 2)
             }
             dialogRef.current?.close()
           }}

@@ -13,6 +13,7 @@ type CreditCardsContextType = {
   getCreditCardBalance: (creditCard: CreditCard) => number
   getCreditCardExpenses: (creditCard: CreditCard) => number
   activeCreditCards: CreditCard[]
+  changeCreditCardStatus: (id: number) => void
   removeCreditCard: (index: number) => void
   addNewCreditCard: (newCreditCard: CreditCard) => void
   updateBalanceAndExpenses: (
@@ -61,6 +62,15 @@ export default function CreditCardsContextProvider({
 
   function getCreditCardExpenses(creditCard: CreditCard) {
     return creditCard.expenses[0].amount
+  }
+
+  function changeCreditCardStatus(id: number) {
+    const matchingCreditCard = getCreditCardById(id)
+
+    setCreditCards((prevCreditCards) => [
+      ...prevCreditCards.filter(({ id }) => id !== matchingCreditCard.id),
+      { ...matchingCreditCard, isActive: !matchingCreditCard.isActive },
+    ])
   }
 
   function removeCreditCard(cardIndex: number) {
@@ -118,6 +128,7 @@ export default function CreditCardsContextProvider({
         getCreditCardByIndex,
         getCreditCardBalance,
         getCreditCardExpenses,
+        changeCreditCardStatus,
         removeCreditCard,
         addNewCreditCard,
         updateBalanceAndExpenses,

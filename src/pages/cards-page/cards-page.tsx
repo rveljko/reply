@@ -1,3 +1,8 @@
+import CardsSection from '../../sections/cards-section/cards-section'
+import { useCreditCards } from '../../utils/contexts/credit-cards-context'
+
 export default function CardsPage() {
-  return <div>cards-page</div>
+  const { creditCards } = useCreditCards()
+
+  return <CardsSection creditCards={creditCards} />
 }
