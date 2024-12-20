@@ -99,3 +99,13 @@ export type CreditCardExpense = {
 export type FilterCategory = 'purpose' | 'type' | 'credit-card'
 
 export type FilterKey = Purpose | Type | CreditCardId
+
+export type Theme = {
+  label: 'System Preference' | 'Light' | 'Dark'
+  imageUrl: string
+}
+
+export type Chart = {
+  label: 'Line' | 'Bar'
+  imageUrl: string
+}
