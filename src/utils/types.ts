@@ -100,7 +100,10 @@ export type FilterCategory = 'purpose' | 'type' | 'credit-card'
 
 export type FilterKey = Purpose | Type | CreditCardId
 
-export type Theme = {
+export type Theme = 'system' | 'light' | 'dark'
+
+export type Themes = {
+  name: Theme
   label: 'System Preference' | 'Light' | 'Dark'
   imageUrl: string
 }

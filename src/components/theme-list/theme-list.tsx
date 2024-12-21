@@ -1,17 +1,17 @@
-import { Theme } from '../../utils/types'
-import PreferencesCard from '../preferences-card/preferences-card'
+import { Themes } from '../../utils/types'
+import ThemeCard from '../theme-card/theme-card'
 import styles from './theme-list.module.css'
 
 export type ThemeListProps = {
-  themes: Theme[]
+  themes: Themes[]
 }
 
 export default function ThemeList({ themes }: ThemeListProps) {
   return (
     <ul className={styles.list}>
-      {themes.map(({ label, imageUrl }, index) => (
+      {themes.map(({ label, imageUrl, name }, index) => (
         <li key={index}>
-          <PreferencesCard label={label} imageUrl={imageUrl} />
+          <ThemeCard name={name} label={label} imageUrl={imageUrl} />
         </li>
       ))}
     </ul>

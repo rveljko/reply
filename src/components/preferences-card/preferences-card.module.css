@@ -11,6 +11,10 @@
   margin-bottom: var(--space-sm);
 }
 
+.imageWrapper.active {
+  outline: 1px solid var(--brand-500);
+}
+
 .label {
   color: var(--white);
 }

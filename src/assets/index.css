@@ -127,6 +127,64 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --background-ending-color: #e4e9f2;
+    --background: radial-gradient(at top, #dde4ee, #e4e9f2);
+    --section-outline: #05050526;
+    --section-background: radial-gradient(at top, #dde4eecc, #ebeff529 50%);
+    --modal-background: radial-gradient(at top, #d3dce8e6, #e7ecf3e6 50%);
+    --neutral-100: #0a1119;
+    --neutral-200: #232930;
+    --neutral-300: #3b4147;
+    --neutral-400: #54585e;
+    --neutral-500: #6c7075;
+    --neutral-600: #85888c;
+    --neutral-700: #9da0a3;
+    --neutral-800: #b6b8ba;
+    --neutral-900: #cecfd1;
+  }
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --background-starting-color: #0e1724;
+  --background-ending-color: #0b121c;
+  --background: radial-gradient(at top, #0e1724, #0b121c);
+  --section-outline: #fafafa26;
+  --section-background: linear-gradient(#0d141f1a, #14213333),
+    radial-gradient(at top, #0e1825cc, #090e1629 50%);
+  --modal-background: radial-gradient(at top, #161f2be6, #0c1118e6 50%);
+  --neutral-100: #cecfd1;
+  --neutral-200: #b6b8ba;
+  --neutral-300: #9da0a3;
+  --neutral-400: #85888c;
+  --neutral-500: #6c7075;
+  --neutral-600: #54585e;
+  --neutral-700: #3b4147;
+  --neutral-800: #232930;
+  --neutral-900: #0a1119;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+  --background-ending-color: #e4e9f2;
+  --background: radial-gradient(at top, #dde4ee, #e4e9f2);
+  --section-outline: #05050526;
+  --section-background: radial-gradient(at top, #dde4eecc, #ebeff529 50%);
+  --modal-background: radial-gradient(at top, #d3dce8e6, #e7ecf3e6 50%);
+  --neutral-100: #0a1119;
+  --neutral-200: #232930;
+  --neutral-300: #3b4147;
+  --neutral-400: #54585e;
+  --neutral-500: #6c7075;
+  --neutral-600: #85888c;
+  --neutral-700: #9da0a3;
+  --neutral-800: #b6b8ba;
+  --neutral-900: #cecfd1;
+}
+
 *,
 *::before,
 *::after {
@@ -154,6 +212,10 @@
 
 ::-webkit-scrollbar-corner {
   background-color: transparent;
+}
+
+html {
+  color-scheme: dark light;
 }
 
 html:has(dialog[open]) {
