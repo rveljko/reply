@@ -1,17 +1,17 @@
-import { Chart } from '../../utils/types'
-import PreferencesCard from '../preferences-card/preferences-card'
+import { Charts } from '../../utils/types'
+import ChartCard from '../chart-card/chart-card'
 import styles from './chart-list.module.css'
 
 export type ChartListProps = {
-  charts: Chart[]
+  charts: Charts[]
 }
 
 export default function ChartList({ charts }: ChartListProps) {
   return (
     <ul className={styles.list}>
-      {charts.map(({ label, imageUrl }, index) => (
+      {charts.map(({ name, label, imageUrl }, index) => (
         <li key={index}>
-          <PreferencesCard label={label} imageUrl={imageUrl} />
+          <ChartCard name={name} label={label} imageUrl={imageUrl} />
         </li>
       ))}
     </ul>

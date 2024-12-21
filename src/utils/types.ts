@@ -108,7 +108,10 @@ export type Themes = {
   imageUrl: string
 }
 
-export type Chart = {
+export type Chart = 'line' | 'bar'
+
+export type Charts = {
+  name: Chart
   label: 'Line' | 'Bar'
   imageUrl: string
 }
