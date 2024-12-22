@@ -35,19 +35,19 @@ export default function Chart({ data, height }: ChartProps) {
         <BarChart data={data}>
           <defs>
             <linearGradient id="fillGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop stop-color="var(--chart-gradient-start-color)" />
+              <stop stopColor="var(--chart-gradient-start-color)" />
               <stop
                 offset="1"
-                stop-color="var(--chart-gradient-start-color)"
-                stop-opacity="0"
+                stopColor="var(--chart-gradient-start-color)"
+                stopOpacity="0"
               />
             </linearGradient>
             <linearGradient id="strokeGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop stop-color="var(--brand-500)" />
+              <stop stopColor="var(--brand-500)" />
               <stop
                 offset="1"
-                stop-color="var(--chart-gradient-start-color)"
-                stop-opacity="0"
+                stopColor="var(--chart-gradient-start-color)"
+                stopOpacity="0"
               />
             </linearGradient>
             <linearGradient
@@ -57,11 +57,11 @@ export default function Chart({ data, height }: ChartProps) {
               x2="0"
               y2="1"
             >
-              <stop stop-color="var(--white)" />
+              <stop stopColor="var(--white)" />
               <stop
                 offset="1"
-                stop-color="var(--chart-gradient-start-color)"
-                stop-opacity="0"
+                stopColor="var(--chart-gradient-start-color)"
+                stopOpacity="0"
               />
             </linearGradient>
           </defs>
