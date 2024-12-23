@@ -13,6 +13,7 @@ type CreditCardsContextType = {
   getCreditCardBalance: (creditCard: CreditCard) => number
   getCreditCardExpenses: (creditCard: CreditCard) => number
   activeCreditCards: CreditCard[]
+  getSortedCreditCards: () => CreditCard[]
   changeCreditCardStatus: (id: number) => void
   removeCreditCard: (index: number) => void
   addNewCreditCard: (newCreditCard: CreditCard) => void
@@ -40,10 +41,7 @@ export default function CreditCardsContextProvider({
   )
 
   useEffect(() => {
-    localStorage.setItem(
-      'credit-cards',
-      JSON.stringify(creditCards.sort((a, b) => a.id - b.id))
-    )
+    localStorage.setItem('credit-cards', JSON.stringify(creditCards))
   }, [creditCards])
 
   const activeCreditCards = creditCards.filter(({ isActive }) => isActive)
@@ -62,6 +60,10 @@ export default function CreditCardsContextProvider({
 
   function getCreditCardExpenses(creditCard: CreditCard) {
     return creditCard.expenses[0].amount
+  }
+
+  function getSortedCreditCards() {
+    return creditCards.sort((a, b) => a.id - b.id)
   }
 
   function changeCreditCardStatus(id: number) {
@@ -128,6 +130,7 @@ export default function CreditCardsContextProvider({
         getCreditCardByIndex,
         getCreditCardBalance,
         getCreditCardExpenses,
+        getSortedCreditCards,
         changeCreditCardStatus,
         removeCreditCard,
         addNewCreditCard,
