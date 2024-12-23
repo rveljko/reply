@@ -117,6 +117,7 @@ export type Charts = {
 }
 
 export type Integration = {
+  id: number
   name: string
   description: string
   logoUrl: string

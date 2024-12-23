@@ -1,10 +1,16 @@
 import Button from '../../components/button/button'
 import IntegrationList from '../../components/integration-list/integration-list'
-import { integrations } from '../../data/integrations'
+import { Integration } from '../../utils/types'
 import Section from '../section/section'
 import styles from './integrations-section.module.css'
 
-export default function IntegrationsSection() {
+type IntegrationsSectionProps = {
+  integrations: Integration[]
+}
+
+export default function IntegrationsSection({
+  integrations,
+}: IntegrationsSectionProps) {
   return (
     <Section>
       <h2>Connected Applications</h2>

@@ -1,3 +1,4 @@
+import { useIntegrations } from '../../utils/contexts/integrations-context'
 import { Integration } from '../../utils/types'
 import Switch from '../switch/switch'
 import styles from './integration-card.module.css'
@@ -5,10 +6,14 @@ import styles from './integration-card.module.css'
 type IntegrationCardProps = Integration
 
 export default function IntegrationCard({
+  id,
   name,
   description,
   logoUrl,
+  isActive,
 }: IntegrationCardProps) {
+  const { updateActiveIntegration } = useIntegrations()
+
   return (
     <article className={styles.card}>
       <div className={styles.informations}>
@@ -20,7 +25,7 @@ export default function IntegrationCard({
           <span className={styles.description}>{description}</span>
         </div>
       </div>
-      <Switch />
+      <Switch checked={isActive} onChange={() => updateActiveIntegration(id)} />
     </article>
   )
 }

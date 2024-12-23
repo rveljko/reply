@@ -11,9 +11,10 @@ export default function IntegrationList({
 }: IntegrationListProps) {
   return (
     <ul className={styles.list}>
-      {integrations.map(({ name, description, logoUrl, isActive }, index) => (
-        <li key={index}>
+      {integrations.map(({ id, name, description, logoUrl, isActive }) => (
+        <li key={id}>
           <IntegrationCard
+            id={id}
             name={name}
             description={description}
             logoUrl={logoUrl}
