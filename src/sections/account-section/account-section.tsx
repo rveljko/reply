@@ -20,9 +20,6 @@ export default function AccountSection() {
   const { userInformations, updateUserInformations } = useUserInformations()
 
   const initialFormFields = {
-    firstName: userInformations.firstName,
-    lastName: userInformations.lastName,
-    emailAddress: userInformations.emailAddress,
     phoneNumber: phoneMask(userInformations.phoneNumber.toString()),
   }
 
@@ -74,13 +71,9 @@ export default function AccountSection() {
                   type="text"
                   label="First Name"
                   icon={<UserIcon />}
-                  value={formFields.firstName}
+                  value={newUserInformations.firstName}
                   minLength={0}
                   onChange={(e) => {
-                    setFormFields({
-                      ...formFields,
-                      firstName: onlyLettersMask(e.target.value),
-                    })
                     setNewUserInformations({
                       ...newUserInformations,
                       firstName: onlyLettersMask(e.target.value),
@@ -92,13 +85,9 @@ export default function AccountSection() {
                   type="text"
                   label="Last Name"
                   icon={<UserIcon />}
-                  value={formFields.lastName}
+                  value={newUserInformations.lastName}
                   minLength={0}
                   onChange={(e) => {
-                    setFormFields({
-                      ...formFields,
-                      lastName: onlyLettersMask(e.target.value),
-                    })
                     setNewUserInformations({
                       ...newUserInformations,
                       lastName: onlyLettersMask(e.target.value),
@@ -113,12 +102,8 @@ export default function AccountSection() {
                   label="Email Address"
                   icon={<MailIcon />}
                   minLength={13}
-                  value={formFields.emailAddress}
+                  value={newUserInformations.emailAddress}
                   onChange={(e) => {
-                    setFormFields({
-                      ...formFields,
-                      emailAddress: e.target.value,
-                    })
                     setNewUserInformations({
                       ...newUserInformations,
                       emailAddress: e.target.value,
