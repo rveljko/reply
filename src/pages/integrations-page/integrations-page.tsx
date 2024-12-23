@@ -1,3 +1,5 @@
+import IntegrationsSection from '../../sections/integrations-section/integrations-section'
+
 export default function IntegrationsPage() {
-  return <div>integrations-page</div>
+  return <IntegrationsSection />
 }

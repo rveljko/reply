@@ -115,3 +115,10 @@ export type Charts = {
   label: 'Line' | 'Bar'
   imageUrl: string
 }
+
+export type Integration = {
+  name: string
+  description: string
+  logoUrl: string
+  isActive: boolean
+}
