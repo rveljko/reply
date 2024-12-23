@@ -1,7 +1,7 @@
 import styles from './input.module.css'
 
 type InputProps = React.ComponentPropsWithoutRef<'input'> & {
-  type: 'text' | 'number' | 'month' | 'tel'
+  type: 'text' | 'number' | 'month' | 'tel' | 'email'
   label: string
   icon?: JSX.Element
   placeholder?: string

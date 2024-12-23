@@ -6,6 +6,25 @@ export function onlyNumbersMask(value: string) {
   return value.replace(/\D/g, '')
 }
 
+export function phoneMask(value: string) {
+  const phoneNumber = onlyNumbersMask(value)
+
+  if (phoneNumber.length < 4) return phoneNumber
+
+  if (phoneNumber.length < 7) {
+    return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`
+  }
+
+  return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(
+    3,
+    6
+  )}-${phoneNumber.slice(6, 10)}`
+}
+
+export function phoneMaskCleaner(value: string) {
+  return parseInt(value.replace(/[()\s-]/g, ''))
+}
+
 export function currencyMask(value: string) {
   const numbers = value.replace(/[^0-9.]/g, '')
 

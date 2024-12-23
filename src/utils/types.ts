@@ -6,6 +6,13 @@ type Base = {
 export type Sender = Base
 export type Receiver = Base
 
+export type UserInformations = {
+  firstName: string
+  lastName: string
+  emailAddress: string
+  phoneNumber: number
+}
+
 export type Route = {
   id: number
   name: string
