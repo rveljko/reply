@@ -25,19 +25,19 @@ export default function MyCardsSection({
 }: MyCardsSectionProps) {
   const deleteCreditCardDialogRef = useRef<HTMLDialogElement>(null)
   const addNewCreditCardDialogRef = useRef<HTMLDialogElement>(null)
-  const { creditCards } = useCreditCards()
+  const { getSortedCreditCards } = useCreditCards()
 
   function decrementCreditCardIndex() {
     setCreditCardIndex((prevCreditCardIndex) =>
       prevCreditCardIndex <= 0
-        ? (prevCreditCardIndex = creditCards.length - 1)
+        ? (prevCreditCardIndex = getSortedCreditCards().length - 1)
         : prevCreditCardIndex - 1
     )
   }
 
   function incrementCreditCardIndex() {
     setCreditCardIndex((prevCreditCardIndex) =>
-      prevCreditCardIndex >= creditCards.length - 1
+      prevCreditCardIndex >= getSortedCreditCards().length - 1
         ? (prevCreditCardIndex = 0)
         : prevCreditCardIndex + 1
     )
@@ -71,7 +71,7 @@ export default function MyCardsSection({
               icon={<TrashIcon />}
               label="Remove"
               dialogRef={deleteCreditCardDialogRef}
-              disabled={creditCards.length === 1}
+              disabled={getSortedCreditCards.length === 1}
             >
               <DeleteCreditCardModal
                 dialogRef={deleteCreditCardDialogRef}
@@ -86,7 +86,7 @@ export default function MyCardsSection({
         <CreditCard creditCard={creditCard} />
       </div>
       <CreditCardPagination
-        creditCards={creditCards}
+        creditCards={getSortedCreditCards()}
         creditCardIndex={creditCardIndex}
         setCreditCardIndex={setCreditCardIndex}
       />
