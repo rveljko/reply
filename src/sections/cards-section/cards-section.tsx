@@ -71,14 +71,14 @@ export default function CardsSection({ creditCards }: CardsSectionProps) {
           if (cardUpdateStatusIds.length > 0) {
             cardUpdateStatusIds.map((id) => {
               changeCreditCardStatus(id)
-              setCardUpdateStatusIds([])
             })
+            setCardUpdateStatusIds([])
           }
           if (removeCardIndexes.length > 0) {
             removeCardIndexes.map((index) => {
               removeCreditCard(index)
-              setRemoveCardIndexes([])
             })
+            setRemoveCardIndexes([])
           }
         }}
         disabled={isButtonDisabled}
