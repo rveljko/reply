@@ -1,25 +1,31 @@
-import { useRef } from 'react'
+import { useState } from 'react'
 import CheckIcon from '../../icons/check-icon'
 import TrashIcon from '../../icons/trash-icon'
 import XIcon from '../../icons/x-icon'
-import { useCreditCards } from '../../utils/contexts/credit-cards-context'
 import displayCreditCardExpDate from '../../utils/helpers/display-credit-card-exp-date'
 import { getEndingLastFourDigits } from '../../utils/helpers/get-last-four-digits'
 import { CreditCard } from '../../utils/types'
 import Button from '../button/button'
-import DeleteCreditCardModal from '../delete-credit-card-modal/delete-credit-card-modal'
-import ModalButton from '../modal-button/modal-button'
 import styles from './my-card.module.css'
-import displayToast from '../../utils/toast'
 
 type MyCardProps = {
+  creditCards: CreditCard[]
   creditCard: CreditCard
   cardIndex: number
+  addNewUpdateStatusCardId: (id: number) => void
+  addNewRemoveCardIndex: (cardIndex: number) => void
 }
 
-export default function MyCard({ creditCard, cardIndex }: MyCardProps) {
-  const { creditCards, changeCreditCardStatus } = useCreditCards()
-  const deleteCreditCardDialogRef = useRef<HTMLDialogElement>(null)
+export default function MyCard({
+  creditCards,
+  creditCard,
+  cardIndex,
+  addNewUpdateStatusCardId,
+  addNewRemoveCardIndex,
+}: MyCardProps) {
+  const [isCreditCardActive, setIsCreditCardActive] = useState(
+    creditCard.isActive
+  )
 
   return (
     <article className={styles.card}>
@@ -40,30 +46,28 @@ export default function MyCard({ creditCard, cardIndex }: MyCardProps) {
       </div>
       <ul className={styles.buttons}>
         <li>
-          <ModalButton
+          <Button
             variant="tertiary"
             size="small"
-            icon={<TrashIcon />}
-            label="Remove"
-            dialogRef={deleteCreditCardDialogRef}
+            onClick={() => {
+              addNewRemoveCardIndex(cardIndex)
+            }}
             disabled={creditCards.length === 1}
           >
-            <DeleteCreditCardModal
-              dialogRef={deleteCreditCardDialogRef}
-              creditCardIndex={cardIndex}
-            />
-          </ModalButton>
+            <TrashIcon />
+            Remove
+          </Button>
         </li>
         <li>
           <Button
             variant="tertiary"
             size="small"
             onClick={() => {
-              changeCreditCardStatus(creditCard.id)
-              displayToast('Credit Card Status Changed')
+              addNewUpdateStatusCardId(creditCard.id)
+              setIsCreditCardActive(!isCreditCardActive)
             }}
           >
-            {creditCard.isActive ? (
+            {isCreditCardActive ? (
               <>
                 <XIcon />
                 Deactivate
