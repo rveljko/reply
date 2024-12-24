@@ -4,10 +4,12 @@ import styles from './integration-list.module.css'
 
 export type IntegrationListProps = {
   integrations: Integration[]
+  addNewIntegrationId: (id: number) => void
 }
 
 export default function IntegrationList({
   integrations,
+  addNewIntegrationId,
 }: IntegrationListProps) {
   return (
     <ul className={styles.list}>
@@ -19,6 +21,7 @@ export default function IntegrationList({
             description={description}
             logoUrl={logoUrl}
             isActive={isActive}
+            addNewIntegrationId={addNewIntegrationId}
           />
         </li>
       ))}
