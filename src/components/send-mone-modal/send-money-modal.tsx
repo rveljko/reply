@@ -8,7 +8,6 @@ import Input from '../input/input'
 import TextArea from '../text-area/text-area'
 import styles from './send-money-modal.module.css'
 import { IMAGE_PATH } from '../../utils/constants'
-import { userInformations } from '../../data/transactions'
 import { useTransactions } from '../../utils/contexts/transactions-context'
 import { Select, Option } from '../select-option/select-option'
 import CreditCardPayIcon from '../../icons/credit-card-pay-icon'
@@ -18,12 +17,14 @@ import { useCreditCards } from '../../utils/contexts/credit-cards-context'
 import ErrorMessage from '../error-message/error-message'
 import { currencyMask, onlyLettersMask } from '../../utils/helpers/input-masks'
 import displayToast from '../../utils/toast'
+import { useUserInformations } from '../../utils/contexts/user-informations-context'
 
 type SendMoneyModalProps = {
   dialogRef: React.RefObject<HTMLDialogElement>
 }
 
 export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
+  const { userInformations } = useUserInformations()
   const {
     activeCreditCards,
     getCreditCardById,
@@ -34,8 +35,8 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
 
   const initialTransaction: Transaction = {
     id: 0,
-    senderName: userInformations.name,
-    senderImage: userInformations.image,
+    senderName: `${userInformations.firstName} ${userInformations.lastName}`,
+    senderImage: userInformations.imageUrl,
     receiverImage: '',
     receiverName: '',
     amount: 0,
