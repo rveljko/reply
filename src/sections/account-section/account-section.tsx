@@ -4,7 +4,6 @@ import Input from '../../components/input/input'
 import MailIcon from '../../icons/mail-icon'
 import PhoneIcon from '../../icons/phone-icon'
 import UserIcon from '../../icons/user-icon'
-import { IMAGE_PATH } from '../../utils/constants'
 import Section from '../section/section'
 import styles from './account-section.module.css'
 import { useUserInformations } from '../../utils/contexts/user-informations-context'
@@ -26,6 +25,7 @@ export default function AccountSection() {
   const initialUserInformations: UserInformations = {
     firstName: userInformations.firstName,
     lastName: userInformations.lastName,
+    imageUrl: userInformations.imageUrl,
     emailAddress: userInformations.emailAddress,
     phoneNumber: userInformations.phoneNumber,
   }
@@ -38,6 +38,7 @@ export default function AccountSection() {
   const isButtonDisabled =
     (newUserInformations.firstName === userInformations.firstName &&
       newUserInformations.lastName === userInformations.lastName &&
+      newUserInformations.imageUrl === userInformations.imageUrl &&
       newUserInformations.emailAddress === userInformations.emailAddress &&
       newUserInformations.phoneNumber === userInformations.phoneNumber) ||
     newUserInformations.phoneNumber.toString().length < 10
@@ -55,12 +56,39 @@ export default function AccountSection() {
         <div className={styles.head}>
           <div className={styles.profilePicture}>
             <h2>Profile Picture</h2>
-            <div className={styles.profilePicureImageWrapper}>
-              <img
-                src={`${IMAGE_PATH}james-williams.png`}
-                alt=""
-                className={styles.profilePictureImage}
-              />
+            <div className={styles.profilePictureContent}>
+              <div className={styles.profilePictureWrapper}>
+                <label htmlFor="file-input" className={styles.fileInputLabel}>
+                  Upload
+                </label>
+                <input
+                  type="file"
+                  id="file-input"
+                  accept="image/jpeg, image/png"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0]
+                    const reader = new FileReader()
+
+                    if (!file) return
+
+                    reader.onload = () => {
+                      reader.result &&
+                        setNewUserInformations({
+                          ...newUserInformations,
+                          imageUrl: reader.result.toString(),
+                        })
+                    }
+
+                    reader.readAsDataURL(file)
+                  }}
+                  className={styles.fileInput}
+                />
+                <img
+                  src={newUserInformations.imageUrl}
+                  alt=""
+                  className={styles.profilePictureImage}
+                />
+              </div>
             </div>
           </div>
           <div>

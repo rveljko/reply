@@ -9,6 +9,7 @@ export type Receiver = Base
 export type UserInformations = {
   firstName: string
   lastName: string
+  imageUrl: string
   emailAddress: string
   phoneNumber: number
 }
