@@ -10,13 +10,15 @@ import BalanceOvertimeSection from '../../sections/balance-overtime-section/bala
 
 export default function MyCardsPage() {
   const {
-    creditCards,
+    getSortedCreditCards,
     getCreditCardBalance,
     getCreditCardExpenses,
     getCreditCardByIndex,
   } = useCreditCards()
   const { getTransactionsByCreditCardId } = useTransactionFilters()
-  const initialCreditCardIndex = Math.floor((creditCards.length - 1) / 2)
+  const initialCreditCardIndex = Math.floor(
+    (getSortedCreditCards().length - 1) / 2
+  )
   const [creditCardIndex, setCreditCardIndex] = useState(initialCreditCardIndex)
   const creditCard = getCreditCardByIndex(creditCardIndex)
 
