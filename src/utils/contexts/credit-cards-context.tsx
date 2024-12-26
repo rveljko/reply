@@ -44,7 +44,9 @@ export default function CreditCardsContextProvider({
     localStorage.setItem('credit-cards', JSON.stringify(creditCards))
   }, [creditCards])
 
-  const activeCreditCards = creditCards.filter(({ isActive }) => isActive)
+  const activeCreditCards = getSortedCreditCards().filter(
+    ({ isActive }) => isActive
+  )
 
   function getCreditCardById(id: number) {
     return creditCards.find((creditCard) => creditCard.id === id)!
