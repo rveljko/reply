@@ -20,14 +20,14 @@
   --outline-color: var(--neutral-600);
   background-image: var(--background-gradient),
     linear-gradient(var(--neutral-600), var(--neutral-600));
-  color: var(--white);
+  color: var(--clickable);
 }
 
 .link.active {
   --outline-color: var(--neutral-700);
   background-image: var(--background-gradient),
     linear-gradient(var(--neutral-700), var(--neutral-700));
-  color: var(--white);
+  color: var(--clickable);
 }
 
 .link svg {

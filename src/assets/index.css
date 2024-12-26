@@ -71,6 +71,7 @@
   --warning-700: #fbc02d;
   --warning-800: #f9a825;
   --warning-900: #f57f17;
+  --clickable: #ffffff;
   --chart-gradient-start-color: hsl(from var(--brand-500) h s l / 40%);
   --chart-gradient-end-color: transparent;
   --background-starting-color: #0e1724;
@@ -144,6 +145,7 @@
     --neutral-700: #9da0a3;
     --neutral-800: #b6b8ba;
     --neutral-900: #cecfd1;
+    --clickable: #000000;
   }
 }
 
@@ -165,6 +167,7 @@
   --neutral-700: #3b4147;
   --neutral-800: #232930;
   --neutral-900: #0a1119;
+  --clickable: #ffffff;
 }
 
 [data-theme='light'] {
@@ -183,6 +186,7 @@
   --neutral-700: #9da0a3;
   --neutral-800: #b6b8ba;
   --neutral-900: #cecfd1;
+  --clickable: #000000;
 }
 
 *,
@@ -227,7 +231,7 @@ body {
   background-color: var(--background-ending-color);
   background-image: var(--background);
   background-attachment: fixed;
-  color: var(--white);
+  color: var(--clickable);
   font-family: var(--font-primary);
   line-height: var(--line-height);
 }
@@ -264,7 +268,7 @@ textarea {
   background-color: var(--neutral-800);
   padding: var(--space-lg);
   font-size: var(--paragraph);
-  color: var(--white);
+  color: var(--clickable);
   box-shadow: inset 0 0 0 1px var(--neutral-300);
   width: 100%;
   border-radius: var(--border-radius-sm);

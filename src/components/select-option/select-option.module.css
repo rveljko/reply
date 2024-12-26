@@ -7,7 +7,7 @@
 .select,
 .iconWrapper,
 .option {
-  color: var(--white);
+  color: var(--clickable);
 }
 
 .iconWrapper {

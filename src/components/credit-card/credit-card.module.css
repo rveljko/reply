@@ -46,14 +46,11 @@
   align-items: center;
 }
 
-.owner {
-  color: var(--neutral-100);
-}
-
+.owner,
 .numbers,
 .exp,
 .cvv {
-  color: var(--white);
+  color: var(--neutral-100);
 }
 
 .numbers {

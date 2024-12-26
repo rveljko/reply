@@ -5,11 +5,6 @@
   width: 100%;
 }
 
-.input,
-.iconWrapper {
-  color: var(--white);
-}
-
 .input {
   position: relative;
   padding-left: calc(var(--space-lg) + var(--space-sm) + var(--icon-size-sm));

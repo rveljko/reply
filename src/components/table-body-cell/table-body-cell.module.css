@@ -1,7 +1,7 @@
 .cell {
   font-size: var(--paragraph-sm);
   padding: var(--space-lg);
-  color: var(--white);
+  color: var(--clickable);
 }
 
 .cell img {
