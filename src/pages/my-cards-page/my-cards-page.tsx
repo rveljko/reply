@@ -7,6 +7,8 @@ import MyCardsSection from '../../sections/my-cards-section/my-cards-section'
 import { useState } from 'react'
 import useTransactionFilters from '../../hooks/use-transaction-filters'
 import BalanceOvertimeSection from '../../sections/balance-overtime-section/balance-overtime-section'
+import { Helmet } from 'react-helmet-async'
+import { TITLE_PREFIX } from '../../utils/constants'
 
 export default function MyCardsPage() {
   const {
@@ -23,32 +25,40 @@ export default function MyCardsPage() {
   const creditCard = getCreditCardByIndex(creditCardIndex)
 
   return (
-    <div className={styles.primaryLayout}>
-      <div className={styles.secondaryLayout}>
-        <div className={styles.wideChild}>
-          <MyCardsSection
-            creditCardIndex={creditCardIndex}
-            setCreditCardIndex={setCreditCardIndex}
-            creditCard={creditCard}
-          />
+    <>
+      <Helmet>
+        <title>{TITLE_PREFIX} My Cards</title>
+      </Helmet>
+      <div className={styles.primaryLayout}>
+        <div className={styles.secondaryLayout}>
+          <div className={styles.wideChild}>
+            <MyCardsSection
+              creditCardIndex={creditCardIndex}
+              setCreditCardIndex={setCreditCardIndex}
+              creditCard={creditCard}
+            />
+          </div>
+          <div className={`${styles.tertiaryLayout} ${styles.narrowChild}`}>
+            <BalanceExpensesSection
+              title="Balance"
+              amount={getCreditCardBalance(creditCard)}
+            />
+            <BalanceExpensesSection
+              title="Expenses"
+              amount={getCreditCardExpenses(creditCard)}
+            />
+          </div>
         </div>
-        <div className={`${styles.tertiaryLayout} ${styles.narrowChild}`}>
-          <BalanceExpensesSection
-            title="Balance"
-            amount={getCreditCardBalance(creditCard)}
-          />
-          <BalanceExpensesSection
-            title="Expenses"
-            amount={getCreditCardExpenses(creditCard)}
-          />
-        </div>
+        <RecentTransactionsSection
+          tableTransactionHeaders={tableTransactionHeaders}
+          transactions={getTransactionsByCreditCardId(creditCard.id).slice(
+            0,
+            5
+          )}
+          isLinkable
+        />
+        <BalanceOvertimeSection creditCard={creditCard} />
       </div>
-      <RecentTransactionsSection
-        tableTransactionHeaders={tableTransactionHeaders}
-        transactions={getTransactionsByCreditCardId(creditCard.id).slice(0, 5)}
-        isLinkable
-      />
-      <BalanceOvertimeSection creditCard={creditCard} />
-    </div>
+    </>
   )
 }
