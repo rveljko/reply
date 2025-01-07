@@ -46,6 +46,7 @@ export default function FilterButtons() {
               label="Date To"
               type="date"
               name="date-to"
+              min={inputDateFormatter(generateDateInPast(90, 0, 0, 0))}
               max={inputDateFormatter(new Date())}
               value={dateTo || inputDateFormatter(new Date())}
               onChange={(e) => setDateFilter('date-to', e.target.value)}
