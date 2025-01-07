@@ -13,6 +13,7 @@ import GiftIcon from '../../../icons/gift-icon'
 import SelectorIcon from '../../../icons/selector-icon'
 import { useCreditCards } from '../../../utils/contexts/credit-cards-context'
 import { inputDateFormatter } from '../../../utils/helpers/date-formatters'
+import generateDateInPast from '../../../utils/helpers/date-generators'
 import { getEndingLastFourDigits } from '../../../utils/helpers/get-last-four-digits'
 import { CreditCardId } from '../../../utils/types'
 import styles from './filter-buttons.module.css'
@@ -34,8 +35,11 @@ export default function FilterButtons() {
               label="Date from"
               type="date"
               name="date-from"
-              value={dateFrom || '2024-03-05'}
-              min="2024-03-05"
+              min={inputDateFormatter(generateDateInPast(91, 0, 0, 0))}
+              max={inputDateFormatter(generateDateInPast(1, 0, 0, 0))}
+              value={
+                dateFrom || inputDateFormatter(generateDateInPast(91, 0, 0, 0))
+              }
               onChange={(e) => setDateFilter('date-from', e.target.value)}
             />
             <DropdownInputElement
