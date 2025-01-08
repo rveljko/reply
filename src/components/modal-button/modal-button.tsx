@@ -5,7 +5,8 @@ type ModalButtonProps = React.ComponentPropsWithoutRef<'button'> &
   ButtonProps & {
     dialogRef: React.RefObject<HTMLDialogElement>
     label: string
-    icon: JSX.Element
+    icon?: JSX.Element
+    rightIcon?: JSX.Element
   }
 
 export default function ModalButton({
@@ -14,6 +15,7 @@ export default function ModalButton({
   dialogRef,
   label,
   icon: Icon,
+  rightIcon: RightIcon,
   children,
   className,
   ...props
@@ -31,6 +33,7 @@ export default function ModalButton({
       >
         {Icon}
         <span>{label}</span>
+        {RightIcon && RightIcon}
       </Button>
       <Dialog dialogRef={dialogRef}>{children}</Dialog>
     </>

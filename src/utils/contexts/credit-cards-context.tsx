@@ -13,6 +13,7 @@ type CreditCardsContextType = {
   getCreditCardBalance: (creditCard: CreditCard) => number
   getCreditCardExpenses: (creditCard: CreditCard) => number
   activeCreditCards: CreditCard[]
+  totalBalance: number
   getSortedCreditCards: () => CreditCard[]
   changeCreditCardStatus: (id: number) => void
   removeCreditCard: (index: number) => void
@@ -46,6 +47,11 @@ export default function CreditCardsContextProvider({
 
   const activeCreditCards = getSortedCreditCards().filter(
     ({ isActive }) => isActive
+  )
+
+  const totalBalance = creditCards.reduce(
+    (acc, { balance }) => acc + balance[0].amount,
+    0
   )
 
   function getCreditCardById(id: number) {
@@ -128,6 +134,7 @@ export default function CreditCardsContextProvider({
       value={{
         creditCards,
         activeCreditCards,
+        totalBalance,
         getCreditCardById,
         getCreditCardByIndex,
         getCreditCardBalance,

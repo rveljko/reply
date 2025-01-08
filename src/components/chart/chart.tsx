@@ -30,7 +30,9 @@ export default function Chart({ data, height }: ChartProps) {
     return (
       <ResponsiveContainer
         height={'max-content'}
-        aspect={isBiggerScreen ? 16 / 9 : height === 'large' ? 16 / 9 : 16 / 4}
+        aspect={
+          isBiggerScreen ? 2.5 / 1 : height === 'large' ? 2.5 / 1 : 16 / 4
+        }
       >
         <BarChart data={data}>
           <defs>
@@ -57,7 +59,7 @@ export default function Chart({ data, height }: ChartProps) {
               x2="0"
               y2="1"
             >
-              <stop stopColor="var(--white)" />
+              <stop stopColor="var(--clickable)" />
               <stop
                 offset="1"
                 stopColor="var(--chart-gradient-start-color)"
@@ -107,7 +109,9 @@ export default function Chart({ data, height }: ChartProps) {
     return (
       <ResponsiveContainer
         height={'max-content'}
-        aspect={isBiggerScreen ? 16 / 9 : height === 'large' ? 16 / 9 : 16 / 4}
+        aspect={
+          isBiggerScreen ? 2.5 / 1 : height === 'large' ? 2.5 / 1 : 16 / 4
+        }
       >
         <AreaChart data={data}>
           <defs>

@@ -303,7 +303,7 @@ button:hover {
 }
 
 h1 {
-  color: var(--white);
+  color: var(--neutral-100);
   font-size: var(--heading1);
   line-height: var(--line-height-heading1);
   font-weight: 500;
