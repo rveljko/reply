@@ -10,13 +10,11 @@ import Button from '../button/button'
 import ArrowUpRightIcon from '../../icons/arrow-up-right-icon'
 import NavigationLink from '../navigation-link/navigation-link'
 import { useMediaQuery } from 'react-responsive'
-import ModalButton from '../modal-button/modal-button'
-import SendMoneyModal from '../send-mone-modal/send-money-modal'
+import SendMoneyModalButton from '../send-money-modal-button/send-money-modal-button'
 
 export default function Sidebar() {
   const [isOpened, setIsOpened] = useState(false)
   const isBigScreen = useMediaQuery({ minWidth: 768 })
-  const dialogRef = useRef<HTMLDialogElement>(null)
   const sidebarRef = useRef<HTMLElement>(null)
 
   function handleOnClick(e: MouseEvent) {
@@ -65,16 +63,12 @@ export default function Sidebar() {
         <nav className={styles.navigation}>
           <ul className={styles.list}>
             <li className={styles.item}>
-              <ModalButton
+              <SendMoneyModalButton
                 variant="primary"
                 size="small"
-                dialogRef={dialogRef}
-                label="Send Money"
-                icon={<ArrowUpRightIcon />}
+                leftIcon={<ArrowUpRightIcon />}
                 className={styles.button}
-              >
-                <SendMoneyModal dialogRef={dialogRef} />
-              </ModalButton>
+              />
             </li>
             {dashboardRoutes
               .slice(0, -2)

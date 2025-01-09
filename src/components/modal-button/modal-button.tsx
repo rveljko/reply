@@ -1,23 +1,25 @@
-import Button from '../button/button'
+import Button, { ButtonProps } from '../button/button'
 import Dialog from '../dialog/dialog'
-import { ButtonProps } from '../button/button'
-type ModalButtonProps = React.ComponentPropsWithoutRef<'button'> &
-  ButtonProps & {
-    dialogRef: React.RefObject<HTMLDialogElement>
-    label: string
-    icon?: JSX.Element
-    rightIcon?: JSX.Element
-  }
+
+type ModalButtonProps = ButtonProps & {
+  label: string
+  leftIcon?: JSX.Element
+  rightIcon?: JSX.Element
+  isOpened: boolean
+  openModal: () => void
+  closeModal: () => void
+}
 
 export default function ModalButton({
   variant,
   size,
-  dialogRef,
   label,
-  icon: Icon,
+  leftIcon: LeftIcon,
   rightIcon: RightIcon,
+  isOpened,
+  openModal,
+  closeModal,
   children,
-  className,
   ...props
 }: ModalButtonProps) {
   return (
@@ -25,17 +27,14 @@ export default function ModalButton({
       <Button
         variant={variant}
         size={size}
-        className={className}
-        onClick={() => {
-          dialogRef.current?.showModal()
-        }}
+        onClick={() => openModal()}
         {...props}
       >
-        {Icon}
+        {LeftIcon && LeftIcon}
         <span>{label}</span>
         {RightIcon && RightIcon}
       </Button>
-      <Dialog dialogRef={dialogRef}>{children}</Dialog>
+      {isOpened && <Dialog closeModal={closeModal}>{children}</Dialog>}
     </>
   )
 }

@@ -81,6 +81,7 @@
   --section-background: linear-gradient(#0d141f1a, #14213333),
     radial-gradient(at top, #0e1825cc, #090e1629 50%);
   --modal-background: radial-gradient(at top, #161f2be6, #0c1118e6 50%);
+  --modal-backdrop: hsl(from var(--black) h s l / 20%);
   --space-xlg: 1rem;
   --space-lg: 0.75rem;
   --space-md: 0.5rem;
@@ -222,7 +223,7 @@ html {
   color-scheme: dark light;
 }
 
-html:has(dialog[open]) {
+html:has(#backdrop) {
   overflow: hidden;
 }
 

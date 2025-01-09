@@ -20,10 +20,10 @@ import displayToast from '../../utils/toast'
 import { useUserInformations } from '../../utils/contexts/user-informations-context'
 
 type SendMoneyModalProps = {
-  dialogRef: React.RefObject<HTMLDialogElement>
+  closeModal: () => void
 }
 
-export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
+export default function SendMoneyModal({ closeModal }: SendMoneyModalProps) {
   const { userInformations } = useUserInformations()
   const {
     activeCreditCards,
@@ -94,7 +94,7 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
           displayToast('Transfer Successful!')
           setNewTransaction(initialTransaction)
           setFormFields(initialFormFieldValues)
-          dialogRef.current?.close()
+          closeModal()
         }}
       >
         <div className={styles.head}>
@@ -201,7 +201,7 @@ export default function SendMoneyModal({ dialogRef }: SendMoneyModalProps) {
               size="large"
               className={styles.button}
               type="button"
-              onClick={() => dialogRef.current?.close()}
+              onClick={() => closeModal()}
             >
               Cancel
             </Button>

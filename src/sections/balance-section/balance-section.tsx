@@ -1,18 +1,15 @@
-import { useRef } from 'react'
 import Button from '../../components/button/button'
 import Chart from '../../components/chart/chart'
-import ModalButton from '../../components/modal-button/modal-button'
-import SendMoneyModal from '../../components/send-mone-modal/send-money-modal'
 import ArrowUpRightIcon from '../../icons/arrow-up-right-icon'
 import ChevronDownIcon from '../../icons/chevron-down-icon'
 import { useCreditCards } from '../../utils/contexts/credit-cards-context'
 import currencyFormatter from '../../utils/helpers/currency-formatter'
 import Section from '../section/section'
 import styles from './balance-section.module.css'
+import SendMoneyModalButton from '../../components/send-money-modal-button/send-money-modal-button'
 
 export default function BalanceSection() {
   const { totalBalance, getCreditCardByIndex } = useCreditCards()
-  const dialogRef = useRef<HTMLDialogElement>(null)
 
   return (
     <Section>
@@ -28,16 +25,11 @@ export default function BalanceSection() {
             </Button>
           </li>
           <li>
-            <ModalButton
+            <SendMoneyModalButton
               variant="primary"
               size="large"
-              dialogRef={dialogRef}
-              label="Send Money"
               rightIcon={<ArrowUpRightIcon />}
-              className={styles.button}
-            >
-              <SendMoneyModal dialogRef={dialogRef} />
-            </ModalButton>
+            />
           </li>
         </ul>
       </header>
