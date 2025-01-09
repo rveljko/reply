@@ -17,6 +17,7 @@ import {
 } from '../../utils/helpers/input-masks'
 import { useCreditCards } from '../../utils/contexts/credit-cards-context'
 import displayToast from '../../utils/toast'
+import { useUserInformations } from '../../utils/contexts/user-informations-context'
 
 type AddNewCreditCardModalProps = {
   closeModal: () => void
@@ -51,6 +52,7 @@ export default function AddNewCreditCardModal({
   const [newCreditCard, setNewCreditCard] = useState(initialCreditCard)
   const [errorMessage, setErrorMessage] = useState('')
   const { addNewCreditCard } = useCreditCards()
+  const { userInformations } = useUserInformations()
 
   const isButtonDisabled =
     !formFields.owner ||
@@ -102,7 +104,7 @@ export default function AddNewCreditCardModal({
             type="text"
             label="Cardholder Name"
             icon={<UserIcon />}
-            placeholder="James Williams"
+            placeholder={`${userInformations.firstName} ${userInformations.lastName}`}
             value={formFields.owner || ''}
             onChange={(e) => {
               setFormFields({
