@@ -9,8 +9,8 @@ import styles from './my-cards-section.module.css'
 import { useCreditCards } from '../../utils/contexts/credit-cards-context'
 import CreditCardPagination from '../../components/credit-cards-pagination/credit-cards-pagination'
 import useSwipe from '../../hooks/use-swipe'
+import AddNewCreditCardModalButton from '../../components/add-new-credit-card-modal-button/add-new-credit-card-modal-button'
 import PlusIcon from '../../icons/plus-icon'
-import AddNewCreditCardModal from '../../components/add-new-credit-card-modal/add-new-credit-card-modal'
 
 type MyCardsSectionProps = {
   creditCard: CreditCardType
@@ -24,7 +24,6 @@ export default function MyCardsSection({
   setCreditCardIndex,
 }: MyCardsSectionProps) {
   const deleteCreditCardDialogRef = useRef<HTMLDialogElement>(null)
-  const addNewCreditCardDialogRef = useRef<HTMLDialogElement>(null)
   const { getSortedCreditCards } = useCreditCards()
 
   function decrementCreditCardIndex() {
@@ -54,15 +53,11 @@ export default function MyCardsSection({
         <h2>My Cards</h2>
         <ul className={styles.buttons}>
           <li>
-            <ModalButton
+            <AddNewCreditCardModalButton
               variant="tertiary"
               size="small"
-              icon={<PlusIcon />}
-              label="Add New"
-              dialogRef={addNewCreditCardDialogRef}
-            >
-              <AddNewCreditCardModal dialogRef={addNewCreditCardDialogRef} />
-            </ModalButton>
+              rightIcon={<PlusIcon />}
+            />
           </li>
           <li>
             <ModalButton

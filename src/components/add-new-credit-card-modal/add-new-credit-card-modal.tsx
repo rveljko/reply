@@ -19,11 +19,11 @@ import { useCreditCards } from '../../utils/contexts/credit-cards-context'
 import displayToast from '../../utils/toast'
 
 type AddNewCreditCardModalProps = {
-  dialogRef: React.RefObject<HTMLDialogElement>
+  closeModal: () => void
 }
 
 export default function AddNewCreditCardModal({
-  dialogRef,
+  closeModal,
 }: AddNewCreditCardModalProps) {
   const initialCreditCard: CreditCard = {
     id: 0,
@@ -91,7 +91,7 @@ export default function AddNewCreditCardModal({
           displayToast('Credit Card Added Successfully!')
           setFormFields(initialFormFieldValues)
           setNewCreditCard(initialCreditCard)
-          dialogRef.current?.close()
+          closeModal()
         }}
       >
         <div className={styles.head}>
@@ -189,7 +189,7 @@ export default function AddNewCreditCardModal({
               size="large"
               className={styles.button}
               type="button"
-              onClick={() => dialogRef.current?.close()}
+              onClick={() => closeModal()}
             >
               Cancel
             </Button>
