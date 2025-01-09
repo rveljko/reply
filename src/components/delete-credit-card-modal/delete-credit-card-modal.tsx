@@ -5,13 +5,13 @@ import Button from '../button/button'
 import styles from './delete-credit-card-modal.module.css'
 
 type DeleteCreditCardModalProps = {
-  dialogRef: React.RefObject<HTMLDialogElement>
+  closeModal: () => void
   creditCardIndex: number
   setCreditCardIndex?: React.Dispatch<React.SetStateAction<number>>
 }
 
 export default function DeleteCreditCardModal({
-  dialogRef,
+  closeModal,
   creditCardIndex,
   setCreditCardIndex,
 }: DeleteCreditCardModalProps) {
@@ -36,7 +36,7 @@ export default function DeleteCreditCardModal({
           variant="secondary"
           size="large"
           className={styles.button}
-          onClick={() => dialogRef.current?.close()}
+          onClick={() => closeModal()}
         >
           Cancel
         </Button>
@@ -50,7 +50,7 @@ export default function DeleteCreditCardModal({
             if (creditCardIndex === creditCards.length - 1) {
               setCreditCardIndex && setCreditCardIndex(creditCards.length - 2)
             }
-            dialogRef.current?.close()
+            closeModal()
           }}
         >
           Delete
