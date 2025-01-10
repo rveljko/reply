@@ -22,6 +22,8 @@ export type Route = {
   page: () => JSX.Element
 }
 
+export type BalanceFilter = 'Daily' | 'Weekly' | 'Monthly'
+
 export type Type = 'Sent' | 'Received'
 
 export type Purpose = 'Bills' | 'Gift' | 'Others' | 'Subscription'

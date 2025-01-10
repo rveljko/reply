@@ -1,6 +1,8 @@
 import Chart from '../../components/chart/chart'
 import DropdownButton from '../../components/dropdown-button/dropdown-button'
-import { DropdownButtonElement } from '../../components/dropdown-element/dropdown-element'
+import DropdownElement from '../../components/dropdown-element/dropdown-element'
+import { balanceFilters } from '../../data/balance-filters'
+import useBalanceFilters from '../../hooks/use-balance-filters'
 import ChevronDownIcon from '../../icons/chevron-down-icon'
 import { CreditCard } from '../../utils/types'
 import Section from '../section/section'
@@ -13,6 +15,9 @@ type BalanceOvertimeSectionProps = {
 export default function BalanceOvertimeSection({
   creditCard,
 }: BalanceOvertimeSectionProps) {
+  const { filter, setFilter, getCreditCardFilteredBalance } =
+    useBalanceFilters()
+
   return (
     <Section>
       <div className={styles.body}>
@@ -23,14 +28,21 @@ export default function BalanceOvertimeSection({
             icon={<ChevronDownIcon />}
             content={
               <>
-                <DropdownButtonElement label="1 Day" type="button" />
-                <DropdownButtonElement label="1 Week" type="button" />
-                <DropdownButtonElement label="1 Month" type="button" />
+                {balanceFilters.map((balanceFilter, index) => (
+                  <DropdownElement
+                    label={balanceFilter}
+                    type="radio"
+                    onClick={() => setFilter(balanceFilter)}
+                    checked={filter === balanceFilter}
+                    key={index}
+                    readOnly
+                  />
+                ))}
               </>
             }
           />
         </div>
-        <Chart data={creditCard.balance.slice(0, 5).reverse()} height="small" />
+        <Chart data={getCreditCardFilteredBalance(creditCard)} height="small" />
       </div>
     </Section>
   )
