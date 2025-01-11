@@ -43,7 +43,7 @@ export type CreditCard = {
   logo: string
   numbers: number
   expirationDate: Date
-  cvv: number
+  cvv: string
   balance: CreditCardBalance[]
   expenses: CreditCardExpense[]
   isActive: boolean

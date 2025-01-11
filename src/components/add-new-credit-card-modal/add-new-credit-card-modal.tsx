@@ -33,7 +33,7 @@ export default function AddNewCreditCardModal({
     logo: `${IMAGE_PATH}visa.svg`,
     numbers: 0,
     expirationDate: new Date(),
-    cvv: 0,
+    cvv: '',
     balance: [{ amount: Math.floor(Math.random() * 100001), time: new Date() }],
     expenses: [
       { amount: Math.floor(Math.random() * 100001), time: new Date() },
@@ -71,7 +71,7 @@ export default function AddNewCreditCardModal({
             return
           }
 
-          if (newCreditCard.cvv.toString().length < 3) {
+          if (newCreditCard.cvv.length < 3) {
             setErrorMessage('Invalid card CVV. CVV must be 3 digits')
             return
           }
@@ -179,7 +179,7 @@ export default function AddNewCreditCardModal({
                 })
                 setNewCreditCard({
                   ...newCreditCard,
-                  cvv: parseInt(e.target.value),
+                  cvv: e.target.value,
                 })
               }}
             />

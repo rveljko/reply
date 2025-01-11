@@ -12,7 +12,7 @@ export const creditCards: CreditCard[] = [
     logo: `${IMAGE_PATH}visa.svg`,
     numbers: 4773887710161123,
     expirationDate: generateDateInFuture(294),
-    cvv: 214,
+    cvv: '214',
     balance: [
       { amount: 81973.83, time: new Date() },
       { amount: 81973.83, time: generateDateInPast(1, 11, 25, 54) },
@@ -128,7 +128,7 @@ export const creditCards: CreditCard[] = [
     logo: `${IMAGE_PATH}mastercard.svg`,
     numbers: 5415438622581283,
     expirationDate: generateDateInFuture(721),
-    cvv: 367,
+    cvv: '367',
     balance: [
       { amount: 91342.12, time: new Date() },
       { amount: 91342.12, time: generateDateInPast(1, 14, 11, 27) },
@@ -226,7 +226,7 @@ export const creditCards: CreditCard[] = [
     logo: `${IMAGE_PATH}visa.svg`,
     numbers: 4200478571331928,
     expirationDate: generateDateInFuture(1365),
-    cvv: 593,
+    cvv: '593',
     balance: [
       { amount: 14823.37, time: new Date() },
       { amount: 14823.37, time: generateDateInPast(1, 10, 19, 50) },
@@ -346,7 +346,7 @@ export const creditCards: CreditCard[] = [
     logo: `${IMAGE_PATH}visa.svg`,
     numbers: 4619078215671827,
     expirationDate: generateDateInFuture(447),
-    cvv: 229,
+    cvv: '229',
     balance: [
       { amount: 91806.28, time: new Date() },
       { amount: 91806.28, time: generateDateInPast(1, 14, 36, 29) },
@@ -454,7 +454,7 @@ export const creditCards: CreditCard[] = [
     logo: `${IMAGE_PATH}mastercard.svg`,
     numbers: 4773887710161432,
     expirationDate: generateDateInFuture(691),
-    cvv: 214,
+    cvv: '214',
     balance: [
       { amount: 10778.57, time: new Date() },
       { amount: 10778.57, time: generateDateInPast(1, 11, 45, 21) },
