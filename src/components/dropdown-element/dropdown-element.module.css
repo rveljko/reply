@@ -1,6 +1,7 @@
 .element {
   display: flex;
   gap: var(--space-sm);
+  align-items: center;
   padding: var(--space-lg);
 }
 
