@@ -29,7 +29,3 @@
   accent-color: var(--brand-500);
   position: relative;
 }
-
-.element:has(.input:checked) {
-  background-color: var(--neutral-600);
-}
