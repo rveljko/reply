@@ -1,5 +1,6 @@
 import { IMAGE_PATH } from '../../utils/constants'
 import { useCreditCards } from '../../utils/contexts/credit-cards-context'
+import { useTheme } from '../../utils/contexts/theme-context'
 import displayToast from '../../utils/toast'
 import Button from '../button/button'
 import styles from './delete-credit-card-modal.module.css'
@@ -16,11 +17,14 @@ export default function DeleteCreditCardModal({
   setCreditCardIndex,
 }: DeleteCreditCardModalProps) {
   const { creditCards, removeCreditCard } = useCreditCards()
+  const { isLightTheme } = useTheme()
 
   return (
     <article className={styles.modal}>
       <img
-        src={`${IMAGE_PATH}credit-cards.png`}
+        src={`${IMAGE_PATH}${
+          isLightTheme ? 'credit-cards-light.png' : 'credit-cards-dark.png'
+        }`}
         alt=""
         className={styles.image}
       />

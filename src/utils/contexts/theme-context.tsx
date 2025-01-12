@@ -7,6 +7,7 @@ type ThemeContextProviderProps = {
 
 type ThemeContextType = {
   theme: Theme
+  isLightTheme: boolean
   setTheme: (newTheme: Theme) => void
 }
 
@@ -27,8 +28,13 @@ export default function ThemeContextProvider({
     document.documentElement.setAttribute('data-theme', theme)
   }, [theme])
 
+  const isLightTheme =
+    theme === 'light' ||
+    (theme === 'system' &&
+      window.matchMedia('(prefers-color-scheme: light)').matches)
+
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={{ theme, isLightTheme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   )
