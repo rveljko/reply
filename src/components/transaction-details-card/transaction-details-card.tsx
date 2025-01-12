@@ -4,10 +4,10 @@ import Button from '../button/button'
 import TransactionInformations from '../transaction-informations/transaction-informations'
 import TextArea from '../text-area/text-area'
 import { mediumDateFormatter } from '../../utils/helpers/date-formatters'
-import currencyFormatter from '../../utils/helpers/currency-formatter'
 import getTransactionSign from '../../utils/helpers/get-transaction-sign'
 import { useTransactions } from '../../utils/contexts/transactions-context'
 import useTransaction from '../../hooks/use-transaction'
+import CurrencyAnimation from '../currency-animation/currency-animation'
 
 export default function TransactionDetailsCard() {
   const { transactions } = useTransactions()
@@ -38,9 +38,10 @@ export default function TransactionDetailsCard() {
   return (
     <article className={styles.card}>
       <div className={styles.head}>
-        <h1 className={styles.amount}>{`${getTransactionSign(
-          type
-        )}${currencyFormatter(amount)}`}</h1>
+        <h1 className={styles.amount}>
+          {getTransactionSign(type)}
+          <CurrencyAnimation end={amount} />
+        </h1>
         <p className={styles.id}>ID: #{id}</p>
         <Button
           variant="ghost"

@@ -1,6 +1,6 @@
-import currencyFormatter from '../../utils/helpers/currency-formatter'
 import Section from '../section/section'
 import styles from './balance-expenses-section.module.css'
+import CurrencyAnimation from '../../components/currency-animation/currency-animation'
 
 type BalanceExpensesSectionProps = {
   title: 'Balance' | 'Expenses'
@@ -16,7 +16,9 @@ export default function BalanceExpensesSection({
       <div className={styles.wrapper}>
         <p className={styles.title}>{title}</p>
         <div>
-          <h2 className={styles.amount}>{currencyFormatter(amount)}</h2>
+          <h2 className={styles.amount}>
+            <CurrencyAnimation end={amount} />
+          </h2>
         </div>
       </div>
     </Section>

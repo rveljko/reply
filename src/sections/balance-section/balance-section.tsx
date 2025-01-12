@@ -3,10 +3,10 @@ import Chart from '../../components/chart/chart'
 import ArrowUpRightIcon from '../../icons/arrow-up-right-icon'
 import ChevronDownIcon from '../../icons/chevron-down-icon'
 import { useCreditCards } from '../../utils/contexts/credit-cards-context'
-import currencyFormatter from '../../utils/helpers/currency-formatter'
 import Section from '../section/section'
 import styles from './balance-section.module.css'
 import SendMoneyModalButton from '../../components/send-money-modal-button/send-money-modal-button'
+import CurrencyAnimation from '../../components/currency-animation/currency-animation'
 
 export default function BalanceSection() {
   const { totalBalance, getCreditCardByIndex } = useCreditCards()
@@ -16,7 +16,9 @@ export default function BalanceSection() {
       <header className={styles.header}>
         <div>
           <p>Balance</p>
-          <h1>{currencyFormatter(totalBalance)}</h1>
+          <h1>
+            <CurrencyAnimation end={totalBalance} />
+          </h1>
         </div>
         <ul className={styles.list}>
           <li>
