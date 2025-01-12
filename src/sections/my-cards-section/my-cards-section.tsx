@@ -13,17 +13,20 @@ import DeleteCreditCardModalButton from '../../components/delete-credit-card-mod
 type MyCardsSectionProps = {
   creditCard: CreditCardType
   creditCardIndex: number
+  setPreviousCreditCardIndex: React.Dispatch<React.SetStateAction<number>>
   setCreditCardIndex: React.Dispatch<React.SetStateAction<number>>
 }
 
 export default function MyCardsSection({
   creditCard,
   creditCardIndex,
+  setPreviousCreditCardIndex,
   setCreditCardIndex,
 }: MyCardsSectionProps) {
   const { getSortedCreditCards } = useCreditCards()
 
   function decrementCreditCardIndex() {
+    setPreviousCreditCardIndex(creditCardIndex)
     setCreditCardIndex((prevCreditCardIndex) =>
       prevCreditCardIndex <= 0
         ? (prevCreditCardIndex = getSortedCreditCards().length - 1)
@@ -32,6 +35,7 @@ export default function MyCardsSection({
   }
 
   function incrementCreditCardIndex() {
+    setPreviousCreditCardIndex(creditCardIndex)
     setCreditCardIndex((prevCreditCardIndex) =>
       prevCreditCardIndex >= getSortedCreditCards().length - 1
         ? (prevCreditCardIndex = 0)
@@ -74,6 +78,7 @@ export default function MyCardsSection({
       <CreditCardPagination
         creditCards={getSortedCreditCards()}
         creditCardIndex={creditCardIndex}
+        setPreviousCreditCardIndex={setPreviousCreditCardIndex}
         setCreditCardIndex={setCreditCardIndex}
       />
     </Section>

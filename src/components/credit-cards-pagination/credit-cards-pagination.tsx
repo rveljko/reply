@@ -7,15 +7,18 @@ import styles from './credit-cards-pagination.module.css'
 type CreditCardPaginationProps = {
   creditCards: CreditCard[]
   creditCardIndex: number
+  setPreviousCreditCardIndex: React.Dispatch<React.SetStateAction<number>>
   setCreditCardIndex: React.Dispatch<React.SetStateAction<number>>
 }
 
 export default function CreditCardPagination({
   creditCards,
   creditCardIndex,
+  setPreviousCreditCardIndex,
   setCreditCardIndex,
 }: CreditCardPaginationProps) {
   function decrementCreditCardIndex() {
+    setPreviousCreditCardIndex(creditCardIndex)
     setCreditCardIndex((prevCreditCardIndex) =>
       prevCreditCardIndex <= 0
         ? (prevCreditCardIndex = creditCards.length - 1)
@@ -24,6 +27,7 @@ export default function CreditCardPagination({
   }
 
   function incrementCreditCardIndex() {
+    setPreviousCreditCardIndex(creditCardIndex)
     setCreditCardIndex((prevCreditCardIndex) =>
       prevCreditCardIndex >= creditCards.length - 1
         ? (prevCreditCardIndex = 0)
@@ -60,7 +64,10 @@ export default function CreditCardPagination({
           {creditCards.map((_, index) => (
             <li className={styles.item} key={index}>
               <button
-                onClick={() => setCreditCardIndex(index)}
+                onClick={() => {
+                  setPreviousCreditCardIndex(creditCardIndex)
+                  setCreditCardIndex(index)
+                }}
                 className={`${styles.circle} ${
                   creditCardIndex === index ? styles.active : ''
                 }`}

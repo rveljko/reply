@@ -12,6 +12,7 @@ import { TITLE_PREFIX } from '../../utils/constants'
 
 export default function MyCardsPage() {
   const {
+    getPreviousCreditCardAmount,
     getSortedCreditCards,
     getCreditCardBalance,
     getCreditCardExpenses,
@@ -20,6 +21,9 @@ export default function MyCardsPage() {
   const { getTransactionsByCreditCardId } = useTransactionFilters()
   const initialCreditCardIndex = Math.floor(
     (getSortedCreditCards().length - 1) / 2
+  )
+  const [previousCreditCardIndex, setPreviousCreditCardIndex] = useState(
+    initialCreditCardIndex - 1
   )
   const [creditCardIndex, setCreditCardIndex] = useState(initialCreditCardIndex)
   const creditCard = getCreditCardByIndex(creditCardIndex)
@@ -34,6 +38,7 @@ export default function MyCardsPage() {
           <div className={styles.wideChild}>
             <MyCardsSection
               creditCardIndex={creditCardIndex}
+              setPreviousCreditCardIndex={setPreviousCreditCardIndex}
               setCreditCardIndex={setCreditCardIndex}
               creditCard={creditCard}
             />
@@ -41,10 +46,16 @@ export default function MyCardsPage() {
           <div className={`${styles.tertiaryLayout} ${styles.narrowChild}`}>
             <BalanceExpensesSection
               title="Balance"
+              previousCardAmount={getPreviousCreditCardAmount(
+                previousCreditCardIndex
+              )}
               amount={getCreditCardBalance(creditCard)}
             />
             <BalanceExpensesSection
               title="Expenses"
+              previousCardAmount={getPreviousCreditCardAmount(
+                previousCreditCardIndex
+              )}
               amount={getCreditCardExpenses(creditCard)}
             />
           </div>

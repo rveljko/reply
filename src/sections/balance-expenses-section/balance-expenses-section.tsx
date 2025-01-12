@@ -5,11 +5,13 @@ import CurrencyAnimation from '../../components/currency-animation/currency-anim
 type BalanceExpensesSectionProps = {
   title: 'Balance' | 'Expenses'
   amount: number
+  previousCardAmount: number
 }
 
 export default function BalanceExpensesSection({
   title,
   amount,
+  previousCardAmount,
 }: BalanceExpensesSectionProps) {
   return (
     <Section>
@@ -17,7 +19,7 @@ export default function BalanceExpensesSection({
         <p className={styles.title}>{title}</p>
         <div>
           <h2 className={styles.amount}>
-            <CurrencyAnimation end={amount} />
+            <CurrencyAnimation start={previousCardAmount} end={amount} />
           </h2>
         </div>
       </div>
