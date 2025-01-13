@@ -17,6 +17,7 @@ import { getEndingLastFourDigits } from '../../utils/helpers/get-last-four-digit
 import useTransaction from '../../hooks/use-transaction'
 import { useNavigate } from 'react-router-dom'
 import { DASHBOARD_ROUTE } from '../../utils/constants'
+import CreditCardLogo from '../credit-card-logo/credit-card-logo'
 
 type TableProps = React.ComponentPropsWithoutRef<'table'> & {
   transactions: Transaction[]
@@ -93,10 +94,9 @@ export default function Table({
                 <TableBodyCell>{purpose}</TableBodyCell>
                 <TableBodyCell>
                   <TableBodyCellGroup>
-                    <img
-                      src={creditCard.logo}
-                      alt={creditCard.name}
-                      title={creditCard.name}
+                    <CreditCardLogo
+                      logoUrl={creditCard.logo}
+                      name={creditCard.name}
                     />
                     {getEndingLastFourDigits(creditCard.numbers)}
                   </TableBodyCellGroup>
