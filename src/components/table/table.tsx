@@ -15,20 +15,21 @@ import styles from './table.module.css'
 import getTransactionSign from '../../utils/helpers/get-transaction-sign'
 import { getEndingLastFourDigits } from '../../utils/helpers/get-last-four-digits'
 import useTransaction from '../../hooks/use-transaction'
+import { useNavigate } from 'react-router-dom'
+import { DASHBOARD_ROUTE } from '../../utils/constants'
 
 type TableProps = React.ComponentPropsWithoutRef<'table'> & {
   transactions: Transaction[]
   tableTransactionHeaders: TableTransactionHeader[]
-  isLinkable?: boolean
 }
 
 export default function Table({
   transactions,
   tableTransactionHeaders,
-  isLinkable,
   ...props
 }: TableProps) {
-  const { transactionId, setTransactionId } = useTransaction()
+  const { transactionId } = useTransaction()
+  const navigate = useNavigate()
 
   return (
     <div className={styles.wrapper}>
@@ -58,19 +59,29 @@ export default function Table({
                 key={id}
                 isActiveRow={id === (transactionId && parseInt(transactionId))}
                 onClick={() => {
-                  setTransactionId(id.toString())
+                  navigate(
+                    `${DASHBOARD_ROUTE}recent-transactions?transaction=${id}`
+                  )
                 }}
               >
                 <TableBodyCell>
                   <TableBodyCellGroup>
                     {type === 'Received' ? (
                       <>
-                        <img src={senderImage} alt={senderName} title={senderName} />
+                        <img
+                          src={senderImage}
+                          alt={senderName}
+                          title={senderName}
+                        />
                         <span>{senderName}</span>
                       </>
                     ) : (
                       <>
-                        <img src={receiverImage} alt={receiverName} title={receiverName} />
+                        <img
+                          src={receiverImage}
+                          alt={receiverName}
+                          title={receiverName}
+                        />
                         <span>{receiverName}</span>
                       </>
                     )}

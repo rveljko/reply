@@ -25,7 +25,6 @@ export default function RecentTransactionsSection({
           <Table
             transactions={transactions}
             tableTransactionHeaders={tableTransactionHeaders}
-            isLinkable
           ></Table>
           {isLinkable && <ViewMoreTransactions />}
         </>
