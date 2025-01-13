@@ -12,7 +12,8 @@ import { TITLE_PREFIX } from '../../utils/constants'
 
 export default function MyCardsPage() {
   const {
-    getPreviousCreditCardAmount,
+    getPreviousCreditCardBalance,
+    getPreviousCreditCardExpense,
     getSortedCreditCards,
     getCreditCardBalance,
     getCreditCardExpenses,
@@ -46,14 +47,14 @@ export default function MyCardsPage() {
           <div className={`${styles.tertiaryLayout} ${styles.narrowChild}`}>
             <BalanceExpensesSection
               title="Balance"
-              previousCardAmount={getPreviousCreditCardAmount(
+              previousCardAmount={getPreviousCreditCardBalance(
                 previousCreditCardIndex
               )}
               amount={getCreditCardBalance(creditCard)}
             />
             <BalanceExpensesSection
               title="Expenses"
-              previousCardAmount={getPreviousCreditCardAmount(
+              previousCardAmount={getPreviousCreditCardExpense(
                 previousCreditCardIndex
               )}
               amount={getCreditCardExpenses(creditCard)}
