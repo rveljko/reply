@@ -1,3 +1,3 @@
-export default function displayCreditCardCvv(numbers: number) {
-  return numbers.toString().replace(/./g, '*')
+export default function displayCreditCardCvv(numbers: string) {
+  return numbers.replace(/./g, '*')
 }
