@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import styles from './dialog.module.css'
 import ReactFocusLock, { AutoFocusInside } from 'react-focus-lock'
 import { createPortal } from 'react-dom'
+import { motion } from 'motion/react'
 
 type DialogProps = {
   children: React.ReactNode
@@ -22,15 +23,28 @@ export default function Dialog({ children, closeModal }: DialogProps) {
   }, [])
 
   return createPortal(
-    <div id="backdrop" className={styles.backdrop} onClick={() => closeModal()}>
+    <motion.div
+      id="backdrop"
+      className={styles.backdrop}
+      onClick={() => closeModal()}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <ReactFocusLock returnFocus>
         <AutoFocusInside>
-          <div className={styles.dialog} onClick={(e) => e.stopPropagation()}>
+          <motion.div
+            className={styles.dialog}
+            onClick={(e) => e.stopPropagation()}
+            initial={{ opacity: 0, transform: 'translateY(6rem)' }}
+            animate={{ opacity: 1, transform: 'translateY(0)' }}
+            exit={{ opacity: 0, transform: 'translateY(6rem)' }}
+          >
             {children}
-          </div>
+          </motion.div>
         </AutoFocusInside>
       </ReactFocusLock>
-    </div>,
+    </motion.div>,
     document.getElementById('root')!
   )
 }

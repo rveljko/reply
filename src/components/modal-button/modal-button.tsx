@@ -1,5 +1,6 @@
 import Button, { ButtonProps } from '../button/button'
 import Dialog from '../dialog/dialog'
+import { AnimatePresence } from 'motion/react'
 
 type ModalButtonProps = ButtonProps & {
   label: string
@@ -34,7 +35,9 @@ export default function ModalButton({
         <span>{label}</span>
         {RightIcon && RightIcon}
       </Button>
-      {isOpened && <Dialog closeModal={closeModal}>{children}</Dialog>}
+      <AnimatePresence>
+        {isOpened && <Dialog closeModal={closeModal}>{children}</Dialog>}
+      </AnimatePresence>
     </>
   )
 }
