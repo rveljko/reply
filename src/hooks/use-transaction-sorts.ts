@@ -11,14 +11,20 @@ export default function useTransactionSorts() {
     switch (sort) {
       case 'Name-Asc':
         return filteredTransactions.sort((a, b) => {
-          if (a.receiverName < b.receiverName) return -1
-          if (a.receiverName > b.receiverName) return 1
+          const nameA = a.type === 'Sent' ? a.receiverName : a.senderName
+          const nameB = b.type === 'Sent' ? b.receiverName : b.senderName
+
+          if (nameA > nameB) return 1
+          if (nameA < nameB) return -1
           return 0
         })
       case 'Name-Desc':
         return filteredTransactions.sort((a, b) => {
-          if (b.receiverName < a.receiverName) return -1
-          if (b.receiverName > a.receiverName) return 1
+          const nameA = a.type === 'Sent' ? a.receiverName : a.senderName
+          const nameB = b.type === 'Sent' ? b.receiverName : b.senderName
+
+          if (nameA < nameB) return 1
+          if (nameA > nameB) return -1
           return 0
         })
       case 'Price-Asc':
