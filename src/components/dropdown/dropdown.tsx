@@ -1,17 +1,21 @@
+import { motion } from 'motion/react'
 import styles from './dropdown.module.css'
 
-type DropdownProps = React.ComponentPropsWithoutRef<'div'> & {
+type DropdownProps = {
   children: React.ReactNode
+  className?: string
 }
 
-export default function Dropdown({
-  children,
-  className,
-  ...props
-}: DropdownProps) {
+export default function Dropdown({ children, className }: DropdownProps) {
   return (
-    <div className={`${styles.dropdown} ${className}`} {...props}>
+    <motion.div
+      initial={{ opacity: 0, transform: 'translateY(2rem)' }}
+      animate={{ opacity: 1, transform: 'translateY(0)' }}
+      exit={{ opacity: 0, transform: 'translateY(2rem)' }}
+      transition={{ duration: 0.2 }}
+      className={`${styles.dropdown} ${className}`}
+    >
       {children}
-    </div>
+    </motion.div>
   )
 }

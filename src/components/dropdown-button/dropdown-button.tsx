@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import Button from '../button/button'
 import Dropdown from '../dropdown/dropdown'
 import styles from './dropdown-button.module.css'
+import { AnimatePresence } from 'motion/react'
 
 type DropdownButtonProps = {
   label: string
@@ -47,9 +48,11 @@ export default function DropdownButton({
       >
         {label} {Icon}
       </Button>
-      {isDropdownOpened && (
-        <Dropdown className={styles.dropdown}>{content}</Dropdown>
-      )}
+      <AnimatePresence>
+        {isDropdownOpened && (
+          <Dropdown className={styles.dropdown}>{content}</Dropdown>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
