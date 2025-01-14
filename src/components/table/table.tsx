@@ -29,7 +29,7 @@ export default function Table({
   tableTransactionHeaders,
   ...props
 }: TableProps) {
-  const { transactionId } = useTransaction()
+  const { transactionId, searchParams, setTransactionId } = useTransaction()
   const navigate = useNavigate()
 
   return (
@@ -60,9 +60,11 @@ export default function Table({
                 key={id}
                 isActiveRow={id === (transactionId && parseInt(transactionId))}
                 onClick={() => {
-                  navigate(
-                    `${DASHBOARD_ROUTE}recent-transactions?transaction=${id}`
-                  )
+                  setTransactionId(id.toString())
+                  navigate({
+                    pathname: `${DASHBOARD_ROUTE}recent-transactions`,
+                    search: searchParams.toString(),
+                  })
                 }}
               >
                 <TableBodyCell>
