@@ -94,5 +94,96 @@ export default function useBalanceFilters() {
     }
   }
 
-  return { filter, setFilter, getCreditCardFilteredBalance }
+  function getAllWeeklyCreditCardBalances(
+    creditCards: CreditCard[]
+  ): CreditCardBalance[] {
+    const weekDates = [
+      generateDateInPast(0, 0, 0, 0),
+      generateDateInPast(1, 0, 0, 0),
+      generateDateInPast(2, 0, 0, 0),
+      generateDateInPast(3, 0, 0, 0),
+      generateDateInPast(4, 0, 0, 0),
+      generateDateInPast(5, 0, 0, 0),
+      generateDateInPast(6, 0, 0, 0),
+    ]
+
+    return weekDates
+      .map((date) => {
+        const balances = creditCards.map((creditCard) => {
+          const creditCardBalances = [...creditCard.balance]
+
+          const balance = creditCardBalances.find(({ time }) =>
+            dateChecker(time, date)
+          )!
+
+          return {
+            amount: balance.amount,
+            time: balance.time,
+          }
+        })
+
+        const amount = balances.reduce((acc, { amount }) => acc + amount, 0)
+
+        return {
+          amount,
+          time: balances[0].time,
+        }
+      })
+      .reverse()
+  }
+
+  function getAllMonthlyCreditCardBalances(
+    creditCards: CreditCard[]
+  ): CreditCardBalance[] {
+    const weekDates = [
+      generateDateInPast(0, 0, 0, 0),
+      generateDateInPast(7, 0, 0, 0),
+      generateDateInPast(14, 0, 0, 0),
+      generateDateInPast(21, 0, 0, 0),
+    ]
+
+    return weekDates
+      .map((date) => {
+        const balances = creditCards.map((creditCard) => {
+          const creditCardBalances = [...creditCard.balance]
+
+          const balance = creditCardBalances.find(({ time }) =>
+            dateChecker(time, date)
+          )!
+
+          return {
+            amount: balance.amount,
+            time: balance.time,
+          }
+        })
+
+        const amount = balances.reduce((acc, { amount }) => acc + amount, 0)
+
+        return {
+          amount,
+          time: balances[0].time,
+        }
+      })
+      .reverse()
+  }
+
+  function getCreditCardsFilteredBalances(
+    creditCards: CreditCard[]
+  ): CreditCardBalance[] {
+    switch (filter) {
+      case 'Weekly':
+        return getAllWeeklyCreditCardBalances(creditCards)
+      case 'Monthly':
+        return getAllMonthlyCreditCardBalances(creditCards)
+      default:
+        return getAllWeeklyCreditCardBalances(creditCards)
+    }
+  }
+
+  return {
+    filter,
+    setFilter,
+    getCreditCardFilteredBalance,
+    getCreditCardsFilteredBalances,
+  }
 }
