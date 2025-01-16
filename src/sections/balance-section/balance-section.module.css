@@ -28,4 +28,8 @@
     flex-direction: row;
     align-items: flex-end;
   }
+
+  .balanceWrapper {
+    width: unset;
+  }
 }
