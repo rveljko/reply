@@ -19,9 +19,9 @@ export default function BalanceSection() {
   return (
     <Section>
       <header className={styles.header}>
-        <div>
+        <div className={styles.balanceWrapper}>
           <p>Balance</p>
-          <h1>
+          <h1 className={styles.balance}>
             <CurrencyAnimation end={totalBalance} />
           </h1>
         </div>
