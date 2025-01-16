@@ -24,23 +24,22 @@ export default function BalanceOvertimeSection({
         <div className={styles.header}>
           <h2>Balance overtime</h2>
           <DropdownButton
+            variant="secondary"
+            size="medium"
             label="Sort by"
             icon={<ChevronDownIcon />}
-            content={
-              <>
-                {balanceFilters.map((balanceFilter, index) => (
-                  <DropdownElement
-                    label={balanceFilter}
-                    type="radio"
-                    onClick={() => setFilter(balanceFilter)}
-                    checked={filter === balanceFilter}
-                    key={index}
-                    readOnly
-                  />
-                ))}
-              </>
-            }
-          />
+          >
+            {balanceFilters.map((balanceFilter, index) => (
+              <DropdownElement
+                label={balanceFilter}
+                type="radio"
+                onClick={() => setFilter(balanceFilter)}
+                checked={filter === balanceFilter}
+                key={index}
+                readOnly
+              />
+            ))}
+          </DropdownButton>
         </div>
         <Chart data={getCreditCardFilteredBalance(creditCard)} height="small" />
       </div>
