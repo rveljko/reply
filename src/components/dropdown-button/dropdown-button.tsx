@@ -1,19 +1,19 @@
 import { useEffect, useRef, useState } from 'react'
-import Button from '../button/button'
+import Button, { ButtonProps } from '../button/button'
 import Dropdown from '../dropdown/dropdown'
 import styles from './dropdown-button.module.css'
 import { AnimatePresence } from 'motion/react'
 
-type DropdownButtonProps = {
+type DropdownButtonProps = ButtonProps & {
   label: string
-  icon?: JSX.Element
-  content: React.ReactNode
 }
 
 export default function DropdownButton({
+  variant,
+  size,
   label,
   icon: Icon,
-  content,
+  children,
 }: DropdownButtonProps) {
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
   const wrapperRef = useRef<HTMLDivElement>(null)
@@ -42,15 +42,15 @@ export default function DropdownButton({
     <div ref={wrapperRef}>
       <Button
         className={styles.button}
-        variant="secondary"
-        size="medium"
+        variant={variant}
+        size={size}
         onClick={() => setIsDropdownOpened((prev) => !prev)}
       >
         {label} {Icon}
       </Button>
       <AnimatePresence>
         {isDropdownOpened && (
-          <Dropdown className={styles.dropdown}>{content}</Dropdown>
+          <Dropdown className={styles.dropdown}>{children}</Dropdown>
         )}
       </AnimatePresence>
     </div>
