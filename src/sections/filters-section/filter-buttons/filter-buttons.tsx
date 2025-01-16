@@ -27,111 +27,106 @@ export default function FilterButtons() {
   return (
     <div className={styles.filters}>
       <DropdownButton
+        variant="secondary"
+        size="medium"
         label="Date"
         icon={<CalendarIcon />}
-        content={
-          <>
-            <DropdownInputElement
-              label="Date from"
-              type="date"
-              name="date-from"
-              min={inputDateFormatter(generateDateInPast(91, 0, 0, 0))}
-              max={inputDateFormatter(generateDateInPast(1, 0, 0, 0))}
-              value={
-                dateFrom || inputDateFormatter(generateDateInPast(91, 0, 0, 0))
-              }
-              onChange={(e) => setDateFilter('date-from', e.target.value)}
-            />
-            <DropdownInputElement
-              label="Date To"
-              type="date"
-              name="date-to"
-              min={inputDateFormatter(generateDateInPast(90, 0, 0, 0))}
-              max={inputDateFormatter(new Date())}
-              value={dateTo || inputDateFormatter(new Date())}
-              onChange={(e) => setDateFilter('date-to', e.target.value)}
-            />
-          </>
-        }
-      />
+      >
+        <DropdownInputElement
+          label="Date from"
+          type="date"
+          name="date-from"
+          min={inputDateFormatter(generateDateInPast(91, 0, 0, 0))}
+          max={inputDateFormatter(generateDateInPast(1, 0, 0, 0))}
+          value={
+            dateFrom || inputDateFormatter(generateDateInPast(91, 0, 0, 0))
+          }
+          onChange={(e) => setDateFilter('date-from', e.target.value)}
+        />
+        <DropdownInputElement
+          label="Date To"
+          type="date"
+          name="date-to"
+          min={inputDateFormatter(generateDateInPast(90, 0, 0, 0))}
+          max={inputDateFormatter(new Date())}
+          value={dateTo || inputDateFormatter(new Date())}
+          onChange={(e) => setDateFilter('date-to', e.target.value)}
+        />
+      </DropdownButton>
       <DropdownButton
+        variant="secondary"
+        size="medium"
         label="Purpose"
         icon={<GiftIcon />}
-        content={
-          <>
-            {purposes.map(({ purpose, id }) => (
-              <DropdownInputElement
-                label={purpose}
-                key={id}
-                type="checkbox"
-                name={purpose}
-                readOnly
-                checked={handleCheckbox(purpose)}
-                onClick={() => setFilter('purpose', purpose)}
-              />
-            ))}
-          </>
-        }
-      />
+      >
+        {purposes.map(({ purpose, id }) => (
+          <DropdownInputElement
+            label={purpose}
+            key={id}
+            type="checkbox"
+            name={purpose}
+            readOnly
+            checked={handleCheckbox(purpose)}
+            onClick={() => setFilter('purpose', purpose)}
+          />
+        ))}
+      </DropdownButton>
       <DropdownButton
+        variant="secondary"
+        size="medium"
         label="Credit Card"
         icon={<CreditCardIcon />}
-        content={
-          <>
-            {creditCards.map(({ id, name, numbers }) => (
-              <DropdownInputElement
-                label={getEndingLastFourDigits(numbers)}
-                key={id}
-                type="checkbox"
-                name={`${name} ${getEndingLastFourDigits(numbers, true)}`}
-                readOnly
-                checked={handleCheckbox(id.toString() as CreditCardId)}
-                onClick={() =>
-                  setFilter('credit-card', id.toString() as CreditCardId)
-                }
-              />
-            ))}
-          </>
-        }
-      />
+      >
+        {creditCards.map(({ id, name, numbers }) => (
+          <DropdownInputElement
+            label={getEndingLastFourDigits(numbers)}
+            key={id}
+            type="checkbox"
+            name={`${name} ${getEndingLastFourDigits(numbers, true)}`}
+            readOnly
+            checked={handleCheckbox(id.toString() as CreditCardId)}
+            onClick={() =>
+              setFilter('credit-card', id.toString() as CreditCardId)
+            }
+          />
+        ))}
+      </DropdownButton>
       <DropdownButton
+        variant="secondary"
+        size="medium"
         label="Type"
         icon={<ArrowsDownUpIcon />}
-        content={
-          <>
-            {types.map(({ type, id }) => (
-              <DropdownInputElement
-                label={type}
-                key={id}
-                type="checkbox"
-                name={type}
-                readOnly
-                checked={handleCheckbox(type)}
-                onClick={() => setFilter('type', type)}
-              />
-            ))}
-          </>
-        }
-      />
+      >
+        {types.map(({ type, id }) => (
+          <DropdownInputElement
+            label={type}
+            key={id}
+            type="checkbox"
+            name={type}
+            readOnly
+            checked={handleCheckbox(type)}
+            onClick={() => setFilter('type', type)}
+          />
+        ))}
+      </DropdownButton>
       <DropdownButton
+        variant="secondary"
+        size="medium"
         label="Sort by"
         icon={<SelectorIcon />}
-        content={
-          <>
-            {sortings.map(({ id, label, sort }) => (
-              <DropdownInputElement
-                label={label}
-                key={id}
-                type="radio"
-                name={label}
-                readOnly
-                checked={handleCheckbox(sort)}
-                onClick={() => setSort(sort)}
-              />
-            ))}
-          </>
-        }
-      />
+      >
+        {sortings.map(({ id, label, sort }) => (
+          <DropdownInputElement
+            label={label}
+            key={id}
+            type="radio"
+            name={label}
+            readOnly
+            checked={handleCheckbox(sort)}
+            onClick={() => setSort(sort)}
+          />
+        ))}
+      </DropdownButton>
     </div>
   )
 }
