@@ -116,6 +116,13 @@ export default function useBalanceFilters() {
             dateChecker(time, date)
           )!
 
+          if (!balance) {
+            return {
+              amount: 0,
+              time: new Date(),
+            }
+          }
+
           return {
             amount: balance.amount,
             time: balance.time,
@@ -150,6 +157,13 @@ export default function useBalanceFilters() {
           const balance = creditCardBalances.find(({ time }) =>
             dateChecker(time, date)
           )!
+
+          if (!balance) {
+            return {
+              amount: 0,
+              time: new Date(),
+            }
+          }
 
           return {
             amount: balance.amount,
