@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import AppLayout from './layouts/app-layout/app-layout'
-import { dashboardRoutes, settingsRoutes } from './utils/routes'
 import { DASHBOARD_ROUTE, SETTINGS_ROUTE } from './utils/constants'
 import TransactionsContextProvider from './utils/contexts/transactions-context'
 import CreditCardsContextProvider from './utils/contexts/credit-cards-context'
@@ -10,6 +9,14 @@ import ChartContextProvider from './utils/contexts/charts-context'
 import IntegrationsContextProvider from './utils/contexts/integrations-context'
 import UserInformationsContextProvider from './utils/contexts/user-informations-context'
 import { HelmetProvider } from 'react-helmet-async'
+import MyWalletPage from './pages/my-wallet-page/my-wallet-page'
+import RecentTransactionsPage from './pages/recent-transactions-page/recent-transactions-page'
+import MyCardsPage from './pages/my-cards-page/my-cards-page'
+import GuidesPage from './pages/guides-page/guides-page'
+import AccountPage from './pages/account-page/account-page'
+import PreferencesPage from './pages/preferences-page/preferences-page'
+import IntegrationsPage from './pages/integrations-page/integrations-page'
+import CardsPage from './pages/cards-page/cards-page'
 
 export default function App() {
   return (
@@ -24,18 +31,27 @@ export default function App() {
                     <TransactionsContextProvider>
                       <Routes>
                         <Route path={DASHBOARD_ROUTE} element={<AppLayout />}>
-                          {dashboardRoutes
-                            .slice(0, dashboardRoutes.length - 1)
-                            .map(({ id, href, page: Page }) => (
-                              <Route key={id} path={href} element={<Page />} />
-                            ))}
+                          <Route index element={<MyWalletPage />} />
+                          <Route
+                            path="recent-transactions"
+                            element={<RecentTransactionsPage />}
+                          />
+                          <Route path="my-cards" element={<MyCardsPage />} />
+                          <Route path="guides" element={<GuidesPage />} />
                           <Route
                             path={SETTINGS_ROUTE}
                             element={<SettingsLayout />}
                           >
-                            {settingsRoutes.map(({ id, href, page: Page }) => (
-                              <Route key={id} path={href} element={<Page />} />
-                            ))}
+                            <Route index element={<AccountPage />} />
+                            <Route path="cards" element={<CardsPage />} />
+                            <Route
+                              path="preferences"
+                              element={<PreferencesPage />}
+                            />
+                            <Route
+                              path="integrations"
+                              element={<IntegrationsPage />}
+                            />
                           </Route>
                         </Route>
                       </Routes>
