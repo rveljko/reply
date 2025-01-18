@@ -5,6 +5,7 @@ import { Integration } from '../../utils/types'
 import Section from '../section/section'
 import styles from './integrations-section.module.css'
 import { useIntegrations } from '../../utils/contexts/integrations-context'
+import displayToast from '../../utils/toast'
 
 type IntegrationsSectionProps = {
   integrations: Integration[]
@@ -42,6 +43,11 @@ export default function IntegrationsSection({
         onClick={() => {
           integrationIds.map((integrationId) =>
             updateActiveIntegration(integrationId)
+          )
+          displayToast(
+            `Integration${
+              integrationIds.length > 1 ? 's' : ''
+            } Updated Successfully!`
           )
           setIntegrationIds([])
         }}
