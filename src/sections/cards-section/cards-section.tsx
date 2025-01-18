@@ -7,6 +7,7 @@ import Section from '../section/section'
 import styles from './cards.module.css'
 import { useCreditCards } from '../../utils/contexts/credit-cards-context'
 import AddNewCreditCardModalButton from '../../components/add-new-credit-card-modal-button/add-new-credit-card-modal-button'
+import displayToast from '../../utils/toast'
 
 type CardsSectionProps = {
   creditCards: CreditCard[]
@@ -74,6 +75,13 @@ export default function CardsSection({ creditCards }: CardsSectionProps) {
             })
             setRemoveCardIndexes([])
           }
+          displayToast(
+            `Credit Card${
+              cardUpdateStatusIds.length + removeCardIndexes.length > 1
+                ? 's'
+                : ''
+            } Updated Successfully!`
+          )
         }}
         disabled={isButtonDisabled}
       >
