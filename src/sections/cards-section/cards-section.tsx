@@ -14,9 +14,9 @@ type CardsSectionProps = {
 }
 
 export default function CardsSection({ creditCards }: CardsSectionProps) {
-  const { changeCreditCardStatus, removeCreditCard } = useCreditCards()
+  const { changeCreditCardStatus, removeCreditCardById } = useCreditCards()
   const [cardUpdateStatusIds, setCardUpdateStatusIds] = useState<number[]>([])
-  const [removeCardIndexes, setRemoveCardIndexes] = useState<number[]>([])
+  const [removeCardIds, setRemoveCardIds] = useState<number[]>([])
   const [updatedCreditCards, setUpdatedCreditCards] = useState(creditCards)
 
   function addNewUpdateStatusCardId(id: number) {
@@ -30,12 +30,12 @@ export default function CardsSection({ creditCards }: CardsSectionProps) {
     })
   }
 
-  function addNewRemoveCardIndex(cardIndex: number) {
-    setRemoveCardIndexes([...removeCardIndexes, cardIndex])
-
+  function addNewRemoveCardIndexAndId(cardIndex: number, cardId: number) {
     setUpdatedCreditCards(
       [...updatedCreditCards].filter((_, index) => index !== cardIndex)
     )
+
+    setRemoveCardIds([...removeCardIds, cardId])
   }
 
   const isButtonDisabled =
@@ -56,7 +56,7 @@ export default function CardsSection({ creditCards }: CardsSectionProps) {
         <MyCardsList
           creditCards={updatedCreditCards}
           addNewUpdateStatusCardId={addNewUpdateStatusCardId}
-          addNewRemoveCardIndex={addNewRemoveCardIndex}
+          addNewRemoveCardIndexAndId={addNewRemoveCardIndexAndId}
         />
       </div>
       <Button
@@ -69,17 +69,15 @@ export default function CardsSection({ creditCards }: CardsSectionProps) {
             })
             setCardUpdateStatusIds([])
           }
-          if (removeCardIndexes.length > 0) {
-            removeCardIndexes.map((index) => {
-              removeCreditCard(index)
+          if (removeCardIds.length > 0) {
+            removeCardIds.map((id) => {
+              removeCreditCardById(id)
             })
-            setRemoveCardIndexes([])
+            setRemoveCardIds([])
           }
           displayToast(
             `Credit Card${
-              cardUpdateStatusIds.length + removeCardIndexes.length > 1
-                ? 's'
-                : ''
+              cardUpdateStatusIds.length + removeCardIds.length > 1 ? 's' : ''
             } Updated Successfully!`
           )
         }}

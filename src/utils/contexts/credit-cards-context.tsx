@@ -19,6 +19,7 @@ type CreditCardsContextType = {
   getSortedCreditCards: () => CreditCard[]
   changeCreditCardStatus: (id: number) => void
   removeCreditCard: (index: number) => void
+  removeCreditCardById: (cardId: number) => void
   addNewCreditCard: (newCreditCard: CreditCard) => void
   updateBalanceAndExpenses: (
     creditCard: CreditCard,
@@ -99,6 +100,12 @@ export default function CreditCardsContextProvider({
     )
   }
 
+  function removeCreditCardById(cardId: number) {
+    setCreditCards((prevCreditCards) =>
+      prevCreditCards.filter(({ id }) => id !== cardId)
+    )
+  }
+
   function addNewCreditCard(newCreditCard: CreditCard) {
     setCreditCards((prevCreditCards) => [
       ...prevCreditCards,
@@ -154,6 +161,7 @@ export default function CreditCardsContextProvider({
         getSortedCreditCards,
         changeCreditCardStatus,
         removeCreditCard,
+        removeCreditCardById,
         addNewCreditCard,
         updateBalanceAndExpenses,
       }}

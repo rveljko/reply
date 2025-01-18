@@ -5,13 +5,13 @@ import styles from './my-cards-list.module.css'
 type MyCardsListProps = {
   creditCards: CreditCard[]
   addNewUpdateStatusCardId: (id: number) => void
-  addNewRemoveCardIndex: (cardIndex: number) => void
+  addNewRemoveCardIndexAndId: (cardIndex: number, cardId: number) => void
 }
 
 export default function MyCardsList({
   creditCards,
   addNewUpdateStatusCardId,
-  addNewRemoveCardIndex,
+  addNewRemoveCardIndexAndId,
 }: MyCardsListProps) {
   return (
     <ul className={styles.list}>
@@ -22,7 +22,7 @@ export default function MyCardsList({
             creditCard={creditCard}
             cardIndex={index}
             addNewUpdateStatusCardId={addNewUpdateStatusCardId}
-            addNewRemoveCardIndex={addNewRemoveCardIndex}
+            addNewRemoveCardIndexAndId={addNewRemoveCardIndexAndId}
           />
         </li>
       ))}

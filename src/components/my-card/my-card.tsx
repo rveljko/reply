@@ -13,7 +13,7 @@ type MyCardProps = {
   creditCard: CreditCard
   cardIndex: number
   addNewUpdateStatusCardId: (id: number) => void
-  addNewRemoveCardIndex: (cardIndex: number) => void
+  addNewRemoveCardIndexAndId: (cardIndex: number, cardId: number) => void
 }
 
 export default function MyCard({
@@ -21,7 +21,7 @@ export default function MyCard({
   creditCard,
   cardIndex,
   addNewUpdateStatusCardId,
-  addNewRemoveCardIndex,
+  addNewRemoveCardIndexAndId,
 }: MyCardProps) {
   const [isCreditCardActive, setIsCreditCardActive] = useState(
     creditCard.isActive
@@ -50,7 +50,7 @@ export default function MyCard({
             variant="tertiary"
             size="small"
             onClick={() => {
-              addNewRemoveCardIndex(cardIndex)
+              addNewRemoveCardIndexAndId(cardIndex, creditCard.id)
             }}
             disabled={creditCards.length === 1}
           >
