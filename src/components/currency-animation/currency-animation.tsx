@@ -9,6 +9,7 @@ export default function CurrencyAnimation({
   return (
     <CountUp
       duration={1}
+      decimals={2}
       formattingFn={(number) => currencyFormatter(number)}
       {...props}
     />
