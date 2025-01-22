@@ -60,7 +60,7 @@ export default function Button({
   return (
     <button className={buttonClasses} {...props}>
       {LeftIcon && LeftIcon}
-      {children}
+      <span>{children}</span>
       {RightIcon && RightIcon}
     </button>
   )
