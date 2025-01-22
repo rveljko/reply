@@ -11,11 +11,13 @@ import ArrowUpRightIcon from '../../icons/arrow-up-right-icon'
 import NavigationLink from '../navigation-link/navigation-link'
 import { useMediaQuery } from 'react-responsive'
 import SendMoneyModalButton from '../send-money-modal-button/send-money-modal-button'
+import { useUserInformations } from '../../utils/contexts/user-informations-context'
 
 export default function Sidebar() {
   const [isOpened, setIsOpened] = useState(false)
   const isBigScreen = useMediaQuery({ minWidth: 768 })
   const sidebarRef = useRef<HTMLElement>(null)
+  const { userInformations } = useUserInformations()
 
   function handleOnClick(e: MouseEvent) {
     if (window.screen.width <= 768) {
@@ -94,6 +96,16 @@ export default function Sidebar() {
                 />
               </li>
             ))}
+            <li className={styles.userInformations}>
+              <img
+                src={userInformations.imageUrl}
+                alt=""
+                className={styles.userProfilePicture}
+              />
+              <p className={styles.username}>
+                {userInformations.firstName} {userInformations.lastName}
+              </p>
+            </li>
           </ul>
         </nav>
       </div>

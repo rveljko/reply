@@ -85,3 +85,26 @@
 .sidebar.active .link span {
   display: inline;
 }
+
+.userInformations {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-xsm);
+}
+
+.userProfilePicture {
+  --width: 1.375rem;
+  width: var(--width);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 100%;
+}
+
+.username {
+  display: none;
+}
+
+.sidebar.active .username {
+  display: block;
+}
