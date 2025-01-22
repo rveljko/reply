@@ -79,7 +79,7 @@ export default function Sidebar() {
               .map(({ id, href, name, icon: Icon }) => (
                 <li key={id} className={styles.item}>
                   <NavigationLink
-                    icon={<Icon />}
+                    icon={Icon && <Icon />}
                     label={name}
                     to={`${DASHBOARD_ROUTE}${href}`}
                     className={styles.link}
@@ -91,7 +91,7 @@ export default function Sidebar() {
             {dashboardRoutes.slice(-2).map(({ id, href, name, icon: Icon }) => (
               <li key={id} className={styles.item}>
                 <NavigationLink
-                  icon={<Icon />}
+                  icon={Icon && <Icon />}
                   label={name}
                   to={`${DASHBOARD_ROUTE}${href}`}
                   className={styles.link}
