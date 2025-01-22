@@ -98,7 +98,7 @@ export default function AccountSection() {
                 <Input
                   type="text"
                   label="First Name"
-                  icon={<UserIcon />}
+                  leftIcon={<UserIcon />}
                   value={newUserInformations.firstName}
                   minLength={0}
                   onChange={(e) => {
@@ -112,7 +112,7 @@ export default function AccountSection() {
                 <Input
                   type="text"
                   label="Last Name"
-                  icon={<UserIcon />}
+                  leftIcon={<UserIcon />}
                   value={newUserInformations.lastName}
                   minLength={0}
                   onChange={(e) => {
@@ -128,7 +128,7 @@ export default function AccountSection() {
                 <Input
                   type="email"
                   label="Email Address"
-                  icon={<MailIcon />}
+                  leftIcon={<MailIcon />}
                   minLength={13}
                   value={newUserInformations.emailAddress}
                   onChange={(e) => {
@@ -142,7 +142,7 @@ export default function AccountSection() {
                 <Input
                   type="tel"
                   label="Phone Number"
-                  icon={<PhoneIcon />}
+                  leftIcon={<PhoneIcon />}
                   minLength={0}
                   value={formFields.phoneNumber}
                   onChange={(e) => {

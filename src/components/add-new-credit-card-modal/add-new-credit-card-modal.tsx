@@ -103,7 +103,7 @@ export default function AddNewCreditCardModal({
           <Input
             type="text"
             label="Cardholder Name"
-            icon={<UserIcon />}
+            leftIcon={<UserIcon />}
             placeholder={`${userInformations.firstName} ${userInformations.lastName}`}
             value={formFields.owner || ''}
             onChange={(e) => {
@@ -120,7 +120,7 @@ export default function AddNewCreditCardModal({
           <Input
             type="tel"
             label="Card Numbers"
-            icon={<CreditCardIcon />}
+            leftIcon={<CreditCardIcon />}
             placeholder="1234 5678 9098 7654"
             min={0}
             maxLength={19}
@@ -146,7 +146,7 @@ export default function AddNewCreditCardModal({
             <Input
               type="tel"
               label="Expiration Date"
-              icon={<CalendarIcon />}
+              leftIcon={<CalendarIcon />}
               placeholder="01/25"
               min={5}
               max={5}
@@ -167,7 +167,7 @@ export default function AddNewCreditCardModal({
             <Input
               type="tel"
               label="CVV"
-              icon={<StarsIcon />}
+              leftIcon={<StarsIcon />}
               placeholder="420"
               value={formFields.cvv || ''}
               min={0}

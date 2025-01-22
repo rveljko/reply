@@ -104,7 +104,7 @@ export default function SendMoneyModal({ closeModal }: SendMoneyModalProps) {
           <Input
             type="text"
             label="Send To"
-            icon={<UserIcon />}
+            leftIcon={<UserIcon />}
             placeholder="Liam Smith"
             value={formFields.receiverName}
             onChange={(e) => {
@@ -149,7 +149,7 @@ export default function SendMoneyModal({ closeModal }: SendMoneyModalProps) {
           <Input
             type="tel"
             label="Amount"
-            icon={<CashIcon />}
+            leftIcon={<CashIcon />}
             placeholder="$420.69"
             value={formFields.amount || ''}
             min={0}

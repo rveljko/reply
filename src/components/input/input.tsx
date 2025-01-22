@@ -3,7 +3,8 @@ import styles from './input.module.css'
 type InputProps = React.ComponentPropsWithoutRef<'input'> & {
   type: 'text' | 'number' | 'month' | 'tel' | 'email'
   label: string
-  icon?: JSX.Element
+  leftIcon?: JSX.Element
+  rightIcon?: JSX.Element
   placeholder?: string
   optional?: boolean
 }
@@ -11,7 +12,8 @@ type InputProps = React.ComponentPropsWithoutRef<'input'> & {
 export default function Input({
   type,
   label,
-  icon: Icon,
+  leftIcon: LeftIcon,
+  rightIcon: RightIcon,
   placeholder,
   optional,
   className,
@@ -27,7 +29,7 @@ export default function Input({
         {optional && <span className={styles.optional}>(optional)</span>}
       </label>
       <div className={styles.iconWrapper}>
-        {Icon}
+        {LeftIcon && <span className={styles.leftIcon}>{LeftIcon}</span>}
         <input
           type={type}
           id={label.split(' ').join('').toLocaleLowerCase()}
@@ -36,6 +38,7 @@ export default function Input({
           required={!optional}
           {...props}
         />
+        {RightIcon && <span className={styles.rightIcon}>{RightIcon}</span>}
       </div>
     </div>
   )

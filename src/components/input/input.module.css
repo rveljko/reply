@@ -24,11 +24,20 @@
   position: relative;
 }
 
-.iconWrapper svg {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: var(--space-lg);
-  z-index: 1;
+.leftIcon svg,
+.rightIcon svg {
   width: var(--icon-size-sm);
+  height: var(--icon-size-sm);
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  z-index: 1;
+}
+
+.leftIcon svg {
+  left: var(--space-lg);
+}
+
+.rightIcon svg {
+  right: var(--space-lg);
 }
