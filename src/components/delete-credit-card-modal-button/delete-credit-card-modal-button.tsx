@@ -3,7 +3,7 @@ import { ButtonProps } from '../button/button'
 import DeleteCreditCardModal from '../delete-credit-card-modal/delete-credit-card-modal'
 import useModal from '../../hooks/use-modal'
 
-type DeleteCreditCardModalButtonProps = Omit<ButtonProps, 'children'> & {
+type DeleteCreditCardModalButtonProps = ButtonProps & {
   creditCardIndex: number
   setCreditCardIndex?: React.Dispatch<React.SetStateAction<number>>
   leftIcon?: JSX.Element

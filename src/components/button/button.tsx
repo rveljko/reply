@@ -1,5 +1,6 @@
 import { cva, VariantProps } from 'class-variance-authority'
 import styles from './button.module.css'
+import { Link } from 'react-router-dom'
 
 const button = cva(styles.base, {
   variants: {
@@ -18,12 +19,21 @@ const button = cva(styles.base, {
   },
 })
 
-export type ButtonProps = React.ComponentPropsWithoutRef<'button'> &
-  VariantProps<typeof button> & {
-    children: React.ReactNode
-    icon?: JSX.Element
-    onClick?: () => void
-  }
+type ButtonBaseProps = VariantProps<typeof button> & {
+  children: React.ReactNode
+  icon?: JSX.Element
+}
+
+type ButtonAsAnchorProps = React.ComponentPropsWithoutRef<'a'> & {
+  href: string
+}
+
+type ButtonAsButtonProps = React.ComponentPropsWithoutRef<'button'> & {
+  href?: never
+}
+
+export type ButtonProps = ButtonBaseProps &
+  (ButtonAsAnchorProps | ButtonAsButtonProps)
 
 export default function Button({
   className,
@@ -31,15 +41,20 @@ export default function Button({
   size,
   children,
   icon,
-  onClick,
   ...props
 }: ButtonProps) {
+  const buttonClasses = button({ variant, size, className })
+
+  if ('href' in props && props.href !== undefined) {
+    return (
+      <Link to={props.href} className={buttonClasses} {...props}>
+        {children}
+      </Link>
+    )
+  }
+
   return (
-    <button
-      onClick={onClick}
-      className={button({ variant, size, className })}
-      {...props}
-    >
+    <button className={buttonClasses} {...props}>
       {children}
     </button>
   )

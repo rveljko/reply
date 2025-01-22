@@ -17,6 +17,7 @@ import AccountPage from './pages/account-page/account-page'
 import PreferencesPage from './pages/preferences-page/preferences-page'
 import IntegrationsPage from './pages/integrations-page/integrations-page'
 import CardsPage from './pages/cards-page/cards-page'
+import NotFoundPage from './pages/not-found-page/not-found-page'
 
 export default function App() {
   return (
@@ -38,6 +39,7 @@ export default function App() {
                           />
                           <Route path="my-cards" element={<MyCardsPage />} />
                           <Route path="guides" element={<GuidesPage />} />
+                          <Route path="*" element={<NotFoundPage />} />
                           <Route
                             path={SETTINGS_ROUTE}
                             element={<SettingsLayout />}

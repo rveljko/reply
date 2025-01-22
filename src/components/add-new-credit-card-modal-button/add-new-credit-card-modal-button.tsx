@@ -3,7 +3,7 @@ import { ButtonProps } from '../button/button'
 import ModalButton from '../modal-button/modal-button'
 import useModal from '../../hooks/use-modal'
 
-type AddNewCreditCardModalButtonProps = Omit<ButtonProps, 'children'> & {
+type AddNewCreditCardModalButtonProps = ButtonProps & {
   leftIcon?: JSX.Element
   rightIcon?: JSX.Element
 }

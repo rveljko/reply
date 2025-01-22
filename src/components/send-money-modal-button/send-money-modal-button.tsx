@@ -3,7 +3,7 @@ import SendMoneyModal from '../send-mone-modal/send-money-modal'
 import { ButtonProps } from '../button/button'
 import useModal from '../../hooks/use-modal'
 
-type SendMoneyModalButtonProps = Omit<ButtonProps, 'children'> & {
+type SendMoneyModalButtonProps = ButtonProps & {
   leftIcon?: JSX.Element
   rightIcon?: JSX.Element
 }

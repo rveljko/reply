@@ -2,4 +2,5 @@
   max-width: 71.125rem;
   width: calc(100% - (var(--space-lg) * 2));
   margin: 0 auto;
+  height: 100%;
 }
