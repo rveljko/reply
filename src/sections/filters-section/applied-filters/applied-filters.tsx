@@ -35,6 +35,7 @@ export default function AppliedFilters() {
       <Button
         variant="tertiary"
         size="small"
+        leftIcon={<EraserIcon />}
         disabled={
           [...filteredPurposes, ...creditCard, ...filteredTypes].length === 0 &&
           !dateFrom &&
@@ -43,7 +44,6 @@ export default function AppliedFilters() {
         }
         onClick={() => clearFilters()}
       >
-        <EraserIcon />
         Clear Filters
       </Button>
       {dateFrom && (
