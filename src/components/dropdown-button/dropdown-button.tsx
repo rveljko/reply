@@ -9,11 +9,9 @@ type DropdownButtonProps = ButtonProps & {
 }
 
 export default function DropdownButton({
-  variant,
-  size,
   label,
-  icon: Icon,
   children,
+  ...props
 }: DropdownButtonProps) {
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
   const wrapperRef = useRef<HTMLDivElement>(null)
@@ -42,11 +40,10 @@ export default function DropdownButton({
     <div ref={wrapperRef}>
       <Button
         className={styles.button}
-        variant={variant}
-        size={size}
         onClick={() => setIsDropdownOpened((prev) => !prev)}
+        {...props}
       >
-        {label} {Icon}
+        {label}
       </Button>
       <AnimatePresence>
         {isDropdownOpened && (

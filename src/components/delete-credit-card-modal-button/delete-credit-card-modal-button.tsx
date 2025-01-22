@@ -6,28 +6,19 @@ import useModal from '../../hooks/use-modal'
 type DeleteCreditCardModalButtonProps = ButtonProps & {
   creditCardIndex: number
   setCreditCardIndex?: React.Dispatch<React.SetStateAction<number>>
-  leftIcon?: JSX.Element
-  rightIcon?: JSX.Element
 }
 
 export default function DeleteCreditCardModalButton({
-  variant,
-  size,
-  leftIcon: LeftIcon,
-  rightIcon: RightIcon,
   creditCardIndex,
   setCreditCardIndex,
+  children,
   ...props
 }: DeleteCreditCardModalButtonProps) {
   const { isOpened, openModal, closeModal } = useModal()
 
   return (
     <ModalButton
-      label="Remove"
-      variant={variant}
-      size={size}
-      leftIcon={LeftIcon}
-      rightIcon={RightIcon}
+      label={children}
       isOpened={isOpened}
       openModal={openModal}
       closeModal={closeModal}

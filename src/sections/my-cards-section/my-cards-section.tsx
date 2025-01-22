@@ -58,7 +58,9 @@ export default function MyCardsSection({
               variant="tertiary"
               size="small"
               rightIcon={<PlusIcon />}
-            />
+            >
+              Add New
+            </AddNewCreditCardModalButton>
           </li>
           <li>
             <DeleteCreditCardModalButton
@@ -68,7 +70,9 @@ export default function MyCardsSection({
               creditCardIndex={creditCardIndex}
               setCreditCardIndex={setCreditCardIndex}
               disabled={getSortedCreditCards().length === 1}
-            />
+            >
+              Remove
+            </DeleteCreditCardModalButton>
           </li>
         </ul>
       </header>

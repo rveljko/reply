@@ -31,7 +31,7 @@ export default function BalanceSection() {
               variant="secondary"
               size="large"
               label="Sort by"
-              icon={<ChevronDownIcon />}
+              rightIcon={<ChevronDownIcon />}
             >
               {balanceFilters.map((balanceFilter, index) => (
                 <DropdownElement
@@ -50,7 +50,9 @@ export default function BalanceSection() {
               variant="primary"
               size="large"
               rightIcon={<ArrowUpRightIcon />}
-            />
+            >
+              Send Money
+            </SendMoneyModalButton>
           </li>
         </ul>
       </header>

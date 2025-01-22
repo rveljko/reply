@@ -50,7 +50,9 @@ export default function CardsSection({ creditCards }: CardsSectionProps) {
           variant="secondary"
           size="small"
           rightIcon={<PlusIcon />}
-        />
+        >
+          Add New
+        </AddNewCreditCardModalButton>
       </header>
       <div className={styles.myCardsListWrapper}>
         <MyCardsList

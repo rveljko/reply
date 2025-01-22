@@ -21,7 +21,8 @@ const button = cva(styles.base, {
 
 type ButtonBaseProps = VariantProps<typeof button> & {
   children: React.ReactNode
-  icon?: JSX.Element
+  leftIcon?: JSX.Element
+  rightIcon?: JSX.Element
 }
 
 type ButtonAsAnchorProps = React.ComponentPropsWithoutRef<'a'> & {
@@ -40,7 +41,8 @@ export default function Button({
   variant,
   size,
   children,
-  icon,
+  leftIcon: LeftIcon,
+  rightIcon: RightIcon,
   ...props
 }: ButtonProps) {
   const buttonClasses = button({ variant, size, className })
@@ -48,14 +50,18 @@ export default function Button({
   if ('href' in props && props.href !== undefined) {
     return (
       <Link to={props.href} className={buttonClasses} {...props}>
+        {LeftIcon && LeftIcon}
         {children}
+        {RightIcon && RightIcon}
       </Link>
     )
   }
 
   return (
     <button className={buttonClasses} {...props}>
+      {LeftIcon && LeftIcon}
       {children}
+      {RightIcon && RightIcon}
     </button>
   )
 }

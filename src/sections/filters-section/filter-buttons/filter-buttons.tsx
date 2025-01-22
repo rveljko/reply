@@ -30,7 +30,7 @@ export default function FilterButtons() {
         variant="secondary"
         size="medium"
         label="Date"
-        icon={<CalendarIcon />}
+        rightIcon={<CalendarIcon />}
       >
         <DropdownInputElement
           label="Date from"
@@ -57,7 +57,7 @@ export default function FilterButtons() {
         variant="secondary"
         size="medium"
         label="Purpose"
-        icon={<GiftIcon />}
+        rightIcon={<GiftIcon />}
       >
         {purposes.map(({ purpose, id }) => (
           <DropdownInputElement
@@ -75,7 +75,7 @@ export default function FilterButtons() {
         variant="secondary"
         size="medium"
         label="Credit Card"
-        icon={<CreditCardIcon />}
+        rightIcon={<CreditCardIcon />}
       >
         {creditCards.map(({ id, name, numbers }) => (
           <DropdownInputElement
@@ -95,7 +95,7 @@ export default function FilterButtons() {
         variant="secondary"
         size="medium"
         label="Type"
-        icon={<ArrowsDownUpIcon />}
+        rightIcon={<ArrowsDownUpIcon />}
       >
         {types.map(({ type, id }) => (
           <DropdownInputElement
@@ -113,7 +113,7 @@ export default function FilterButtons() {
         variant="secondary"
         size="medium"
         label="Sort by"
-        icon={<SelectorIcon />}
+        rightIcon={<SelectorIcon />}
       >
         {sortings.map(({ id, label, sort }) => (
           <DropdownInputElement

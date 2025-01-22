@@ -27,7 +27,7 @@ export default function BalanceOvertimeSection({
             variant="secondary"
             size="medium"
             label="Sort by"
-            icon={<ChevronDownIcon />}
+            rightIcon={<ChevronDownIcon />}
           >
             {balanceFilters.map((balanceFilter, index) => (
               <DropdownElement

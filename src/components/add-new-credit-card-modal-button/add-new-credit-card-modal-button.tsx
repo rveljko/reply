@@ -3,27 +3,17 @@ import { ButtonProps } from '../button/button'
 import ModalButton from '../modal-button/modal-button'
 import useModal from '../../hooks/use-modal'
 
-type AddNewCreditCardModalButtonProps = ButtonProps & {
-  leftIcon?: JSX.Element
-  rightIcon?: JSX.Element
-}
+type AddNewCreditCardModalButtonProps = ButtonProps
 
 export default function AddNewCreditCardModalButton({
-  variant,
-  size,
-  leftIcon: LeftIcon,
-  rightIcon: RightIcon,
+  children,
   ...props
 }: AddNewCreditCardModalButtonProps) {
   const { isOpened, openModal, closeModal } = useModal()
 
   return (
     <ModalButton
-      label="Add New"
-      variant={variant}
-      size={size}
-      leftIcon={LeftIcon}
-      rightIcon={RightIcon}
+      label={children}
       isOpened={isOpened}
       openModal={openModal}
       closeModal={closeModal}

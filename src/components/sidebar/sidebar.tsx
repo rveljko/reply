@@ -70,7 +70,9 @@ export default function Sidebar() {
                 size="small"
                 leftIcon={<ArrowUpRightIcon />}
                 className={styles.button}
-              />
+              >
+                Send Money
+              </SendMoneyModalButton>
             </li>
             {dashboardRoutes
               .slice(0, -2)
