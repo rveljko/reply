@@ -31,8 +31,8 @@ export default function Dialog({ children, closeModal }: DialogProps) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <ReactFocusLock returnFocus>
-        <AutoFocusInside>
+      <ReactFocusLock returnFocus className={styles.focusLock}>
+        <AutoFocusInside className={styles.autoFocus}>
           <motion.div
             className={styles.dialog}
             onClick={(e) => e.stopPropagation()}
