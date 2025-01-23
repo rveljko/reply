@@ -71,20 +71,24 @@ export default function Table({
                   <TableBodyCellGroup>
                     {type === 'Received' ? (
                       <>
-                        <img
-                          src={senderImage}
-                          alt={senderName}
-                          title={senderName}
-                        />
+                        <div className={styles.profilePictureWrapper}>
+                          <img
+                            src={senderImage}
+                            alt={senderName}
+                            title={senderName}
+                          />
+                        </div>
                         <span>{senderName}</span>
                       </>
                     ) : (
                       <>
-                        <img
-                          src={receiverImage}
-                          alt={receiverName}
-                          title={receiverName}
-                        />
+                        <div className={styles.profilePictureWrapper}>
+                          <img
+                            src={receiverImage}
+                            alt={receiverName}
+                            title={receiverName}
+                          />
+                        </div>
                         <span>{receiverName}</span>
                       </>
                     )}

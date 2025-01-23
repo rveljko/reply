@@ -12,3 +12,8 @@
   border-collapse: collapse;
   white-space: nowrap;
 }
+
+.profilePictureWrapper {
+  background-color: var(--neutral-700);
+  border-radius: 100%;
+}
