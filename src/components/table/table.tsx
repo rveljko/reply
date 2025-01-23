@@ -32,6 +32,14 @@ export default function Table({
   const { transactionId, searchParams, setTransactionId } = useTransaction()
   const navigate = useNavigate()
 
+  function handleOnClick(id: number) {
+    setTransactionId(id.toString())
+    navigate({
+      pathname: `${DASHBOARD_ROUTE}recent-transactions`,
+      search: searchParams.toString(),
+    })
+  }
+
   return (
     <div className={styles.wrapper}>
       <table className={styles.table} {...props}>
@@ -57,15 +65,13 @@ export default function Table({
               type,
             }) => (
               <TableBodyRow
+                tabIndex={0}
                 key={id}
                 isActiveRow={id === (transactionId && parseInt(transactionId))}
-                onClick={() => {
-                  setTransactionId(id.toString())
-                  navigate({
-                    pathname: `${DASHBOARD_ROUTE}recent-transactions`,
-                    search: searchParams.toString(),
-                  })
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') handleOnClick(id)
                 }}
+                onClick={() => handleOnClick(id)}
               >
                 <TableBodyCell>
                   <TableBodyCellGroup>
