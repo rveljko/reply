@@ -81,3 +81,7 @@
   transform: translate(-50%, -50%);
   border-radius: 100%;
 }
+
+.input:focus-visible {
+  outline: 2px solid var(--clickable);
+}
