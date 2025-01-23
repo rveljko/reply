@@ -47,8 +47,7 @@ export default function AppliedFilters() {
         Clear Filters
       </Button>
       {dateFrom && (
-        <Button variant="tertiary" size="small">
-          <CalendarIcon />
+        <Button variant="tertiary" size="small" leftIcon={<CalendarIcon />}>
           {shortDateFormatter(dateFrom)}
           <span
             className={styles.removeFilter}
@@ -59,8 +58,7 @@ export default function AppliedFilters() {
         </Button>
       )}
       {dateTo && (
-        <Button variant="tertiary" size="small">
-          <CalendarIcon />
+        <Button variant="tertiary" size="small" leftIcon={<CalendarIcon />}>
           {shortDateFormatter(dateTo)}
           <span
             className={styles.removeFilter}
@@ -72,8 +70,12 @@ export default function AppliedFilters() {
       )}
       <>
         {filteredPurposes.map((filteredPurpose, index) => (
-          <Button key={index} variant="tertiary" size="small">
-            <GiftIcon />
+          <Button
+            key={index}
+            variant="tertiary"
+            size="small"
+            leftIcon={<GiftIcon />}
+          >
             {filteredPurpose}
             <span
               className={styles.removeFilter}
@@ -88,8 +90,12 @@ export default function AppliedFilters() {
         {creditCards.map(
           ({ id, name, numbers }) =>
             getCreditCardIds().includes(id) && (
-              <Button key={id} variant="tertiary" size="small">
-                <CreditCardIcon />
+              <Button
+                key={id}
+                variant="tertiary"
+                size="small"
+                leftIcon={<CreditCardIcon />}
+              >
                 {`${name} ${getEndingLastFourDigits(numbers, true)}`}
                 <span
                   className={styles.removeFilter}
@@ -105,8 +111,12 @@ export default function AppliedFilters() {
       </>
       <>
         {filteredTypes.map((filteredType, index) => (
-          <Button key={index} variant="tertiary" size="small">
-            <ArrowsDownUpIcon />
+          <Button
+            key={index}
+            variant="tertiary"
+            size="small"
+            leftIcon={<ArrowsDownUpIcon />}
+          >
             {filteredType}
             <span
               className={styles.removeFilter}
@@ -120,8 +130,12 @@ export default function AppliedFilters() {
       {sortings.map(
         (sorting, index) =>
           sort === sorting.sort && (
-            <Button key={index} variant="tertiary" size="small">
-              <SelectorIcon />
+            <Button
+              key={index}
+              variant="tertiary"
+              size="small"
+              leftIcon={<SelectorIcon />}
+            >
               {sorting.label}
               <span
                 className={styles.removeFilter}

@@ -72,3 +72,9 @@
   padding: var(--space-xsm);
   height: var(--button-height-sm);
 }
+
+.text {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}

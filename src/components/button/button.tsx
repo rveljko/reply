@@ -51,7 +51,7 @@ export default function Button({
     return (
       <Link to={props.href} className={buttonClasses} {...props}>
         {LeftIcon && LeftIcon}
-        {children}
+        <span className={styles.text}>{children}</span>
         {RightIcon && RightIcon}
       </Link>
     )
@@ -60,7 +60,7 @@ export default function Button({
   return (
     <button className={buttonClasses} {...props}>
       {LeftIcon && LeftIcon}
-      <span>{children}</span>
+      <span className={styles.text}>{children}</span>
       {RightIcon && RightIcon}
     </button>
   )
