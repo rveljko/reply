@@ -49,12 +49,12 @@ export default function MyCard({
           <Button
             variant="tertiary"
             size="small"
+            leftIcon={<TrashIcon />}
             onClick={() => {
               addNewRemoveCardIndexAndId(cardIndex, creditCard.id)
             }}
             disabled={creditCards.length === 1}
           >
-            <TrashIcon />
             Remove
           </Button>
         </li>
@@ -66,18 +66,9 @@ export default function MyCard({
               addNewUpdateStatusCardId(creditCard.id)
               setIsCreditCardActive(!isCreditCardActive)
             }}
+            leftIcon={isCreditCardActive ? <XIcon /> : <CheckIcon />}
           >
-            {isCreditCardActive ? (
-              <>
-                <XIcon />
-                Deactivate
-              </>
-            ) : (
-              <>
-                <CheckIcon />
-                Activate
-              </>
-            )}
+            {isCreditCardActive ? 'Deactivate' : 'Activate'}
           </Button>
         </li>
       </ul>
