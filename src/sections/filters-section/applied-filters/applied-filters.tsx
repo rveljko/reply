@@ -49,23 +49,23 @@ export default function AppliedFilters() {
       {dateFrom && (
         <Button variant="tertiary" size="small" leftIcon={<CalendarIcon />}>
           {shortDateFormatter(dateFrom)}
-          <span
+          <button
             className={styles.removeFilter}
             onClick={() => removeDate('date-from', dateFrom)}
           >
             <XIcon />
-          </span>
+          </button>
         </Button>
       )}
       {dateTo && (
         <Button variant="tertiary" size="small" leftIcon={<CalendarIcon />}>
           {shortDateFormatter(dateTo)}
-          <span
+          <button
             className={styles.removeFilter}
             onClick={() => removeDate('date-to', dateTo)}
           >
             <XIcon />
-          </span>
+          </button>
         </Button>
       )}
       <>
@@ -77,12 +77,12 @@ export default function AppliedFilters() {
             leftIcon={<GiftIcon />}
           >
             {filteredPurpose}
-            <span
+            <button
               className={styles.removeFilter}
               onClick={() => removeFilter('purpose', filteredPurpose)}
             >
               <XIcon />
-            </span>
+            </button>
           </Button>
         ))}
       </>
@@ -97,14 +97,14 @@ export default function AppliedFilters() {
                 leftIcon={<CreditCardIcon />}
               >
                 {`${name} ${getEndingLastFourDigits(numbers, true)}`}
-                <span
+                <button
                   className={styles.removeFilter}
                   onClick={() =>
                     removeFilter('credit-card', id.toString() as CreditCardId)
                   }
                 >
                   <XIcon />
-                </span>
+                </button>
               </Button>
             )
         )}
@@ -118,12 +118,12 @@ export default function AppliedFilters() {
             leftIcon={<ArrowsDownUpIcon />}
           >
             {filteredType}
-            <span
+            <button
               className={styles.removeFilter}
               onClick={() => removeFilter('type', filteredType)}
             >
               <XIcon />
-            </span>
+            </button>
           </Button>
         ))}
       </>
@@ -137,12 +137,12 @@ export default function AppliedFilters() {
               leftIcon={<SelectorIcon />}
             >
               {sorting.label}
-              <span
+              <button
                 className={styles.removeFilter}
                 onClick={() => removeSort(sort)}
               >
                 <XIcon />
-              </span>
+              </button>
             </Button>
           )
       )}
