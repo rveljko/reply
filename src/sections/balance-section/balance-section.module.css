@@ -20,7 +20,7 @@
 .list {
   display: flex;
   gap: var(--space-lg);
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
 }
 
 @media (min-width: 1024px) {
