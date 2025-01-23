@@ -16,7 +16,7 @@ import getTransactionSign from '../../utils/helpers/get-transaction-sign'
 import { getEndingLastFourDigits } from '../../utils/helpers/get-last-four-digits'
 import useTransaction from '../../hooks/use-transaction'
 import { useNavigate } from 'react-router-dom'
-import { DASHBOARD_ROUTE } from '../../utils/constants'
+import { DASHBOARD_ROUTE, IMAGE_PATH } from '../../utils/constants'
 import CreditCardLogo from '../credit-card-logo/credit-card-logo'
 
 type TableProps = React.ComponentPropsWithoutRef<'table'> & {
@@ -87,6 +87,10 @@ export default function Table({
                             src={receiverImage}
                             alt={receiverName}
                             title={receiverName}
+                            onError={({ currentTarget }) => {
+                              currentTarget.onerror = null
+                              currentTarget.src = `${IMAGE_PATH}default-profile-picture.png`
+                            }}
                           />
                         </div>
                         <span>{receiverName}</span>

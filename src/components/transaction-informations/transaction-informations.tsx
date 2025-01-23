@@ -1,6 +1,7 @@
 import CalendarIcon from '../../icons/calendar-icon'
 import CreditCardIcon from '../../icons/credit-card-icon'
 import GiftIcon from '../../icons/gift-icon'
+import { IMAGE_PATH } from '../../utils/constants'
 import Tag from '../tag/tag'
 import styles from './transaction-informations.module.css'
 
@@ -24,7 +25,15 @@ export default function TransactionInformations({
   return (
     <div className={styles.informations}>
       <div>
-        <img className={styles.image} src={image} alt="" />
+        <img
+          className={styles.image}
+          src={image}
+          alt=""
+          onError={({ currentTarget }) => {
+            currentTarget.onerror = null
+            currentTarget.src = `${IMAGE_PATH}default-profile-picture.png`
+          }}
+        />
       </div>
       <div>
         <p>{identificator}</p>
