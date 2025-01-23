@@ -8,7 +8,6 @@ import SendMoneyModalButton from '../../components/send-money-modal-button/send-
 import CurrencyAnimation from '../../components/currency-animation/currency-animation'
 import useBalanceFilters from '../../hooks/use-balance-filters'
 import DropdownButton from '../../components/dropdown-button/dropdown-button'
-import { balanceFilters } from '../../data/balance-filters'
 import DropdownElement from '../../components/dropdown-element/dropdown-element'
 
 export default function BalanceSection() {
@@ -33,16 +32,20 @@ export default function BalanceSection() {
               label="Sort by"
               rightIcon={<ChevronDownIcon />}
             >
-              {balanceFilters.map((balanceFilter, index) => (
-                <DropdownElement
-                  label={balanceFilter}
-                  type="radio"
-                  onClick={() => setFilter(balanceFilter)}
-                  checked={filter === balanceFilter}
-                  key={index}
-                  readOnly
-                />
-              ))}
+              <DropdownElement
+                label="Weekly"
+                type="radio"
+                onClick={() => setFilter('Weekly')}
+                checked={filter === 'Weekly'}
+                readOnly
+              />
+              <DropdownElement
+                label="Monthly"
+                type="radio"
+                onClick={() => setFilter('Monthly')}
+                checked={filter === 'Monthly'}
+                readOnly
+              />
             </DropdownButton>
           </li>
           <li>
