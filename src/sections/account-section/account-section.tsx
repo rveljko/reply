@@ -92,7 +92,7 @@ export default function AccountSection() {
             </div>
           </div>
           <div>
-            <h2>User Informations</h2>
+            <h2>User Information</h2>
             <div className={styles.inputs}>
               <div className={styles.inputGroup}>
                 <Input
