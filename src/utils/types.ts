@@ -133,3 +133,11 @@ export type Integration = {
   logoUrl: string
   isActive: boolean
 }
+
+export type Guide = {
+  id: number
+  url: string
+  path: string
+  title: string
+  thumbnailUrl: string
+}
