@@ -1,13 +1,13 @@
-import { Link } from 'react-router-dom'
 import { DASHBOARD_ROUTE } from '../../utils/constants'
 import styles from './view-more-transactions.module.css'
+import Button from '../button/button'
 
 export default function ViewMoreTransactions() {
   return (
     <div className={styles.wrapper}>
-      <Link to={`${DASHBOARD_ROUTE}recent-transactions`} className={styles.link}>
+      <Button href={`${DASHBOARD_ROUTE}recent-transactions`} variant="link">
         View More Transactions
-      </Link>
+      </Button>
     </div>
   )
 }

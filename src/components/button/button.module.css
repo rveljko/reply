@@ -58,6 +58,16 @@
   background-color: var(--danger-500);
 }
 
+.link {
+  color: var(--brand-500);
+  background: unset;
+}
+
+.link:hover {
+  background: unset;
+  color: var(--brand-600);
+}
+
 .large {
   padding: var(--space-md) var(--space-xlg);
   height: var(--button-height-lg);

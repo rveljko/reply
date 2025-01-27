@@ -2,9 +2,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: var(--space-md)
-}
-
-.link {
-  color: var(--brand-500);
+  padding: var(--space-md);
 }
