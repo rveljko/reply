@@ -19,6 +19,11 @@ import IntegrationsPage from './pages/integrations-page/integrations-page'
 import CardsPage from './pages/cards-page/cards-page'
 import NotFoundPage from './pages/not-found-page/not-found-page'
 import GuidePage from './pages/guide-page/guide-page'
+import LandingPageLayout from './layouts/landing-page-layout/landing-page-layout'
+import LandingPage from './pages/landing-page/landing-page'
+import FeaturesPage from './pages/features-page/features-page'
+import CustomersPage from './pages/customers-page'
+import IntegrationsLandingPage from './pages/integrations-landing-page/integrations-landing-page'
 
 export default function App() {
   return (
@@ -32,6 +37,15 @@ export default function App() {
                   <IntegrationsContextProvider>
                     <TransactionsContextProvider>
                       <Routes>
+                        <Route path="/" element={<LandingPageLayout />}>
+                          <Route index element={<LandingPage />} />
+                          <Route path="features" element={<FeaturesPage />} />
+                          <Route path="customers" element={<CustomersPage />} />
+                          <Route
+                            path="integrations"
+                            element={<IntegrationsLandingPage />}
+                          />
+                        </Route>
                         <Route path={DASHBOARD_ROUTE} element={<AppLayout />}>
                           <Route index element={<MyWalletPage />} />
                           <Route

@@ -50,7 +50,8 @@
 }
 
 .ghost:hover {
-  --outline-color: var(--section-outline);
+  background: unset;
+  --outline-color: unset;
 }
 
 .danger {

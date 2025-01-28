@@ -5,7 +5,10 @@ import SettingsIcon from '../icons/settings-icon'
 import WalletIcon from '../icons/wallet-icon'
 import AccountPage from '../pages/account-page/account-page'
 import CardsPage from '../pages/cards-page/cards-page'
+import CustomersPage from '../pages/customers-page'
+import FeaturesPage from '../pages/features-page/features-page'
 import GuidesPage from '../pages/guides-page/guides-page'
+import IntegrationsLandingPage from '../pages/integrations-landing-page/integrations-landing-page'
 import IntegrationsPage from '../pages/integrations-page/integrations-page'
 import MyCardsPage from '../pages/my-cards-page/my-cards-page'
 import MyWalletPage from '../pages/my-wallet-page/my-wallet-page'
@@ -76,5 +79,26 @@ export const settingsRoutes: Route[] = [
     name: 'Integrations',
     href: 'integrations',
     page: IntegrationsPage,
+  },
+]
+
+export const landingPageNavigationLinks: Route[] = [
+  {
+    id: 1,
+    name: 'Features',
+    href: '/features',
+    page: FeaturesPage,
+  },
+  {
+    id: 2,
+    name: 'Customers',
+    href: '/customers',
+    page: CustomersPage,
+  },
+  {
+    id: 3,
+    name: 'Integrations',
+    href: '/integrations',
+    page: IntegrationsLandingPage,
   },
 ]
