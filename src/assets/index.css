@@ -87,6 +87,11 @@
       transparent
     ),
     radial-gradient(at top, #142133, transparent 50%);
+  --landing-page-section-background: linear-gradient(
+    transparent,
+    hsl(from var(--neutral-900) h s l / 50%),
+    transparent
+  );
   --space-xlg: 1rem;
   --space-lg: 0.75rem;
   --space-md: 0.5rem;
@@ -108,9 +113,11 @@
   --heading1: 2.5rem;
   --heading1-landing-page: 2.375rem;
   --heading2: 1.2rem;
-  --heading2-landing-page: 1.625rem;
+  --heading2-landing-page: 2rem;
   --heading3: 1.125rem;
+  --heading3-landing-page: 1.625rem;
   --heading4: 1rem;
+  --heading4-landing-page: 1.125rem;
   --paragraph: 1rem;
   --paragraph-lg: 1.25rem;
   --paragraph-sm: 0.875rem;
@@ -120,6 +127,7 @@
   --line-height: 1.4;
   --line-height-heading1: 1.2;
   --line-height-heading1-landing-page: 1.1;
+  --line-height-heading2-landing-page: 1.2;
   --section-padding-landing-page: 4rem;
   --sidebar-opened-width: 14.375rem;
   --sidebar-closed-width: 3.4375rem;
@@ -155,6 +163,11 @@
       #ebeff529,
       transparent 50%
     );
+    --landing-page-section-background: linear-gradient(
+      transparent,
+      hsl(from var(--neutral-900) h s l / 50%),
+      transparent
+    );
     --neutral-100: #0a1119;
     --neutral-200: #232930;
     --neutral-300: #3b4147;
@@ -182,6 +195,11 @@
       transparent
     ),
     radial-gradient(at top, #142133, transparent 50%);
+  --landing-page-section-background: linear-gradient(
+    transparent,
+    hsl(from var(--neutral-900) h s l / 50%),
+    transparent
+  );
   --neutral-100: #cecfd1;
   --neutral-200: #b6b8ba;
   --neutral-300: #9da0a3;
@@ -205,6 +223,11 @@
     at top,
     #ebeff529,
     transparent 50%
+  );
+  --landing-page-section-background: linear-gradient(
+    transparent,
+    hsl(from var(--neutral-900) h s l / 50%),
+    transparent
   );
   --neutral-100: #0a1119;
   --neutral-200: #232930;
@@ -384,7 +407,7 @@ main {
   :root {
     --heading1: 3rem;
     --heading1-landing-page: 3.625rem;
-    --heading2-landing-page: 2rem;
+    --heading2-landing-page: 3rem;
   }
 
   main {
