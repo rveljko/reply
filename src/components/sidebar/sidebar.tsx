@@ -13,7 +13,11 @@ import { useMediaQuery } from 'react-responsive'
 import SendMoneyModalButton from '../send-money-modal-button/send-money-modal-button'
 import { useUserInformations } from '../../utils/contexts/user-informations-context'
 
-export default function Sidebar() {
+type SidebarProps = {
+  className?: string
+}
+
+export default function Sidebar({ className }: SidebarProps) {
   const [isOpened, setIsOpened] = useState(false)
   const isBigScreen = useMediaQuery({ minWidth: 768 })
   const sidebarRef = useRef<HTMLElement>(null)
@@ -47,7 +51,9 @@ export default function Sidebar() {
   return (
     <aside
       ref={sidebarRef}
-      className={`${styles.sidebar} ${isOpened ? styles.active : ''}`}
+      className={`${styles.sidebar} ${className} ${
+        isOpened ? styles.active : ''
+      }`}
     >
       <div className={styles.content}>
         <div className={styles.head}>

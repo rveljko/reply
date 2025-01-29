@@ -1,0 +1,44 @@
+.dashboard {
+  background-image: var(--background);
+  border: 1px solid var(--section-outline);
+  border-radius: var(--border-radius-md);
+}
+
+.layout {
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebarWrapper {
+  max-width: var(--sidebar-closed-width);
+  min-width: var(--sidebar-closed-width);
+  width: 100%;
+  position: relative;
+}
+
+.sidebar {
+  border-top-left-radius: calc(var(--border-radius-md) - 1px);
+  border-bottom-left-radius: calc(var(--border-radius-md) - 1px);
+  position: absolute !important;
+  height: 100%;
+}
+
+.pageWrapper {
+  width: 100%;
+  padding-block: var(--space-lg);
+}
+
+.container {
+  width: calc(100% - 2rem);
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .sidebarWrapper {
+    max-width: var(--sidebar-opened-width);
+  }
+
+  .wrapper {
+    padding-block: calc(var(--space-lg) * 2);
+  }
+}

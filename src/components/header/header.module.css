@@ -7,6 +7,7 @@
   top: 0;
   width: 100%;
   height: var(--header-height);
+  z-index: 999;
 }
 
 .header:has(.navigation.active) {

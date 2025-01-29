@@ -1,4 +1,3 @@
 .layout {
-  margin-top: var(--header-height);
-  padding: unset;
+  padding-block: unset;
 }

@@ -82,6 +82,11 @@
     radial-gradient(at top, #0e1825cc, #090e1629 50%);
   --modal-background: radial-gradient(at top, #161f2be6, #0c1118e6 50%);
   --modal-backdrop: hsl(from var(--black) h s l / 20%);
+  --hero-section-landing-page-background: linear-gradient(
+      #1d2f4933,
+      transparent
+    ),
+    radial-gradient(at top, #142133, transparent 50%);
   --space-xlg: 1rem;
   --space-lg: 0.75rem;
   --space-md: 0.5rem;
@@ -101,7 +106,9 @@
   --button-height-sm: 30px;
   --font-primary: 'Switzer', sans-serif;
   --heading1: 2.5rem;
+  --heading1-landing-page: 2.375rem;
   --heading2: 1.2rem;
+  --heading2-landing-page: 1.625rem;
   --heading3: 1.125rem;
   --heading4: 1rem;
   --paragraph: 1rem;
@@ -112,6 +119,10 @@
   --link: 1rem;
   --line-height: 1.4;
   --line-height-heading1: 1.2;
+  --line-height-heading1-landing-page: 1.1;
+  --section-padding-landing-page: 4rem;
+  --sidebar-opened-width: 14.375rem;
+  --sidebar-closed-width: 3.4375rem;
   --table-head-row-height: 1.125rem;
   --table-body-row-height: 3.5rem;
   --scrollbar-size: 0.375rem;
@@ -139,6 +150,11 @@
     --section-outline: #05050526;
     --section-background: radial-gradient(at top, #dde4eecc, #ebeff529 50%);
     --modal-background: radial-gradient(at top, #d3dce8e6, #e7ecf3e6 50%);
+    --hero-section-landing-page-background: radial-gradient(
+      at top,
+      #ebeff529,
+      transparent 50%
+    );
     --neutral-100: #0a1119;
     --neutral-200: #232930;
     --neutral-300: #3b4147;
@@ -161,6 +177,11 @@
   --section-background: linear-gradient(#0d141f1a, #14213333),
     radial-gradient(at top, #0e1825cc, #090e1629 50%);
   --modal-background: radial-gradient(at top, #161f2be6, #0c1118e6 50%);
+  --hero-section-landing-page-background: linear-gradient(
+      #1d2f4933,
+      transparent
+    ),
+    radial-gradient(at top, #142133, transparent 50%);
   --neutral-100: #cecfd1;
   --neutral-200: #b6b8ba;
   --neutral-300: #9da0a3;
@@ -180,6 +201,11 @@
   --section-outline: #05050526;
   --section-background: radial-gradient(at top, #dde4eecc, #ebeff529 50%);
   --modal-background: radial-gradient(at top, #d3dce8e6, #e7ecf3e6 50%);
+  --hero-section-landing-page-background: radial-gradient(
+    at top,
+    #ebeff529,
+    transparent 50%
+  );
   --neutral-100: #0a1119;
   --neutral-200: #232930;
   --neutral-300: #3b4147;
@@ -357,6 +383,8 @@ main {
 @media (min-width: 768px) {
   :root {
     --heading1: 3rem;
+    --heading1-landing-page: 3.625rem;
+    --heading2-landing-page: 2rem;
   }
 
   main {
