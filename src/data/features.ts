@@ -1,8 +1,11 @@
+import BrainIcon from '../icons/brain-icon'
+import ChartBarIcon from '../icons/chart-bar-icon'
 import ChartPieIcon from '../icons/chart-pie-icon'
 import CreditCardIcon from '../icons/credit-card-icon'
 import ListIcon from '../icons/list-icon'
 import RefreshIcon from '../icons/refresh-icon'
 import ShieldCheckIcon from '../icons/shield-check-icon'
+import ShieldIcon from '../icons/shield-icon'
 import TrendingUpIcon from '../icons/trending-up-icon'
 import { Feature } from '../utils/types'
 
@@ -48,5 +51,29 @@ export const financialFeatures: Feature[] = [
     title: 'Real-Time Updates',
     description:
       'Stay informed with real-time updates on your financial transactions and balances',
+  },
+]
+
+export const financialControlFeatures: Feature[] = [
+  {
+    id: 1,
+    icon: BrainIcon,
+    title: 'Intelligent Categorization',
+    description:
+      'Automatically categorize expenses for better financial organization and analysis',
+  },
+  {
+    id: 2,
+    icon: ShieldIcon,
+    title: 'Fraud Protection',
+    description:
+      'Robust security measures protect against fraudulent transactions and activities',
+  },
+  {
+    id: 3,
+    icon: ChartBarIcon,
+    title: 'Transaction Insights',
+    description:
+      'Attain insights into spending trends, enabling informed decision-making',
   },
 ]
