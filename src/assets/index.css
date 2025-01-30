@@ -92,11 +92,16 @@
     hsl(from var(--neutral-900) h s l / 50%),
     transparent
   );
+  --bento-card-background: linear-gradient(transparent, #ffffff05),
+    radial-gradient(at top, #ffffff14, transparent 60%),
+    linear-gradient(#0e15201a, #14213380),
+    radial-gradient(at top, #0e1724, #090f17 50%);
   --space-xlg: 1rem;
   --space-lg: 0.75rem;
   --space-md: 0.5rem;
   --space-sm: 0.375rem;
   --space-xsm: 0.25rem;
+  --border-radius-xlg: 1rem;
   --border-radius-lg: 0.75rem;
   --border-radius-md: 0.375rem;
   --border-radius-sm: 0.25rem;
@@ -128,6 +133,7 @@
   --line-height-heading1: 1.2;
   --line-height-heading1-landing-page: 1.1;
   --line-height-heading2-landing-page: 1.2;
+  --line-height-heading3-landing-page: 1.2;
   --section-padding-landing-page: 4rem;
   --sidebar-opened-width: 14.375rem;
   --sidebar-closed-width: 3.4375rem;
@@ -168,6 +174,10 @@
       hsl(from var(--neutral-900) h s l / 50%),
       transparent
     );
+    --bento-card-background: linear-gradient(transparent, #00000005),
+      radial-gradient(at top, #00000014, transparent 60%),
+      linear-gradient(#e1e6ef1a, #cfd9e780),
+      radial-gradient(at top, #dde4ee, #eaeff5 50%);
     --neutral-100: #0a1119;
     --neutral-200: #232930;
     --neutral-300: #3b4147;
@@ -200,6 +210,10 @@
     hsl(from var(--neutral-900) h s l / 50%),
     transparent
   );
+  --bento-card-background: linear-gradient(transparent, #ffffff05),
+    radial-gradient(at top, #ffffff14, transparent 60%),
+    linear-gradient(#0e15201a, #14213380),
+    radial-gradient(at top, #0e1724, #090f17 50%);
   --neutral-100: #cecfd1;
   --neutral-200: #b6b8ba;
   --neutral-300: #9da0a3;
@@ -229,6 +243,10 @@
     hsl(from var(--neutral-900) h s l / 50%),
     transparent
   );
+  --bento-card-background: linear-gradient(transparent, #00000005),
+    radial-gradient(at top, #00000014, transparent 60%),
+    linear-gradient(#e1e6ef1a, #cfd9e780),
+    radial-gradient(at top, #dde4ee, #eaeff5 50%);
   --neutral-100: #0a1119;
   --neutral-200: #232930;
   --neutral-300: #3b4147;
