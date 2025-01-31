@@ -1,0 +1,4 @@
+.image {
+  margin-inline: auto;
+  mask-image: linear-gradient(black, transparent);
+}

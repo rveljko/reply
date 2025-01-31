@@ -1,3 +1,4 @@
+import EfficientTransactionManagementSection from '../../sections/efficient-transaction-management-section/efficient-transaction-management-section'
 import EnhancedUserExperienceSection from '../../sections/enhanced-user-experience-section/enhanced-user-experience-section'
 import FinancialControlSection from '../../sections/financial-control-section/financial-control-section'
 import FinancialManagementSolutions from '../../sections/financial-management-solutions/financial-management-solutions'
@@ -10,6 +11,7 @@ export default function LandingPage() {
       <FinancialManagementSolutions />
       <EnhancedUserExperienceSection />
       <FinancialControlSection />
+      <EfficientTransactionManagementSection />
     </>
   )
 }

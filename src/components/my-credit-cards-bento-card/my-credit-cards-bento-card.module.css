@@ -1,0 +1,13 @@
+.cardsWrapper {
+  mask-image: linear-gradient(black, transparent);
+}
+
+.cards {
+  padding: var(--space-lg);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--section-outline);
+}
+
+.header {
+  margin-bottom: var(--space-lg);
+}
