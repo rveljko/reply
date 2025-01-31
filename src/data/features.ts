@@ -6,8 +6,14 @@ import ListIcon from '../icons/list-icon'
 import RefreshIcon from '../icons/refresh-icon'
 import ShieldCheckIcon from '../icons/shield-check-icon'
 import ShieldIcon from '../icons/shield-icon'
+import TargetIcon from '../icons/target-icon'
 import TrendingUpIcon from '../icons/trending-up-icon'
 import { Feature } from '../utils/types'
+import ChartLineIcon from '../icons/chart-line-icon'
+import HeartbeatIcon from '../icons/heartbeat-icon'
+import BellIcon from '../icons/bell-icon'
+import ChartDonutIcon from '../icons/chart-donut-icon'
+import FileTextIcon from '../icons/file-text-icon'
 
 export const financialFeatures: Feature[] = [
   {
@@ -75,5 +81,49 @@ export const financialControlFeatures: Feature[] = [
     title: 'Transaction Insights',
     description:
       'Attain insights into spending trends, enabling informed decision-making',
+  },
+]
+
+export const budgetingAndTrackingFeatures: Feature[] = [
+  {
+    id: 1,
+    icon: TargetIcon,
+    title: 'Goal-based Savings',
+    description:
+      'Effortlessly set and track progress towards your personalized savings goals',
+  },
+  {
+    id: 2,
+    icon: ChartLineIcon,
+    title: 'Expense Forecasting',
+    description:
+      'Predict future expenses and plan ahead for better financial management',
+  },
+  {
+    id: 3,
+    icon: HeartbeatIcon,
+    title: 'Financial Health Analysis',
+    description:
+      'Assess your overall financial health and identify areas for improvement',
+  },
+  {
+    id: 4,
+    icon: FileTextIcon,
+    title: 'Customized Reports',
+    description:
+      'Generate reports to gain a deeper understanding of your financial status',
+  },
+  {
+    id: 5,
+    icon: BellIcon,
+    title: 'Automatic Bill Reminders',
+    description:
+      'Receive timely reminders for upcoming bill payments to avoid late fees',
+  },
+  {
+    id: 6,
+    icon: ChartDonutIcon,
+    title: 'Investment Tracking',
+    description: 'Effortlessly monitor and analyze your investment portfolio',
   },
 ]
