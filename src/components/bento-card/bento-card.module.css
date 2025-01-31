@@ -7,7 +7,6 @@
   flex-direction: column;
   justify-content: space-between;
   gap: var(--space-xlg);
-  max-height: 28rem;
   height: 100%;
 }
 
@@ -38,4 +37,10 @@
 
 .description {
   max-width: 22rem;
+}
+
+@media (min-width: 768px) {
+  .card {
+    height: 28rem;
+  }
 }
