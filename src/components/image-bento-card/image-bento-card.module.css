@@ -1,0 +1,11 @@
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+  mask-image: linear-gradient(black, transparent);
+  height: 100%;
+}
+
+.button,
+.image {
+  width: 100%;
+}

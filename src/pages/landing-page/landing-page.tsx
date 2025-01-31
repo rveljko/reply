@@ -3,6 +3,7 @@ import EnhancedUserExperienceSection from '../../sections/enhanced-user-experien
 import FinancialControlSection from '../../sections/financial-control-section/financial-control-section'
 import FinancialManagementSolutions from '../../sections/financial-management-solutions/financial-management-solutions'
 import HeroSection from '../../sections/hero-section/hero-section'
+import PersonalizedUserExperienceSection from '../../sections/personalized-user-experience-section/personalized-user-experience-section'
 import ProactiveFinancialTrackingSection from '../../sections/proactive-financial-tracking-section/proactive-financial-tracking-section'
 
 export default function LandingPage() {
@@ -14,6 +15,7 @@ export default function LandingPage() {
       <FinancialControlSection />
       <EfficientTransactionManagementSection />
       <ProactiveFinancialTrackingSection />
+      <PersonalizedUserExperienceSection />
     </>
   )
 }
