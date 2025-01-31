@@ -1,7 +1,3 @@
-.formWrapper {
-  mask-image: linear-gradient(black, transparent);
-}
-
 .form {
   padding: var(--space-lg);
   max-width: var(--add-new-credit-card-modal-width);

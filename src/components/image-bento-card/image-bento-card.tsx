@@ -20,24 +20,22 @@ export default function ImageBentoCard({
 
   return (
     <BentoCard title={title} description={descripion}>
-      <div className={styles.imageWrapper}>
-        <button
-          className={styles.button}
-          onClick={() =>
-            setImageIndex((prevImageIndex) =>
-              prevImageIndex >= imageNames.length - 1
-                ? (prevImageIndex = 0)
-                : prevImageIndex + 1
-            )
-          }
-        >
-          <img
-            className={styles.image}
-            src={`${IMAGE_PATH}${imagePrefix}-${imageNames[imageIndex]}.svg`}
-            alt=""
-          />
-        </button>
-      </div>
+      <button
+        className={styles.button}
+        onClick={() =>
+          setImageIndex((prevImageIndex) =>
+            prevImageIndex >= imageNames.length - 1
+              ? (prevImageIndex = 0)
+              : prevImageIndex + 1
+          )
+        }
+      >
+        <img
+          className={styles.image}
+          src={`${IMAGE_PATH}${imagePrefix}-${imageNames[imageIndex]}.svg`}
+          alt=""
+        />
+      </button>
     </BentoCard>
   )
 }

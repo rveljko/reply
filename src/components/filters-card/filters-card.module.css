@@ -1,7 +1,3 @@
-.filtersWrapper {
-  mask-image: linear-gradient(black, transparent);
-}
-
 .filters {
   padding: var(--space-lg);
   border-radius: var(--border-radius-md);

@@ -19,7 +19,6 @@ export default function AddNewCreditCardCard() {
       title="Flawless System Integration Methods"
       description="Quickly and securely integrate new credit cards into your account today"
     >
-      <div className={styles.formWrapper}>
         <form className={styles.form}>
           <header className={styles.header}>
             <h3>Add New Credit Card </h3>
@@ -59,7 +58,6 @@ export default function AddNewCreditCardCard() {
             </div>
           </div>
         </form>
-      </div>
     </BentoCard>
   )
 }

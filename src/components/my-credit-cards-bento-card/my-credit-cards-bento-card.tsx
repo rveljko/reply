@@ -12,16 +12,14 @@ export default function MyCreditCardsBentoCard() {
       title="Streamlined Modern Cleanup Processes"
       description="Effortlessly remove any unwanted or unused cards from your account settings with ease"
     >
-      <div className={styles.cardsWrapper}>
-        <div className={styles.cards}>
-          <header className={styles.header}>
-            <h3>My Cards</h3>
-          </header>
-          <MyCreditCardsList
-            creditCards={creditCards}
-            setCreditCards={setCreditCards}
-          />
-        </div>
+      <div className={styles.cards}>
+        <header className={styles.header}>
+          <h3>My Cards</h3>
+        </header>
+        <MyCreditCardsList
+          creditCards={creditCards}
+          setCreditCards={setCreditCards}
+        />
       </div>
     </BentoCard>
   )

@@ -16,6 +16,7 @@
   overflow: hidden;
   margin-inline: auto;
   width: 100%;
+  mask-image: linear-gradient(black, transparent);
 }
 
 .text {
