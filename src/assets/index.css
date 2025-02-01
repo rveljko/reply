@@ -408,7 +408,7 @@ p {
 }
 
 a {
-  color: var(--white);
+  color: var(--clickable);
   text-decoration: none;
   font-size: var(--link);
 }
