@@ -1,3 +1,14 @@
+import { Helmet } from 'react-helmet-async'
+import FeaturesSection from '../../sections/features-section/features-section'
+import { TITLE_PREFIX } from '../../utils/constants'
+
 export default function FeaturesPage() {
-  return <div>features page</div>
+  return (
+    <>
+      <Helmet>
+        <title>{TITLE_PREFIX} Features</title>
+      </Helmet>
+      <FeaturesSection />
+    </>
+  )
 }
