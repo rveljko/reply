@@ -22,7 +22,7 @@ import GuidePage from './pages/guide-page/guide-page'
 import LandingPageLayout from './layouts/landing-page-layout/landing-page-layout'
 import LandingPage from './pages/landing-page/landing-page'
 import FeaturesPage from './pages/features-page/features-page'
-import CustomersPage from './pages/customers-page'
+import CustomersPage from './pages/customers-page/customers-page'
 import IntegrationsLandingPage from './pages/integrations-landing-page/integrations-landing-page'
 
 export default function App() {

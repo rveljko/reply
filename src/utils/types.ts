@@ -148,3 +148,10 @@ export type Feature = {
   title: string
   description: string
 }
+
+export type Customer = {
+  id: number
+  name: string
+  description: string
+  logoUrl: string
+}
