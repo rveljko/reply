@@ -46,8 +46,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/" className={styles.link}>
-                  Privacy Notice
+                <Link to="/privacy-policy" className={styles.link}>
+                  Privacy Policy
                 </Link>
               </li>
               <li>
