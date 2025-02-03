@@ -3,6 +3,7 @@
   border-top: 1px solid var(--section-outline);
   backdrop-filter: blur(var(--blur-xlg));
   padding-block: calc(var(--space-xlg) * 2);
+  margin-top: auto;
 }
 
 .container {

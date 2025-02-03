@@ -5,12 +5,12 @@ import Footer from '../../components/footer/footer'
 
 export default function LandingPageLayout() {
   return (
-    <>
+    <div className={styles.layoutWrapper}>
       <Header />
       <main className={styles.layout}>
         <Outlet />
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
