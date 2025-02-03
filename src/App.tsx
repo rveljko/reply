@@ -25,6 +25,7 @@ import FeaturesPage from './pages/features-page/features-page'
 import CustomersPage from './pages/customers-page/customers-page'
 import IntegrationsLandingPage from './pages/integrations-landing-page/integrations-landing-page'
 import PrivacyPolicyPage from './pages/privacy-policy-page/privacy-policy-page'
+import TermsOfServicePage from './pages/terms-of-service-page/terms-of-service-page'
 
 export default function App() {
   return (
@@ -49,6 +50,10 @@ export default function App() {
                           <Route
                             path="/privacy-policy"
                             element={<PrivacyPolicyPage />}
+                          />
+                          <Route
+                            path="/terms-of-service"
+                            element={<TermsOfServicePage />}
                           />
                         </Route>
                         <Route path={DASHBOARD_ROUTE} element={<AppLayout />}>

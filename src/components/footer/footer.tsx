@@ -41,8 +41,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/" className={styles.link}>
-                  Terms of Services
+                <Link to="/terms-of-service" className={styles.link}>
+                  Terms of Service
                 </Link>
               </li>
               <li>
