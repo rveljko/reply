@@ -1,10 +1,10 @@
-import AddNewCreditCardCard from '../../components/landing-page-components/add-new-credit-card-card/add-new-credit-card-card'
-import FiltersCard from '../../components/landing-page-components/filters-card/filters-card'
-import KeyboardShortcutsCard from '../../components/landing-page-components/keyboard-shortcuts-card/keyboard-shortcuts-card'
-import LineChartCard from '../../components/landing-page-components/line-chart-card/line-chart-card'
-import LandingPageSection from '../landing-page-section/landing-page-section'
-import styles from './enhanced-user-experience-section.module.css'
 import { motion } from 'motion/react'
+import CreditCardsBentoCard from '../../../components/landing-page-components/credit-cards-bento-card/credit-cards-bento-card'
+import IntegrationsBentoCard from '../../../components/landing-page-components/integrations-bento-card/integrations-bento-card'
+import MyCardsBentoCard from '../../../components/landing-page-components/my-credit-cards-bento-card/my-credit-cards-bento-card'
+import SendMoneyBentoCard from '../../../components/landing-page-components/send-money-bento-card/send-money-bento-card'
+import LandingPageSection from '../landing-page-section/landing-page-section'
+import styles from './efficient-transaction-management-section.module.css'
 
 const animationVariants = {
   initial: {
@@ -14,11 +14,11 @@ const animationVariants = {
   whileInView: { opacity: 1, transform: 'translateY(0)' },
 }
 
-export default function EnhancedUserExperienceSection() {
+export default function EfficientTransactionManagementSection() {
   return (
     <LandingPageSection
-      heading="Superior User Experience Contributing to Advanced Customer Interaction"
-      paragraph="Indulge in the ease and fluidity of navigating our system, while accessing potent and versatile operational tools and functions"
+      heading="Optimize Your Transactions with Our Efficient and Time-Saving Tools"
+      paragraph="Save Time and Effort with Our User-Friendly Platform for Simplified Money Transfers and Efficient Card Management"
     >
       <div className={styles.bento}>
         <ul className={styles.row}>
@@ -27,9 +27,9 @@ export default function EnhancedUserExperienceSection() {
             initial="initial"
             whileInView="whileInView"
             viewport={{ once: true }}
-            className={styles.wide}
+            className={styles.narrow}
           >
-            <KeyboardShortcutsCard />
+            <SendMoneyBentoCard />
           </motion.li>
           <motion.li
             variants={animationVariants}
@@ -37,9 +37,9 @@ export default function EnhancedUserExperienceSection() {
             whileInView="whileInView"
             viewport={{ once: true }}
             transition={{ delay: 0.1 * 1 }}
-            className={styles.narrow}
+            className={styles.wide}
           >
-            <AddNewCreditCardCard />
+            <CreditCardsBentoCard />
           </motion.li>
         </ul>
         <ul className={styles.row}>
@@ -49,9 +49,9 @@ export default function EnhancedUserExperienceSection() {
             whileInView="whileInView"
             viewport={{ once: true }}
             transition={{ delay: 0.1 * 2 }}
-            className={styles.narrow}
+            className={styles.half}
           >
-            <LineChartCard />
+            <IntegrationsBentoCard />
           </motion.li>
           <motion.li
             variants={animationVariants}
@@ -59,9 +59,9 @@ export default function EnhancedUserExperienceSection() {
             whileInView="whileInView"
             viewport={{ once: true }}
             transition={{ delay: 0.1 * 3 }}
-            className={styles.wide}
+            className={styles.half}
           >
-            <FiltersCard />
+            <MyCardsBentoCard />
           </motion.li>
         </ul>
       </div>

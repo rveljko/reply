@@ -1,5 +1,5 @@
-import FeatureCellList from '../../components/landing-page-components/feature-cell-list/feature-cell-list'
-import { budgetingAndTrackingFeatures } from '../../data/features'
+import FeatureCellList from '../../../components/landing-page-components/feature-cell-list/feature-cell-list'
+import { budgetingAndTrackingFeatures } from '../../../data/features'
 import LandingPageSection from '../landing-page-section/landing-page-section'
 
 export default function ProactiveFinancialTrackingSection() {

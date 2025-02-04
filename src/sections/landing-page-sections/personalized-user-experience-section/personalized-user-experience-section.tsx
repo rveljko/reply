@@ -1,5 +1,5 @@
 import { motion } from 'motion/react'
-import ImageBentoCard from '../../components/landing-page-components/image-bento-card/image-bento-card'
+import ImageBentoCard from '../../../components/landing-page-components/image-bento-card/image-bento-card'
 import LandingPageSection from '../landing-page-section/landing-page-section'
 import styles from './personalized-user-experience-section.module.css'
 

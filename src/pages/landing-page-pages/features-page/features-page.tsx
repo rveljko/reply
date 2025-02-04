@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async'
-import FeaturesSection from '../../../sections/features-section/features-section'
+import FeaturesSection from '../../../sections/landing-page-sections/features-section/features-section'
 import { TITLE_PREFIX } from '../../../utils/constants'
 
 export default function FeaturesPage() {

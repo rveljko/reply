@@ -1,4 +1,4 @@
-import Container from '../../components/container/container'
+import Container from '../../../components/container/container'
 import styles from './landing-page-section.module.css'
 import { motion } from 'motion/react'
 

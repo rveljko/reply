@@ -1,6 +1,6 @@
 import LandingPageSection from '../landing-page-section/landing-page-section'
-import FeatureCellList from '../../components/landing-page-components/feature-cell-list/feature-cell-list'
-import { financialFeatures } from '../../data/features'
+import FeatureCellList from '../../../components/landing-page-components/feature-cell-list/feature-cell-list'
+import { financialFeatures } from '../../../data/features'
 
 export default function FinancialManagementSolutions() {
   return (

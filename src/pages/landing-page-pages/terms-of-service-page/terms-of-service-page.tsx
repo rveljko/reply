@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async'
-import TermsOfServiceSection from '../../../sections/terms-of-service-section/terms-of-service-section'
+import TermsOfServiceSection from '../../../sections/landing-page-sections/terms-of-service-section/terms-of-service-section'
 import { TITLE_PREFIX } from '../../../utils/constants'
 import useFetchMarkdown from '../../../hooks/use-fetch-markdown'
 

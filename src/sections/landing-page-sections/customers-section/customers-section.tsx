@@ -1,7 +1,7 @@
-import Container from '../../components/container/container'
-import CustomersList from '../../components/customers-list/customers-list'
-import HeroText from '../../components/landing-page-components/hero-text/hero-text'
-import { customers } from '../../data/customers'
+import Container from '../../../components/container/container'
+import CustomersList from '../../../components/customers-list/customers-list'
+import HeroText from '../../../components/landing-page-components/hero-text/hero-text'
+import { customers } from '../../../data/customers'
 import styles from './customers-section.module.css'
 
 export default function CustomersSection() {

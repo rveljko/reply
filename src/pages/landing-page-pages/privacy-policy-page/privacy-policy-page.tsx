@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async'
-import PrivacyPolicySection from '../../../sections/privacy-policy-section/privacy-policy-section'
+import PrivacyPolicySection from '../../../sections/landing-page-sections/privacy-policy-section/privacy-policy-section'
 import { TITLE_PREFIX } from '../../../utils/constants'
 import useFetchMarkdown from '../../../hooks/use-fetch-markdown'
 

@@ -1,6 +1,6 @@
 import styles from './privacy-policy-section.module.css'
-import Container from '../../components/container/container'
-import MarkdowContentLoader from '../../components/markdown-content-loader/markdown-content-loader'
+import Container from '../../../components/container/container'
+import MarkdowContentLoader from '../../../components/markdown-content-loader/markdown-content-loader'
 
 type PrivacyPolicySectionProps = {
   content: string
