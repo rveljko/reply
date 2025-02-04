@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
-import TermsOfServiceSection from '../../sections/terms-of-service-section/terms-of-service-section'
-import { TITLE_PREFIX } from '../../utils/constants'
-import useFetchMarkdown from '../../hooks/use-fetch-markdown'
+import TermsOfServiceSection from '../../../sections/terms-of-service-section/terms-of-service-section'
+import { TITLE_PREFIX } from '../../../utils/constants'
+import useFetchMarkdown from '../../../hooks/use-fetch-markdown'
 
 export default function TermsOfServicePage() {
   const markdown = useFetchMarkdown('/terms-of-service.md')

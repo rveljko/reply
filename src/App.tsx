@@ -20,12 +20,12 @@ import CardsPage from './pages/cards-page/cards-page'
 import NotFoundPage from './pages/not-found-page/not-found-page'
 import GuidePage from './pages/guide-page/guide-page'
 import LandingPageLayout from './layouts/landing-page-layout/landing-page-layout'
-import LandingPage from './pages/landing-page/landing-page'
-import FeaturesPage from './pages/features-page/features-page'
-import CustomersPage from './pages/customers-page/customers-page'
-import IntegrationsLandingPage from './pages/integrations-landing-page/integrations-landing-page'
-import PrivacyPolicyPage from './pages/privacy-policy-page/privacy-policy-page'
-import TermsOfServicePage from './pages/terms-of-service-page/terms-of-service-page'
+import LandingPage from './pages/landing-page-pages/landing-page/landing-page'
+import FeaturesPage from './pages/landing-page-pages/features-page/features-page'
+import CustomersPage from './pages/landing-page-pages/customers-page/customers-page'
+import IntegrationsLandingPage from './pages/landing-page-pages/integrations-landing-page/integrations-landing-page'
+import PrivacyPolicyPage from './pages/landing-page-pages/privacy-policy-page/privacy-policy-page'
+import TermsOfServicePage from './pages/landing-page-pages/terms-of-service-page/terms-of-service-page'
 
 export default function App() {
   return (

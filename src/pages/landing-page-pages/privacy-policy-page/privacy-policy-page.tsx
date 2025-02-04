@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
-import PrivacyPolicySection from '../../sections/privacy-policy-section/privacy-policy-section'
-import { TITLE_PREFIX } from '../../utils/constants'
-import useFetchMarkdown from '../../hooks/use-fetch-markdown'
+import PrivacyPolicySection from '../../../sections/privacy-policy-section/privacy-policy-section'
+import { TITLE_PREFIX } from '../../../utils/constants'
+import useFetchMarkdown from '../../../hooks/use-fetch-markdown'
 
 export default function PrivacyPolicyPage() {
   const markdown = useFetchMarkdown('/privacy-policy.md')
