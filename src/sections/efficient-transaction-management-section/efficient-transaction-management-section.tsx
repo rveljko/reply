@@ -1,8 +1,8 @@
 import { motion } from 'motion/react'
-import CreditCardsBentoCard from '../../components/credit-cards-bento-card/credit-cards-bento-card'
-import IntegrationsBentoCard from '../../components/integrations-bento-card/integrations-bento-card'
-import MyCardsBentoCard from '../../components/my-credit-cards-bento-card/my-credit-cards-bento-card'
-import SendMoneyBentoCard from '../../components/send-money-bento-card/send-money-bento-card'
+import CreditCardsBentoCard from '../../components/landing-page-components/credit-cards-bento-card/credit-cards-bento-card'
+import IntegrationsBentoCard from '../../components/landing-page-components/integrations-bento-card/integrations-bento-card'
+import MyCardsBentoCard from '../../components/landing-page-components/my-credit-cards-bento-card/my-credit-cards-bento-card'
+import SendMoneyBentoCard from '../../components/landing-page-components/send-money-bento-card/send-money-bento-card'
 import LandingPageSection from '../landing-page-section/landing-page-section'
 import styles from './efficient-transaction-management-section.module.css'
 

@@ -1,6 +1,6 @@
 import Container from '../../components/container/container'
-import DemoDashboard from '../../components/demo-dashboard/demo-dashboard'
-import HeroText from '../../components/hero-text/hero-text'
+import DemoDashboard from '../../components/landing-page-components/demo-dashboard/demo-dashboard'
+import HeroText from '../../components/landing-page-components/hero-text/hero-text'
 import styles from './hero-section.module.css'
 import { motion } from 'motion/react'
 

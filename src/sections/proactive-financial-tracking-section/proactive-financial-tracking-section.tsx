@@ -1,4 +1,4 @@
-import FeatureCellList from '../../components/feature-cell-list/feature-cell-list'
+import FeatureCellList from '../../components/landing-page-components/feature-cell-list/feature-cell-list'
 import { budgetingAndTrackingFeatures } from '../../data/features'
 import LandingPageSection from '../landing-page-section/landing-page-section'
 

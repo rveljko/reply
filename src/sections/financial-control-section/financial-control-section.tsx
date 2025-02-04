@@ -1,6 +1,6 @@
 import LandingPageSection from '../landing-page-section/landing-page-section'
 import { financialControlFeatures } from '../../data/features'
-import FeatureCellList from '../../components/feature-cell-list/feature-cell-list'
+import FeatureCellList from '../../components/landing-page-components/feature-cell-list/feature-cell-list'
 
 export default function FinancialControlSection() {
   return (
