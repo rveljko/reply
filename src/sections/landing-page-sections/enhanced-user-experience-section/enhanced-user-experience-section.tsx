@@ -1,7 +1,7 @@
-import AddNewCreditCardCard from '../../../components/landing-page-components/add-new-credit-card-card/add-new-credit-card-card'
-import FiltersCard from '../../../components/landing-page-components/filters-card/filters-card'
-import KeyboardShortcutsCard from '../../../components/landing-page-components/keyboard-shortcuts-card/keyboard-shortcuts-card'
-import LineChartCard from '../../../components/landing-page-components/line-chart-card/line-chart-card'
+import AddNewCreditCardBentoCard from '../../../components/landing-page-components/add-new-credit-card-bento-card/add-new-credit-card-bento-card'
+import FiltersBentoCard from '../../../components/landing-page-components/filters-bento-card/filters-bento-card'
+import KeyboardShortcutsBentoCard from '../../../components/landing-page-components/keyboard-shortcuts-bento-card/keyboard-shortcuts-bento-card'
+import LineChartBentoCard from '../../../components/landing-page-components/line-chart-bento-card/line-chart-bento-card'
 import LandingPageSection from '../landing-page-section/landing-page-section'
 import styles from './enhanced-user-experience-section.module.css'
 import { motion } from 'motion/react'
@@ -29,7 +29,7 @@ export default function EnhancedUserExperienceSection() {
             viewport={{ once: true }}
             className={styles.wide}
           >
-            <KeyboardShortcutsCard />
+            <KeyboardShortcutsBentoCard />
           </motion.li>
           <motion.li
             variants={animationVariants}
@@ -39,7 +39,7 @@ export default function EnhancedUserExperienceSection() {
             transition={{ delay: 0.1 * 1 }}
             className={styles.narrow}
           >
-            <AddNewCreditCardCard />
+            <AddNewCreditCardBentoCard />
           </motion.li>
         </ul>
         <ul className={styles.row}>
@@ -51,7 +51,7 @@ export default function EnhancedUserExperienceSection() {
             transition={{ delay: 0.1 * 2 }}
             className={styles.narrow}
           >
-            <LineChartCard />
+            <LineChartBentoCard />
           </motion.li>
           <motion.li
             variants={animationVariants}
@@ -61,7 +61,7 @@ export default function EnhancedUserExperienceSection() {
             transition={{ delay: 0.1 * 3 }}
             className={styles.wide}
           >
-            <FiltersCard />
+            <FiltersBentoCard />
           </motion.li>
         </ul>
       </div>

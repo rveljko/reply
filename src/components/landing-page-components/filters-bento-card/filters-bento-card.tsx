@@ -15,9 +15,9 @@ import BentoCard from '../../bento-card/bento-card'
 import Button from '../../button/button'
 import DropdownButton from '../../dropdown-button/dropdown-button'
 import DropdownInputElement from '../../dropdown-element/dropdown-element'
-import styles from './filters-card.module.css'
+import styles from './filters-bento-card.module.css'
 
-export default function FiltersCard() {
+export default function FiltersBentoCard() {
   const {
     filteredTransactions,
     purpose: filteredPurposes,

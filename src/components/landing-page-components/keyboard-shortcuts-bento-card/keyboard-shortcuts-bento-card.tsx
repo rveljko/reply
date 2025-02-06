@@ -2,7 +2,7 @@ import { IMAGE_PATH } from '../../../utils/constants'
 import { useTheme } from '../../../utils/contexts/theme-context'
 import BentoCard from '../../bento-card/bento-card'
 
-export default function KeyboardShortcutsCard() {
+export default function KeyboardShortcutsBentoCard() {
   const { isLightTheme } = useTheme()
   return (
     <BentoCard

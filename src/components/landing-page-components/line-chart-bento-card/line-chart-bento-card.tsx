@@ -3,13 +3,13 @@ import WandIcon from '../../../icons/wand-icon'
 import BentoCard from '../../bento-card/bento-card'
 import Button from '../../button/button'
 import { useState } from 'react'
-import styles from './line-chart-card.module.css'
+import styles from './line-chart-bento-card.module.css'
 
 type ChartData = {
   number: number
 }
 
-export default function LineChartCard() {
+export default function LineChartBentoCard() {
   const [chartData, setChartData] = useState<ChartData[]>([
     { number: 1583 },
     { number: 3176 },

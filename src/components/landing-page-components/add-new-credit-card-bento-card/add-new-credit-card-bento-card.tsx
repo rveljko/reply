@@ -4,13 +4,13 @@ import UserIcon from '../../../icons/user-icon'
 import { useUserInformations } from '../../../utils/contexts/user-informations-context'
 import BentoCard from '../../bento-card/bento-card'
 import Input from '../../input/input'
-import styles from './add-new-credit-card-card.module.css'
+import styles from './add-new-credit-card-bento-card.module.css'
 import {
   creditCardNumbersMask,
   onlyLettersMask,
 } from '../../../utils/helpers/input-masks'
 
-export default function AddNewCreditCardCard() {
+export default function AddNewCreditCardBentoCard() {
   const { userInformations } = useUserInformations()
   const [formFields, setFormFields] = useState({ name: '', numbers: '' })
 
