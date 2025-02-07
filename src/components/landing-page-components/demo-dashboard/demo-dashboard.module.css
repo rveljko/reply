@@ -29,6 +29,9 @@
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
   width: calc(100% - 2rem);
   margin-inline: auto;
 }
@@ -40,5 +43,11 @@
 
   .wrapper {
     padding-block: calc(var(--space-lg) * 2);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    gap: calc(var(--space-lg) * 2);
   }
 }
