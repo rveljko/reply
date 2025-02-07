@@ -36,7 +36,7 @@ export default function Footer() {
             <ul className={styles.navigationLinks}>
               <p>Company</p>
               <li>
-                <Link to="/" className={styles.link}>
+                <Link to="/customers" className={styles.link}>
                   Customers
                 </Link>
               </li>
