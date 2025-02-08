@@ -14,6 +14,12 @@ import HeartbeatIcon from '../icons/heartbeat-icon'
 import BellIcon from '../icons/bell-icon'
 import ChartDonutIcon from '../icons/chart-donut-icon'
 import FileTextIcon from '../icons/file-text-icon'
+import LockIcon from '../icons/lock-icon'
+import RadarIcon from '../icons/radar-icon'
+import FingerprintIcon from '../icons/fingerprint-icon'
+import ShieldXIcon from '../icons/shield-x-icon'
+import ChecklistIcon from '../icons/checklist-icon'
+import DatabaseIcon from '../icons/database-icon'
 
 export const financialFeatures: Feature[] = [
   {
@@ -125,5 +131,50 @@ export const budgetingAndTrackingFeatures: Feature[] = [
     icon: ChartDonutIcon,
     title: 'Investment Tracking',
     description: 'Effortlessly monitor and analyze your investment portfolio',
+  },
+]
+
+export const securityFeatures: Feature[] = [
+  {
+    id: 1,
+    icon: LockIcon,
+    title: 'Advanced Data Encryption',
+    description:
+      'Protecting all sensitive data via encryption during transfer and storage',
+  },
+  {
+    id: 2,
+    icon: RadarIcon,
+    title: 'Real-Time Threat Monitor',
+    description:
+      'Immediately identifying threats through persistent, real-time vigilance',
+  },
+  {
+    id: 3,
+    icon: FingerprintIcon,
+    title: 'Multi-Factor Authentication',
+    description:
+      'Implementing verifications enhancing account access and overall security',
+  },
+  {
+    id: 4,
+    icon: ShieldXIcon,
+    title: 'Fraud Detection Prevention',
+    description:
+      'Protecting user accounts by detecting and preventing fraudulent transactions',
+  },
+  {
+    id: 5,
+    icon: ChecklistIcon,
+    title: 'Regular Security Audits',
+    description:
+      'Validating security standards through comprehensive, independent audits',
+  },
+  {
+    id: 6,
+    icon: DatabaseIcon,
+    title: 'Data Privacy & Protection',
+    description:
+      'Guaranteeing data confidentiality through rigorous privacy compliance',
   },
 ]

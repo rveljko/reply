@@ -26,6 +26,7 @@ import CustomersPage from './pages/landing-page-pages/customers-page/customers-p
 import IntegrationsLandingPage from './pages/landing-page-pages/integrations-landing-page/integrations-landing-page'
 import PrivacyPolicyPage from './pages/landing-page-pages/privacy-policy-page/privacy-policy-page'
 import TermsOfServicePage from './pages/landing-page-pages/terms-of-service-page/terms-of-service-page'
+import SecurityPage from './pages/landing-page-pages/security-page/security-page'
 
 export default function App() {
   return (
@@ -55,6 +56,7 @@ export default function App() {
                             path="/terms-of-service"
                             element={<TermsOfServicePage />}
                           />
+                          <Route path="/security" element={<SecurityPage />} />
                         </Route>
                         <Route path={DASHBOARD_ROUTE} element={<AppLayout />}>
                           <Route index element={<MyWalletPage />} />

@@ -51,7 +51,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/" className={styles.link}>
+                <Link to="/security" className={styles.link}>
                   Security
                 </Link>
               </li>
