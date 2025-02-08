@@ -27,6 +27,10 @@ export default function useTransactionFilters() {
     'sort',
   ]
 
+  function getCreditCardIds() {
+    return creditCard.map((id) => parseInt(id))
+  }
+
   const filteredTransactions = transactions.filter((transaction) => {
     const purposes = !purpose.length || purpose.includes(transaction.purpose)
     const types = !type.length || type.includes(transaction.type)
@@ -45,10 +49,6 @@ export default function useTransactionFilters() {
 
   function getTransactionsByCreditCardId(id: number) {
     return transactions.filter(({ creditCard }) => creditCard.id === id)
-  }
-
-  function getCreditCardIds() {
-    return creditCard.map((id) => parseInt(id))
   }
 
   function setDateFilter(category: 'date-from' | 'date-to', key: string) {
