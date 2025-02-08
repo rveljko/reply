@@ -4,6 +4,7 @@ import styles from './app-layout.module.css'
 import Container from '../../components/container/container'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import PostHogPageviewTracker from '../../components/post-hog-pageview-tracker/post-hog-pageview-tracker'
 
 export default function AppLayout() {
   return (
@@ -11,6 +12,7 @@ export default function AppLayout() {
       <Sidebar />
       <main>
         <Container>
+          <PostHogPageviewTracker />
           <Outlet />
         </Container>
       </main>

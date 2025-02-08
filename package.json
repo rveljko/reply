@@ -12,6 +12,7 @@
   "dependencies": {
     "class-variance-authority": "^0.7.0",
     "motion": "^11.17.0",
+    "posthog-js": "^1.215.6",
     "react": "^18.3.1",
     "react-compiler-runtime": "^19.0.0-beta-714736e-20250131",
     "react-countup": "^6.5.3",
