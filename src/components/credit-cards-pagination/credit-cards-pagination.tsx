@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import ChevronLeftIcon from '../../icons/chevron-left-icon'
 import ChevronRightIcon from '../../icons/chevron-right-icon'
 import { CreditCard } from '../../utils/types'
@@ -34,19 +33,6 @@ export default function CreditCardPagination({
         : prevCreditCardIndex + 1
     )
   }
-
-  function handleOnKeyDown(e: KeyboardEvent) {
-    if (e.code === 'ArrowLeft') decrementCreditCardIndex()
-    if (e.code === 'ArrowRight') incrementCreditCardIndex()
-  }
-
-  useEffect(() => {
-    document.body.addEventListener('keydown', handleOnKeyDown)
-
-    return () => {
-      document.body.removeEventListener('keydown', handleOnKeyDown)
-    }
-  }, [])
 
   return (
     <ul className={styles.pagination}>
