@@ -11,9 +11,7 @@ export default function DemoDashboard() {
   return (
     <div className={styles.dashboard}>
       <div className={styles.layout}>
-        <div className={styles.sidebarWrapper}>
-          <Sidebar className={styles.sidebar} />
-        </div>
+        <Sidebar />
         <div className={styles.pageWrapper}>
           <div className={styles.container}>
             <BalanceSection />

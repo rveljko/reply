@@ -4,9 +4,6 @@
   border-right: 1px solid var(--section-outline);
   padding: var(--space-lg);
   height: 100vh;
-  width: 100%;
-  max-width: max-content;
-  position: sticky;
   top: 0;
   left: 0;
   z-index: 999;
@@ -15,12 +12,16 @@
 
 .sidebar.active {
   min-width: var(--width);
-  position: fixed;
+  width: 100%;
+  position: absolute;
+  border-right: unset;
 }
 
 @media (min-width: 728px) {
   .sidebar.active {
     position: sticky;
+    width: fit-content;
+    border-right: 1px solid var(--section-outline);
   }
 }
 
