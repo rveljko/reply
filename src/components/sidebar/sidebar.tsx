@@ -1,23 +1,19 @@
-import { Link } from 'react-router-dom'
-import Logo from '../logo/logo'
-import { DASHBOARD_ROUTE } from '../../utils/constants'
-import { dashboardRoutes } from '../../utils/routes'
 import { useEffect, useRef, useState } from 'react'
-import SidebarLeftExpandIcon from '../../icons/sidebar-left-expand-icon'
-import SidebarLeftCollapseIcon from '../../icons/sidebar-left-collapse-icon'
-import styles from './sidebar.module.css'
-import Button from '../button/button'
-import ArrowUpRightIcon from '../../icons/arrow-up-right-icon'
-import NavigationLink from '../navigation-link/navigation-link'
 import { useMediaQuery } from 'react-responsive'
-import SendMoneyModalButton from '../send-money-modal-button/send-money-modal-button'
+import { Link } from 'react-router-dom'
+import ArrowUpRightIcon from '../../icons/arrow-up-right-icon'
+import SidebarLeftCollapseIcon from '../../icons/sidebar-left-collapse-icon'
+import SidebarLeftExpandIcon from '../../icons/sidebar-left-expand-icon'
+import { DASHBOARD_ROUTE } from '../../utils/constants'
 import { useUserInformations } from '../../utils/contexts/user-informations-context'
+import { dashboardRoutes } from '../../utils/routes'
+import Button from '../button/button'
+import Logo from '../logo/logo'
+import NavigationLink from '../navigation-link/navigation-link'
+import SendMoneyModalButton from '../send-money-modal-button/send-money-modal-button'
+import styles from './sidebar.module.css'
 
-type SidebarProps = {
-  className?: string
-}
-
-export default function Sidebar({ className }: SidebarProps) {
+export default function Sidebar() {
   const [isOpened, setIsOpened] = useState(false)
   const isBigScreen = useMediaQuery({ minWidth: 768 })
   const sidebarRef = useRef<HTMLElement>(null)
@@ -51,9 +47,7 @@ export default function Sidebar({ className }: SidebarProps) {
   return (
     <aside
       ref={sidebarRef}
-      className={`${styles.sidebar} ${className} ${
-        isOpened ? styles.active : ''
-      }`}
+      className={`${styles.sidebar} ${isOpened ? styles.active : ''}`}
     >
       <div className={styles.content}>
         <div className={styles.head}>
