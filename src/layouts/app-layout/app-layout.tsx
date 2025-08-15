@@ -10,8 +10,8 @@ export default function AppLayout() {
   return (
     <div className={styles.layout}>
       <Sidebar />
-      <main>
-        <Container>
+      <main className={styles.main}>
+        <Container >
           <PostHogPageviewTracker />
           <Outlet />
         </Container>
