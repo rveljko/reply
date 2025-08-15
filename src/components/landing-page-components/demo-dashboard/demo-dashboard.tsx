@@ -10,7 +10,7 @@ export default function DemoDashboard() {
 
   return (
     <div className={styles.dashboard}>
-      <div className={styles.layout}>
+      <div id="app-layout" className={styles.layout}>
         <Sidebar />
         <div className={styles.pageWrapper}>
           <div className={styles.container}>
