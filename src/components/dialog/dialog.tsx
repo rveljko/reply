@@ -1,8 +1,8 @@
-import { useEffect } from 'react'
-import styles from './dialog.module.css'
-import ReactFocusLock, { AutoFocusInside } from 'react-focus-lock'
-import { createPortal } from 'react-dom'
 import { motion } from 'motion/react'
+import { useEffect } from 'react'
+import { createPortal } from 'react-dom'
+import ReactFocusLock, { AutoFocusInside } from 'react-focus-lock'
+import styles from './dialog.module.css'
 
 type DialogProps = {
   children: React.ReactNode
@@ -45,6 +45,6 @@ export default function Dialog({ children, closeModal }: DialogProps) {
         </AutoFocusInside>
       </ReactFocusLock>
     </motion.div>,
-    document.getElementById('root')!
+    document.getElementById('app-layout')!
   )
 }

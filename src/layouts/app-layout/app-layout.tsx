@@ -1,17 +1,17 @@
 import { Outlet } from 'react-router-dom'
-import Sidebar from '../../components/sidebar/sidebar'
-import styles from './app-layout.module.css'
-import Container from '../../components/container/container'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import Container from '../../components/container/container'
 import PostHogPageviewTracker from '../../components/post-hog-pageview-tracker/post-hog-pageview-tracker'
+import Sidebar from '../../components/sidebar/sidebar'
+import styles from './app-layout.module.css'
 
 export default function AppLayout() {
   return (
-    <div className={styles.layout}>
+    <div id="app-layout" className={styles.layout}>
       <Sidebar />
       <main className={styles.main}>
-        <Container >
+        <Container>
           <PostHogPageviewTracker />
           <Outlet />
         </Container>
