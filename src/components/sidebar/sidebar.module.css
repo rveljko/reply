@@ -3,7 +3,7 @@
   background-image: var(--section-background);
   border-right: 1px solid var(--section-outline);
   padding: var(--space-lg);
-  height: 100vh;
+  height: 100%;
   top: 0;
   left: 0;
   z-index: 999;
