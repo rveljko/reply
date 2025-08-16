@@ -2,6 +2,15 @@
 
 Sending money through our platform is quick and straightforward. Follow the steps below to master the art of sending money.
 
+Watch this video to see how to send money.
+
+<video controls>
+  <source src="/videos/sending-money.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+If you prefer, read the step-by-step instructions below.
+
 ### Step 1: Access the Send Money Feature
 
 - **Locate the Send Money Button**: Navigate to the sidebar of your dashboard or go to the **My Wallet** page in the balance section.

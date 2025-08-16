@@ -2,6 +2,15 @@
 
 Keeping your account information up to date is essential for a seamless user experience. Follow the steps below to easily update your profile picture and personal details.
 
+Watch this video to see how to update user information.
+
+<video controls>
+  <source src="/videos/updating-user-information.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+If you prefer, read the step-by-step instructions below.
+
 ### Step-by-Step Guide to Update Your Account Information
 
 #### Step 1: Navigate to Settings Page

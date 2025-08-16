@@ -2,6 +2,15 @@
 
 Adding a credit card to your account is a straightforward process. Follow the steps below for a seamless experience.
 
+Watch this video to see how to add credit cards.
+
+<video controls>
+  <source src="/videos/adding-new-credit-card.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+If you prefer, read the step-by-step instructions below.
+
 ### Method 1: Add a Credit Card from My Cards Page
 
 #### Step 1: Navigate to My Cards Page

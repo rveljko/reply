@@ -2,6 +2,15 @@
 
 Managing your integrations allows you to customize the tools and services connected to your account. Follow the steps below to easily activate or deactivate your integrations.
 
+Watch this video to see how to turn integrations on and off.
+
+<video controls>
+  <source src="/videos/managing-integrations.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+If you prefer, read the step-by-step instructions below.
+
 ### Step-by-Step Guide to Manage Your Integrations
 
 #### Step 1: Go to Settings Page

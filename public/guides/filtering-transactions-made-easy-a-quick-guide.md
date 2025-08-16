@@ -2,6 +2,15 @@
 
 Managing your recent transactions filters allows you to efficiently view and analyze your transaction history. Follow the steps below for a smooth filtering experience.
 
+Watch this video to see how to filter transacitons.
+
+<video controls>
+  <source src="/videos/filtering-transactions.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+If you prefer, read the step-by-step instructions below.
+
 ### Step 1: Navigate to Recent Transactions Page
 
 - **Locate the Recent Transactions Page**: Start by navigating to the **Recent Transactions** page on your dashboard.

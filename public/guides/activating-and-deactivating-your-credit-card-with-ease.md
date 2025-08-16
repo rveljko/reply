@@ -2,6 +2,15 @@
 
 Managing your credit cards allows you to activate or deactivate cards as needed for your convenience and security. Follow the steps below to easily update your card settings.
 
+Watch this video to see how to manage your credit cards.
+
+<video controls>
+  <source src="/videos/managing-credit-cards.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+If you prefer, read the step-by-step instructions below.
+
 ### Step-by-Step Guide to Manage Your Credit Cards
 
 #### Step 1: Go to Settings Page

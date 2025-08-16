@@ -21,3 +21,8 @@
   margin-left: calc(var(--space-xlg) * 2);
   margin-bottom: var(--space-xsm);
 }
+
+.video {
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--space-sm);
+}

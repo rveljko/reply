@@ -2,6 +2,15 @@
 
 Customizing your dashboard preferences allows you to tailor your experience to suit your needs. Follow the steps below for a seamless setup.
 
+Watch this video to see how to personalize your preferences for a tailored experience.
+
+<video controls>
+  <source src="/videos/customizing-preferences.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+If you prefer, read the step-by-step instructions below.
+
 ### Step-by-Step Guide to Customize Your Preferences
 
 #### Step 1: Navigate to Settings Page

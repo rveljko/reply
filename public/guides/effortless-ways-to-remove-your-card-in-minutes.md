@@ -2,6 +2,15 @@
 
 Removing a credit card from your account is a simple process. Follow the steps below to remove your card in minutes.
 
+Watch this video to see how to remove your credit card in minutes.
+
+<video controls>
+  <source src="/videos/removing-credit-card.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+If you prefer, read the step-by-step instructions below.
+
 ### Method 1: Remove a Credit Card from My Cards Page
 
 #### Step 1: Navigate to My Cards Page
