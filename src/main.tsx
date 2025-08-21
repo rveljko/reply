@@ -1,9 +1,10 @@
+import HolyLoader from 'holy-loader'
+import posthog from 'posthog-js'
+import { PostHogProvider } from 'posthog-js/react'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './assets/index.css'
-import posthog from 'posthog-js'
-import { PostHogProvider } from 'posthog-js/react'
 
 posthog.init('phc_cfzu46ksWSz09XprOIXGy4VrHBW0UbUhrQSuFq17PE4', {
   api_host: 'https://eu.i.posthog.com',
@@ -13,6 +14,7 @@ posthog.init('phc_cfzu46ksWSz09XprOIXGy4VrHBW0UbUhrQSuFq17PE4', {
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <PostHogProvider client={posthog}>
+      <HolyLoader color="var(--brand-500)" height={2} ignoreSearchParams />
       <App />
     </PostHogProvider>
   </StrictMode>
