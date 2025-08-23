@@ -159,7 +159,7 @@ export const transactions: Transaction[] = [
     amount: 825,
     purpose: 'Others',
     type: 'Received',
-    message: 'Hi James!\n\nIYKYK.',
+    message: 'Hi James!\n\n🎉 3/3 IYKYK.',
     date: generateDateInPast(15, 13, 18, 16),
     creditCard: creditCards[0],
   },
