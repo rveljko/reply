@@ -27,6 +27,7 @@ import IntegrationsLandingPage from './pages/landing-page-pages/integrations-lan
 import PrivacyPolicyPage from './pages/landing-page-pages/privacy-policy-page/privacy-policy-page'
 import TermsOfServicePage from './pages/landing-page-pages/terms-of-service-page/terms-of-service-page'
 import SecurityPage from './pages/landing-page-pages/security-page/security-page'
+import ScrollToTop from './components/scroll-to-top/scroll-to-top'
 
 export default function App() {
   return (
@@ -39,6 +40,7 @@ export default function App() {
                 <CreditCardsContextProvider>
                   <IntegrationsContextProvider>
                     <TransactionsContextProvider>
+                      <ScrollToTop />
                       <Routes>
                         <Route path="/" element={<LandingPageLayout />}>
                           <Route index element={<LandingPage />} />
